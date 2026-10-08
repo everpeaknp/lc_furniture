@@ -1,7 +1,9 @@
 import { Cinzel } from 'next/font/google'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import './theme.css'
 import { Header } from '@/components/mega-menu-header'
+import { WoodenStreetFooter } from '@/components/WoodenStreetFooter'
 
 const cinzel = Cinzel({
   subsets: ['latin'],
@@ -51,6 +53,7 @@ export default function RootLayout({
         <main className="pt-20">
           {children}
         </main>
+        <WoodenStreetFooter />
       </body>
     </html>
   )

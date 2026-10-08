@@ -290,7 +290,7 @@ export function HoverSliderCard({ className }: { className?: string }) {
           className={cn(
             buttonVariants({ size: "sm" }),
             "shrink-0 rounded-full transition-colors duration-200",
-            hovered ? "bg-[#C0562B] text-white hover:bg-[#C0562B]/90" : "bg-white text-stone-900 hover:bg-white/90"
+            hovered ? "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary)]/90" : "bg-white text-stone-900 hover:bg-white/90"
           )}
         >
           Shop now <ArrowRight className="h-4 w-4" />

@@ -8,8 +8,7 @@ import { Menu, X, User, LogOut, ChevronDown, ChevronRight, Search, ShoppingCart,
 export type { NavItem, MegaMenuLink, MegaMenuColumn, MegaMenuPanel } from "./nav-types";
 import type { NavItem, MegaMenuPanel as MegaMenuPanelData } from "./nav-types";
 
-const logoUrl =
-  "https://images.woodenstreet.de/image/data/header/woodenstreet-logo.svg";
+const logoUrl = "/woodenstreet-logo.png";
 
 // ── Fallback nav (shown only when API is completely unreachable) ───────────────
 const FALLBACK_NAV: NavItem[] = [
@@ -184,20 +183,20 @@ function MegaMenuPanel({
 }) {
   return (
     /* Full-viewport-width strip sitting below the header bar */
-    <div className="w-full bg-white border-t border-gray-100 shadow-2xl">
+    <div className="w-full bg-white border-t border-[var(--color-border-light)] shadow-2xl">
       <div className="mx-auto max-w-7xl px-10 py-10 flex gap-0">
 
         {/* Left: description panel */}
         {navItem.panel &&
           (navItem.panel.description_heading || navItem.panel.description_text) && (
-            <div className="w-56 flex-shrink-0 flex flex-col pr-10 border-r border-gray-100 mr-10">
+            <div className="w-56 flex-shrink-0 flex flex-col pr-10 border-r border-[var(--color-border-light)] mr-10">
               {navItem.panel.description_heading && (
-                <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">
+                <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">
                   {navItem.panel.description_heading}
                 </p>
               )}
               {navItem.panel.description_text && (
-                <p className="text-sm leading-relaxed text-gray-500">
+                <p className="text-sm leading-relaxed text-[var(--color-text-muted)]">
                   {navItem.panel.description_text}
                 </p>
               )}
@@ -205,7 +204,7 @@ function MegaMenuPanel({
                 <Link
                   href={navItem.panel.card_href}
                   onClick={onLinkClick}
-                  className="mt-auto pt-6 inline-flex items-center gap-1.5 text-xs font-semibold text-[#C0562B] hover:text-[#a0451a] transition-colors"
+                  className="mt-auto pt-6 inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] transition-colors"
                 >
                   Explore all <ChevronRight className="h-3.5 w-3.5" />
                 </Link>
@@ -218,7 +217,7 @@ function MegaMenuPanel({
           <div className="flex gap-12 flex-1 flex-wrap">
             {navItem.columns.map((col) => (
               <div key={col.id} className="flex flex-col min-w-[140px]">
-                <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 border-b border-gray-100 pb-2">
+                <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-text-muted)] border-b border-[var(--color-border-light)] pb-2">
                   {col.heading}
                 </p>
                 <ul className="flex flex-col gap-3">
@@ -233,15 +232,15 @@ function MegaMenuPanel({
                             group/link text-sm transition-colors duration-150
                             flex items-center gap-2
                             ${active
-                              ? "text-black font-semibold"
-                              : "text-gray-600 hover:text-black"
+                              ? "text-[var(--color-text)] font-semibold"
+                              : "text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
                             }
                           `}
                         >
                           <span
                             className={`
                               inline-block w-1 h-1 rounded-full flex-shrink-0 transition-colors
-                              ${active ? "bg-[#C0562B]" : "bg-transparent group-hover/link:bg-gray-300"}
+                              ${active ? "bg-[var(--color-primary)]" : "bg-transparent group-hover/link:bg-[var(--color-border)]"}
                             `}
                           />
                           {link.label}
@@ -275,7 +274,7 @@ function MegaMenuPanel({
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
               {navItem.panel.card_label && (
-                <p className="mb-1.5 text-[10px] font-bold uppercase tracking-[0.22em] text-[#C0562B]">
+                <p className="mb-1.5 text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--color-primary)]">
                   {navItem.panel.card_label}
                 </p>
               )}
@@ -296,7 +295,7 @@ function MegaMenuPanel({
       </div>
 
       {/* Bottom gold accent */}
-      <div className="h-0.5 bg-gradient-to-r from-transparent via-[#C0562B]/50 to-transparent" />
+      <div className="h-0.5 bg-gradient-to-r from-transparent via-[var(--color-primary)]/50 to-transparent" />
     </div>
   );
 }
@@ -317,12 +316,12 @@ function MobileNavItem({
     item.href === "/" ? pathname === "/" : pathname?.startsWith(item.href);
 
   return (
-    <div className="border-b border-gray-100 last:border-0">
+    <div className="border-b border-[var(--color-border-light)] last:border-0">
       <div className="flex items-center justify-between py-4">
         <Link
           href={item.href || "#"}
           onClick={() => { if (!hasMegaMenu) onClose(); }}
-          className={`text-base font-medium ${active ? "text-black" : "text-gray-700"}`}
+          className={`text-base font-medium ${active ? "text-[var(--color-text)]" : "text-gray-700"}`}
         >
           {item.label}
         </Link>
@@ -332,7 +331,7 @@ function MobileNavItem({
             onClick={() => setOpen((o) => !o)}
             aria-expanded={open}
             aria-label={`Toggle ${item.label} submenu`}
-            className="p-2 text-gray-400"
+            className="p-2 text-[var(--color-text-muted)]"
           >
             <ChevronDown
               className={`h-4 w-4 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
@@ -345,7 +344,7 @@ function MobileNavItem({
         <div className="pb-5 pl-2 flex flex-col gap-6">
           {item.columns.map((col) => (
             <div key={col.id}>
-              <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">
+              <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">
                 {col.heading}
               </p>
               <ul className="flex flex-col gap-2.5">
@@ -355,7 +354,7 @@ function MobileNavItem({
                       href={link.href}
                       onClick={onClose}
                       className={`text-sm ${
-                        pathname === link.href ? "text-black font-semibold" : "text-gray-600"
+                        pathname === link.href ? "text-[var(--color-text)] font-semibold" : "text-[var(--color-text-muted)]"
                       }`}
                     >
                       {link.label}
@@ -370,7 +369,7 @@ function MobileNavItem({
             <Link
               href={item.panel.card_href}
               onClick={onClose}
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#C0562B]"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-primary)]"
             >
               {item.panel.card_label || "Explore"} <ChevronRight className="h-3.5 w-3.5" />
             </Link>
@@ -388,6 +387,8 @@ export function HeaderClient({ navItems: initialNavItems }: { navItems: NavItem[
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const [navItems, setNavItems] = useState<NavItem[]>(
     initialNavItems.length > 0 ? initialNavItems : FALLBACK_NAV
   );
@@ -395,6 +396,7 @@ export function HeaderClient({ navItems: initialNavItems }: { navItems: NavItem[
   const [openMenuId, setOpenMenuId] = useState<number | null>(null);
   const profileRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLElement>(null);
+  const searchRef = useRef<HTMLDivElement>(null);
   // Keep a timer ref so hover intent doesn't flicker
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -425,6 +427,9 @@ export function HeaderClient({ navItems: initialNavItems }: { navItems: NavItem[
     const handler = (e: MouseEvent) => {
       if (profileRef.current && !profileRef.current.contains(e.target as Node)) {
         setIsProfileOpen(false);
+      }
+      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+        setIsSearchOpen(false);
       }
     };
     document.addEventListener("mousedown", handler);
@@ -475,8 +480,12 @@ export function HeaderClient({ navItems: initialNavItems }: { navItems: NavItem[
   return (
     <header
       ref={headerRef}
-      className={`fixed left-0 top-0 z-50 w-full bg-white transition-shadow duration-300 ${
-        isScrolled ? "shadow-md" : openMenuId ? "shadow-none" : "shadow-none border-b border-gray-100"
+      className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/95 backdrop-blur-md shadow-md"
+          : openMenuId
+          ? "bg-white shadow-none"
+          : "bg-transparent shadow-none"
       }`}
     >
       {/* ── Top bar ── */}
@@ -486,7 +495,7 @@ export function HeaderClient({ navItems: initialNavItems }: { navItems: NavItem[
         <Link
           href="/"
           onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); setOpenMenuId(null); }}
-          className="flex items-center gap-2.5 text-black flex-shrink-0"
+          className="flex items-center gap-2.5 text-[var(--color-text)] flex-shrink-0"
           aria-label="WoodenStreet home"
         >
           <img src={logoUrl} alt="WoodenStreet logo" className="h-10 w-auto object-contain" />
@@ -513,7 +522,7 @@ export function HeaderClient({ navItems: initialNavItems }: { navItems: NavItem[
                   className={`
                     relative px-4 py-5 text-sm font-medium transition-colors duration-150
                     flex items-center gap-1 select-none whitespace-nowrap
-                    ${active || menuOpen ? "text-black" : "text-gray-600 hover:text-black"}
+                    ${active || menuOpen ? "text-[var(--color-text)]" : "text-[var(--color-text-muted)] hover:text-[var(--color-text)]"}
                   `}
                 >
                   {item.label}
@@ -538,17 +547,46 @@ export function HeaderClient({ navItems: initialNavItems }: { navItems: NavItem[
 
         {/* Right CTAs */}
         <div className="hidden md:flex items-center gap-3">
-          <button
-            type="button"
-            className="p-2 text-gray-600 hover:text-black transition-colors"
-            aria-label="Search"
-          >
-            <Search className="h-5 w-5" />
-          </button>
+          {/* Search */}
+          <div className="relative" ref={searchRef}>
+            <button
+              type="button"
+              onClick={() => setIsSearchOpen(!isSearchOpen)}
+              className="p-2 text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
+              aria-label="Search"
+              aria-expanded={isSearchOpen}
+            >
+              <Search className="h-5 w-5" />
+            </button>
+
+            {isSearchOpen && (
+              <div className="absolute right-0 top-11 w-72 bg-white rounded-xl p-2 shadow-xl z-50">
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search products..."
+                  className="w-full px-3 py-2 text-sm border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
+                  autoFocus
+                />
+                {searchQuery && (
+                  <div className="mt-2 pt-2 border-t border-[var(--color-border-light)]">
+                    <Link
+                      href={`/search?q=${encodeURIComponent(searchQuery)}`}
+                      onClick={() => setIsSearchOpen(false)}
+                      className="block w-full text-center text-sm text-[var(--color-primary)] hover:underline"
+                    >
+                      Search for "{searchQuery}"
+                    </Link>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
 
           <button
             type="button"
-            className="p-2 text-gray-600 hover:text-black transition-colors"
+            className="p-2 text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
             aria-label="Wishlist"
           >
             <Heart className="h-5 w-5" />
@@ -556,7 +594,7 @@ export function HeaderClient({ navItems: initialNavItems }: { navItems: NavItem[
 
           <button
             type="button"
-            className="p-2 text-gray-600 hover:text-black transition-colors"
+            className="p-2 text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
             aria-label="Cart"
           >
             <ShoppingCart className="h-5 w-5" />
@@ -566,7 +604,7 @@ export function HeaderClient({ navItems: initialNavItems }: { navItems: NavItem[
             <button
               type="button"
               onClick={() => setIsProfileOpen((o) => !o)}
-              className="flex items-center gap-2 border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700 hover:border-gray-400 transition-colors"
+              className="flex items-center gap-2 border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700 hover:border-gray-400 transition-colors rounded-full"
               aria-expanded={isProfileOpen}
               aria-label="Open profile menu"
             >
@@ -575,10 +613,10 @@ export function HeaderClient({ navItems: initialNavItems }: { navItems: NavItem[
             </button>
 
             {isProfileOpen && (
-              <div className="absolute right-0 top-11 w-52 border border-gray-100 bg-white rounded-xl p-2 text-black shadow-xl z-50">
+              <div className="absolute right-0 top-11 w-52 border border-[var(--color-border-light)] bg-white rounded-xl p-2 text-[var(--color-text)] shadow-xl z-50">
                 {isSignedIn ? (
                   <>
-                    <p className="px-3 py-2 text-xs text-gray-400 uppercase tracking-wider">Demo User</p>
+                    <p className="px-3 py-2 text-xs text-[var(--color-text-muted)] uppercase tracking-wider">Demo User</p>
                     <button
                       type="button"
                       onClick={() => { setIsSignedIn(false); setIsProfileOpen(false); }}
@@ -605,7 +643,7 @@ export function HeaderClient({ navItems: initialNavItems }: { navItems: NavItem[
         <button
           type="button"
           onClick={() => setIsMenuOpen((o) => !o)}
-          className="text-gray-700 hover:text-black transition-colors md:hidden p-1"
+          className="text-gray-700 hover:text-[var(--color-text)] transition-colors md:hidden p-1"
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={isMenuOpen}
         >
@@ -637,7 +675,7 @@ export function HeaderClient({ navItems: initialNavItems }: { navItems: NavItem[
       {/* ── Mobile Menu ── */}
       <div
         className={`
-          md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white border-t border-gray-100
+          md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white border-t border-[var(--color-border-light)]
           ${isMenuOpen ? "max-h-[85vh] opacity-100 overflow-y-auto" : "max-h-0 opacity-0"}
         `}
         aria-hidden={!isMenuOpen}
@@ -673,7 +711,7 @@ export function HeaderClient({ navItems: initialNavItems }: { navItems: NavItem[
             <button
               type="button"
               onClick={() => setIsSignedIn((v) => !v)}
-              className="border border-gray-200 text-gray-700 text-sm py-3 hover:bg-gray-50 transition-colors"
+              className="border border-gray-200 text-gray-700 text-sm py-3 hover:bg-gray-50 transition-colors rounded-full"
             >
               {isSignedIn ? "Sign out" : "Sign in"}
             </button>

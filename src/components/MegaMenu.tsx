@@ -18,7 +18,7 @@ export function MegaMenu({ menuItems }: MegaMenuProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
-  const timeoutRef = useRef<NodeJS.Timeout>()
+  const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined)
 
   const handleMouseEnter = (index: number) => {
     if (timeoutRef.current) {
