@@ -14,7 +14,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, BadgePercent, ChevronLeft, ChevronRight, MapPin, Pause, Play, Truck } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 // ───────────────────────── Data ─────────────────────────
@@ -285,18 +285,16 @@ export function HoverSliderCard({ className }: { className?: string }) {
             </motion.div>
           </AnimatePresence>
         </div>
-        <Button
-          asChild
-          size="sm"
+        <a
+          href={slide.href}
           className={cn(
+            buttonVariants({ size: "sm" }),
             "shrink-0 rounded-full transition-colors duration-200",
             hovered ? "bg-[#C0562B] text-white hover:bg-[#C0562B]/90" : "bg-white text-stone-900 hover:bg-white/90"
           )}
         >
-          <a href={slide.href} className="after:absolute after:inset-0 after:content-['']">
-            Shop now <ArrowRight className="h-4 w-4" />
-          </a>
-        </Button>
+          Shop now <ArrowRight className="h-4 w-4" />
+        </a>
       </div>
     </motion.div>
   );
@@ -331,11 +329,15 @@ export function FixedOfferCard({ className }: { className?: string }) {
             <MapPin className="h-4 w-4 shrink-0" aria-hidden />
             Visit an experience store near you
           </p>
-          <Button asChild variant="outline" size="sm" className="shrink-0 rounded-full border-white/70 bg-transparent text-white hover:bg-white hover:text-[#2B374D]">
-            <a href="/offline-furniture-store">
-              Find a store <ArrowRight className="h-4 w-4" />
-            </a>
-          </Button>
+          <a
+            href="/offline-furniture-store"
+            className={cn(
+              buttonVariants({ variant: "outline", size: "sm" }),
+              "shrink-0 rounded-full border-white/70 bg-transparent text-white hover:bg-white hover:text-[#2B374D]"
+            )}
+          >
+            Find a store <ArrowRight className="h-4 w-4" />
+          </a>
         </div>
       </div>
     </aside>

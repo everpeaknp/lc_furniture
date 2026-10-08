@@ -3,8 +3,7 @@
 import { useEffect, useMemo, useState, useRef } from 'react'
 import { motion } from 'motion/react'
 import Lenis from 'lenis'
-import { Heart, ShoppingBag, UserRound, ArrowRight, SlidersHorizontal, Menu, X } from 'lucide-react'
-import { MegaMenu } from './MegaMenu'
+import { Heart, ShoppingBag, ArrowRight, SlidersHorizontal } from 'lucide-react'
 import { GradientFooter } from './GradientFooter'
 import { Hero } from './WoodenStreetHero'
 
@@ -24,188 +23,10 @@ const products = [
   { name: 'Alfred Study Table', category: 'Study', price: '₹9,990', old: '₹14,990', discount: '33% OFF', image: 'https://images.unsplash.com/photo-1518455027359-f3f8164d5e3c?auto=format&fit=crop&w=900&q=85' },
 ]
 
-const menuItems = [
-  {
-    title: 'Sofas',
-    subItems: [
-      {
-        category: 'Sofas',
-        items: ['All Sofas', 'Fabric Sofas', 'Wooden Sofas', '3 Seater Sofas', '2 Seater Sofas', '1 Seater Sofas', 'Sofa Sets', 'L Shaped Sofas', 'Chaise Loungers', 'Diwans']
-      },
-      {
-        category: 'Sofa Cum Beds',
-        items: ['All Sofa Cum Beds', 'Wooden Sofa Cum Beds', 'Fabric Sofa Cum Beds']
-      },
-      {
-        category: 'Recliners',
-        items: ['All Recliners', '1 Seater Recliners', '2 Seater Recliners', '3 Seater Recliners']
-      },
-      {
-        category: 'Seating',
-        items: ['Lounge Chairs', 'Accent Chairs', 'Arm Chairs', 'Wingback Chairs', 'Loveseats', 'Benches', 'Ottomans', 'Stools']
-      }
-    ]
-  },
-  {
-    title: 'Living',
-    subItems: [
-      {
-        category: 'Sofas',
-        items: ['All Sofas', 'Fabric Sofas', 'Wooden Sofas', '3 Seater Sofas', '2 Seater Sofas', '1 Seater Sofas', 'Sofa Sets', 'L Shaped Sofas']
-      },
-      {
-        category: 'Chairs',
-        items: ['All Chairs', 'Lounge Chairs', 'Arm Chairs', 'Wing Chairs', 'Swing Chair', 'Rocking Chairs']
-      },
-      {
-        category: 'Tables',
-        items: ['Coffee Tables', 'Coffee Table Sets', 'Side Tables', 'Nesting Tables', 'Console Table', 'Laptop Tables']
-      },
-      {
-        category: 'TV Units',
-        items: ['All TV Units', 'Solid Wood TV Units', 'Engineered Wood TV Units']
-      },
-      {
-        category: 'Living Storage',
-        items: ['Bookshelves', 'Chest of Drawers', 'Cabinet & Sideboards', 'Display Units', 'Wall Shelves', 'Home Temples', 'Shoe Racks']
-      }
-    ]
-  },
-  {
-    title: 'Bedroom',
-    subItems: [
-      {
-        category: 'Beds',
-        items: ['All Beds', 'Solid Wood Beds', 'Engineered Wood Beds', 'Upholstered Beds', 'Hydraulic Storage Beds', 'Poster Beds', 'Kids Beds']
-      },
-      {
-        category: 'By Size',
-        items: ['King Size Beds', 'Queen Size Beds', 'Double Beds', 'Single Beds']
-      },
-      {
-        category: 'Wardrobes',
-        items: ['All Wardrobes', 'Solid Wood Wardrobes', 'Engineered Wood Wardrobes', '1 Door Wardrobes', '2 Door Wardrobes', '3 Door Wardrobes', '4+ Door Wardrobes']
-      },
-      {
-        category: 'Bedroom Tables',
-        items: ['Bedside Tables', 'Dressing Tables', 'Breakfast Tables', 'Trunk & Blanket Box']
-      },
-      {
-        category: 'Mattresses',
-        items: ['All Mattress', 'King Size Mattress', 'Queen Size Mattress', 'Double Bed Mattress', 'Mattress Protectors', 'Pillows']
-      }
-    ]
-  },
-  {
-    title: 'Dining',
-    subItems: [
-      {
-        category: 'Dining Sets',
-        items: ['All Dining Table Sets', '6 Seater Dining Sets', '4 Seater Dining Sets', '2 Seater Dining Sets', '8 Seater Dining Sets', 'Folding Dining Sets']
-      },
-      {
-        category: 'By Material',
-        items: ['Wooden Dining Sets', 'Marble Dining Sets', 'Metal Dining Sets']
-      },
-      {
-        category: 'Dining Chairs',
-        items: ['All Dining Chairs', 'Wooden Dining Chairs', 'Fabric Dining Chairs', 'Dining Benches']
-      },
-      {
-        category: 'Kitchen Storage',
-        items: ['Kitchen Cabinets', 'Kitchen Trolley', 'Crockery Unit', 'Kitchen Racks', 'Microwave Stand']
-      },
-      {
-        category: 'Bar Furniture',
-        items: ['Bar Cabinets', 'Wine Trolleys', 'Bar Table Sets']
-      }
-    ]
-  },
-  {
-    title: 'Storage',
-    subItems: [
-      {
-        category: 'TV Units',
-        items: ['All TV Units', 'Solid Wood TV Units', 'Engineered Wood TV Units']
-      },
-      {
-        category: 'Shoe Racks',
-        items: ['Solid Wood Shoe Racks', 'Modular Shoe Racks']
-      },
-      {
-        category: 'Living Storage',
-        items: ['Bookshelves', 'Chest of Drawers', 'Cabinet & Sideboards', 'Display Units', 'Wall Shelves', 'Home Temples']
-      },
-      {
-        category: 'Wardrobes',
-        items: ['All Wardrobes', 'Solid Wood Wardrobes', 'Engineered Wood Wardrobes', '1 Door Wardrobes', '2 Door Wardrobes', '3 Door Wardrobes']
-      },
-      {
-        category: 'Kitchen Storage',
-        items: ['Kitchen Cabinets', 'Kitchen Trolley', 'Crockery Unit', 'Kitchen Racks', 'Microwave Stand']
-      }
-    ]
-  },
-  {
-    title: 'Study & Office',
-    subItems: [
-      {
-        category: 'Tables',
-        items: ['Study Tables', 'Computer Tables', 'Laptop Tables', 'Folding Study Tables', 'Corner Study Table', 'Office Tables']
-      },
-      {
-        category: 'Chairs',
-        items: ['Office Chairs', 'Study Chairs', 'Gaming Chairs', 'Executive Chairs', 'Visitor Chairs', 'Office Sofas']
-      },
-      {
-        category: 'Storage',
-        items: ['File Cabinets', 'Office Bookcases', 'Wall Shelves']
-      }
-    ]
-  },
-  {
-    title: 'Outdoor',
-    subItems: [
-      {
-        category: 'Balcony Furniture',
-        items: ['Balcony Sets', 'Balcony Chairs', 'Balcony Tables', 'Swings']
-      },
-      {
-        category: 'Outdoor Furniture',
-        items: ['All Outdoor Sets', 'Table & Chair Sets', 'Sofa Sets', 'Loungers']
-      },
-      {
-        category: 'Home Garden',
-        items: ['Artificial Flowers', 'Artificial Plants']
-      }
-    ]
-  },
-  {
-    title: 'Decor',
-    subItems: [
-      {
-        category: 'Wall Decor',
-        items: ['Wall Shelves', 'Key Holders', 'Wall Mirror', 'Wall Paintings', 'Wall Arts', 'Jharokhas']
-      },
-      {
-        category: 'Clocks',
-        items: ['Wall Clocks']
-      },
-      {
-        category: 'Furnishing',
-        items: ['Sofa Covers', 'Cushion Covers', 'Rugs And Carpets', 'Table Runners', 'Floor Runners']
-      }
-    ]
-  }
-]
-
 export function WoodenStreetHome() {
-  const [menuOpen, setMenuOpen] = useState(false)
   const [liked, setLiked] = useState<string[]>([])
   const [cartCount, setCartCount] = useState(0)
   const [activeCategory, setActiveCategory] = useState('All')
-  const [isNavbarVisible, setIsNavbarVisible] = useState(false)
-  const [lastScrollY, setLastScrollY] = useState(0)
 
   useEffect(() => {
     const lenis = new Lenis({ lerp: 0.08, smoothWheel: true })
@@ -221,21 +42,6 @@ export function WoodenStreetHome() {
     }
   }, [])
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY
-      if (currentScrollY > 100) {
-        setIsNavbarVisible(true)
-      } else {
-        setIsNavbarVisible(false)
-      }
-      setLastScrollY(currentScrollY)
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   const filteredProducts = useMemo(() => products.filter((product) => {
     const matchesCategory = activeCategory === 'All' || product.category === activeCategory
     return matchesCategory
@@ -246,51 +52,29 @@ export function WoodenStreetHome() {
   return (
     <main className="min-h-screen bg-[#fbfaf8] text-[#292622]">
       <div className="bg-[#365b43] px-4 py-2 text-center text-[11px] font-semibold tracking-[0.16em] text-white sm:text-xs">FLAT 12% OFF ON FIRST ORDER &nbsp; | &nbsp; USE CODE: WELCOME12</div>
-      
-      {/* Sticky Navbar that appears on scroll */}
-      <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: isNavbarVisible ? 0 : -100 }}
-        transition={{ duration: 0.3, ease: 'easeInOut' }}
-        className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-[#e7e1d9] shadow-md"
-      >
-        <div className="mx-auto flex max-w-[1320px] items-center justify-between gap-5 px-5 py-3 lg:px-8">
-          <a href="#top" className="text-xl font-bold text-[#32573f]">Wooden Street</a>
-          <div className="hidden lg:block">
-            <MegaMenu menuItems={menuItems} />
-          </div>
-          <div className="flex items-center gap-4 text-[#4d4842] sm:gap-5">
-            <button aria-label="Account" className="hidden sm:block"><UserRound size={21} /></button>
-            <button aria-label="Wishlist" className="relative" onClick={() => setLiked(liked.length ? [] : [products[0].name])}>
-              <Heart size={21} fill={liked.length ? '#b88951' : 'none'} />
-              <span className="sr-only">Wishlist</span>
-            </button>
-            <button aria-label="Shopping bag" className="relative" onClick={() => setCartCount(cartCount + 1)}>
-              <ShoppingBag size={21} />
-              {cartCount > 0 && <span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-[#b88951] text-[10px] text-white">{cartCount}</span>}
-            </button>
-          </div>
-        </div>
-      </motion.header>
 
-      {/* Original Header */}
-      <header className="border-b border-[#e7e1d9] bg-[#fbfaf8] relative z-40">
-        <div className="mx-auto flex max-w-[1320px] items-center justify-between gap-5 px-5 py-5 lg:px-8">
-          <button className="lg:hidden" aria-label="Open menu" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X size={23} /> : <Menu size={23} />}</button>
-          <a href="#top" className="text-2xl font-bold text-[#32573f]">Wooden Street</a>
-          <div className="hidden lg:block">
-            <MegaMenu menuItems={menuItems} />
-          </div>
-          <nav className={`${menuOpen ? 'flex' : 'hidden'} lg:hidden absolute left-0 top-[102px] z-20 w-full flex-col gap-5 border-b border-[#e7e1d9] bg-[#fbfaf8] px-6 py-6 text-sm font-medium`}>
-            {menuItems.map((item) => (
-              <a key={item.title} href="#shop" className="transition-colors hover:text-[#b37d42]">
-                {item.title}
-              </a>
-            ))}
-          </nav>
-          <div className="flex items-center gap-4 text-[#4d4842] sm:gap-5"><button aria-label="Account" className="hidden sm:block"><UserRound size={21} /></button><button aria-label="Wishlist" className="relative" onClick={() => setLiked(liked.length ? [] : [products[0].name])}><Heart size={21} fill={liked.length ? '#b88951' : 'none'} /><span className="sr-only">Wishlist</span></button><button aria-label="Shopping bag" className="relative" onClick={() => setCartCount(cartCount + 1)}><ShoppingBag size={21} />{cartCount > 0 && <span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-[#b88951] text-[10px] text-white">{cartCount}</span>}</button></div>
-        </div>
-      </header>
+      {/* Quick action bar */}
+      <div className="fixed right-4 top-24 z-40 flex flex-col gap-2">
+        <button
+          aria-label="Wishlist"
+          className="rounded-full bg-white p-3 shadow-lg transition-colors hover:bg-gray-50"
+          onClick={() => setLiked(liked.length ? [] : [products[0].name])}
+        >
+          <Heart size={20} fill={liked.length ? '#b88951' : 'none'} />
+        </button>
+        <button
+          aria-label="Shopping bag"
+          className="relative rounded-full bg-white p-3 shadow-lg transition-colors hover:bg-gray-50"
+          onClick={() => setCartCount(cartCount + 1)}
+        >
+          <ShoppingBag size={20} />
+          {cartCount > 0 && (
+            <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#b88951] text-[10px] text-white">
+              {cartCount}
+            </span>
+          )}
+        </button>
+      </div>
 
       <Hero />
 

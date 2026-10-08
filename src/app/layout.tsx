@@ -1,6 +1,7 @@
 import { Cinzel } from 'next/font/google'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import { Header } from '@/components/mega-menu-header'
 
 const cinzel = Cinzel({
   subsets: ['latin'],
@@ -46,7 +47,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${cinzel.variable} antialiased`}>
-        {children}
+        <Header />
+        <main className="pt-20">
+          {children}
+        </main>
       </body>
     </html>
   )
