@@ -266,7 +266,7 @@ export function HoverSliderCard({ className }: { className?: string }) {
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.2 }}
             >
-              <h3 className="truncate text-2xl font-semibold leading-tight font-serif">{slide.label}</h3>
+              <h3 className="truncate text-2xl font-semibold leading-tight font-sans">{slide.label}</h3>
               <p className="truncate text-sm text-white/85 font-sans">{slide.tagline}</p>
             </motion.div>
           </AnimatePresence>
@@ -298,7 +298,7 @@ export function FixedOfferCard({ className }: { className?: string }) {
             <span className="inline-block px-2 py-1 bg-[#D9A441] text-stone-900 text-xs font-semibold tracking-widest uppercase">
               Special offer
             </span>
-            <h3 className="mt-3 flex items-start gap-2 text-2xl font-semibold leading-tight font-serif">
+            <h3 className="mt-3 flex items-start gap-2 text-2xl font-semibold leading-tight font-sans">
               <Truck className="mt-1 h-5 w-5 shrink-0" aria-hidden />
               Free shipping on orders over Rs. 50,000
             </h3>

@@ -54,7 +54,7 @@ export default function SiteHeader({ border = false }: { border?: boolean }) {
               <span><b>Gather around</b>Explore dining tables <Arrow /></span>
             </Link>
             <div className="mega-footer">
-              <span>Complimentary delivery over $500</span>
+              <span>Complimentary delivery over Rs. 50,000</span>
               <Link href="/contact">Book a design consultation <Arrow /></Link>
               <Link href="/#about">Our materials <Arrow /></Link>
             </div>

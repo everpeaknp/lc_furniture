@@ -78,7 +78,7 @@ export default async function SubcategoryPage({
           <img src={data.hero} alt={`${title} collection`} />
           <div>
             <p className="eyebrow">{categoryName} Collection</p>
-            <h1 className="text-[#f6f4ef] text-6xl font-serif">
+            <h1 className="text-[#f6f4ef] text-6xl font-sans font-semibold tracking-tight">
               {title}
             </h1>
           </div>

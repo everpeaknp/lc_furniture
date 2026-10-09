@@ -30,17 +30,17 @@ const images = {
 };
 
 const featured = [
-  { name: "Black Sofa Set", price: "$800", image: images.living },
-  { name: "Circle Dining Table", price: "$650", image: images.dining },
-  { name: "Minimal Sofa", price: "$490", image: images.sofa },
-  { name: "Pattern Tea Table", price: "$380", image: images.table },
+  { name: "Black Sofa Set", price: "Rs. 68,000", image: images.living },
+  { name: "Circle Dining Table", price: "Rs. 54,000", image: images.dining },
+  { name: "Minimal Sofa", price: "Rs. 42,000", image: images.sofa },
+  { name: "Pattern Tea Table", price: "Rs. 32,000", image: images.table },
 ];
 
 const trending = [
-  { name: "A Vase Table", price: "$260", image: images.table },
-  { name: "Vintage Sofa", price: "$800", image: images.chair },
-  { name: "Home Chest", price: "$350", image: images.cabinet },
-  { name: "Writing Table", price: "$400", image: images.desk },
+  { name: "A Vase Table", price: "Rs. 22,000", image: images.table },
+  { name: "Vintage Sofa", price: "Rs. 65,000", image: images.chair },
+  { name: "Home Chest", price: "Rs. 28,000", image: images.cabinet },
+  { name: "Writing Table", price: "Rs. 34,000", image: images.desk },
 ];
 
 const emailSchema = z.string().email('Please enter a valid email address');

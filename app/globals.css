@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Italiana&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -63,10 +63,10 @@ img { display: block; width: 100%; }
 }
 
 .logo {
-  font-family: "Italiana", serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 24px;
-  font-weight: 600;
-  letter-spacing: -.04em;
+  font-weight: 700;
+  letter-spacing: -.02em;
 }
 
 .nav { display: flex; align-items: center; gap: 34px; }
@@ -243,9 +243,10 @@ img { display: block; width: 100%; }
 }
 h1, h2, h3 {
   margin: 0 0 18px;
-  font-family: "Italiana", serif;
-  font-weight: 400;
-  line-height: 1.2;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 h1 { font-size: 56px; }
 h2 { font-size: 42px; }
@@ -508,7 +509,8 @@ p {
 }
 .quote p {
   font-size: 24px;
-  font-family: "Italiana", serif;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
   line-height: 1.4;
   color: #262720;
 }

@@ -325,7 +325,7 @@ function MegaMenuPanel({
                   {navItem.panel.card_label}
                 </p>
               )}
-              <p className="text-lg font-bold leading-snug font-serif">
+              <p className="text-lg font-bold leading-snug font-sans">
                 {navItem.panel.card_title}
               </p>
               {navItem.panel.card_subtitle && (

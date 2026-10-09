@@ -26,22 +26,22 @@ const images = {
 };
 
 const catalog = [
-  { name: "Linen Lounge Sofa", price: "$1,280", image: images.story, category: "Sofas" },
-  { name: "Noma Dining Chair", price: "$320", image: images.dining, category: "Chairs" },
-  { name: "Onda Coffee Table", price: "$540", image: images.table, category: "Tables" },
-  { name: "Atelier Sideboard", price: "$890", image: images.cabinet, category: "Storage" },
-  { name: "Cloud Bouclé Chair", price: "$680", image: images.chair, category: "Chairs" },
-  { name: "Arco Writing Desk", price: "$720", image: images.desk, category: "Tables" },
-  { name: "Forma Modular Sofa", price: "$1,760", image: images.sofa, category: "Sofas" },
-  { name: "Fawn Bedside Table", price: "$290", image: images.bedroom, category: "Tables" },
-  { name: "Luma Dining Table", price: "$1,140", image: images.hero, category: "Tables" },
-  { name: "Miro Lounge Chair", price: "$610", image: images.living, category: "Chairs" },
-  { name: "Oak Display Cabinet", price: "$980", image: images.kitchen, category: "Storage" },
-  { name: "Cove Two Seat Sofa", price: "$1,390", image: images.chair, category: "Sofas" },
-  { name: "Taper Console", price: "$640", image: images.article3, category: "Storage" },
-  { name: "Dune Low Table", price: "$460", image: images.article2, category: "Tables" },
-  { name: "Marta Dining Chair", price: "$340", image: images.hero, category: "Chairs" },
-  { name: "Frame Shelving Unit", price: "$790", image: images.desk, category: "Storage" },
+  { name: "Linen Lounge Sofa", price: "Rs. 95,000", image: images.story, category: "Sofas" },
+  { name: "Noma Dining Chair", price: "Rs. 26,000", image: images.dining, category: "Chairs" },
+  { name: "Onda Coffee Table", price: "Rs. 45,000", image: images.table, category: "Tables" },
+  { name: "Atelier Sideboard", price: "Rs. 72,000", image: images.cabinet, category: "Storage" },
+  { name: "Cloud Bouclé Chair", price: "Rs. 54,000", image: images.chair, category: "Chairs" },
+  { name: "Arco Writing Desk", price: "Rs. 58,000", image: images.desk, category: "Tables" },
+  { name: "Forma Modular Sofa", price: "Rs. 1,45,000", image: images.sofa, category: "Sofas" },
+  { name: "Fawn Bedside Table", price: "Rs. 24,000", image: images.bedroom, category: "Tables" },
+  { name: "Luma Dining Table", price: "Rs. 92,000", image: images.hero, category: "Tables" },
+  { name: "Miro Lounge Chair", price: "Rs. 48,000", image: images.living, category: "Chairs" },
+  { name: "Oak Display Cabinet", price: "Rs. 82,000", image: images.kitchen, category: "Storage" },
+  { name: "Cove Two Seat Sofa", price: "Rs. 1,15,000", image: images.chair, category: "Sofas" },
+  { name: "Taper Console", price: "Rs. 52,000", image: images.article3, category: "Storage" },
+  { name: "Dune Low Table", price: "Rs. 38,000", image: images.article2, category: "Tables" },
+  { name: "Marta Dining Chair", price: "Rs. 28,000", image: images.hero, category: "Chairs" },
+  { name: "Frame Shelving Unit", price: "Rs. 64,000", image: images.desk, category: "Storage" },
 ];
 
 export default function ShopPage() {
