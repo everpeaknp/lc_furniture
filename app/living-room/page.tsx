@@ -32,14 +32,14 @@ const roomData = {
     note: "Comfort, considered",
     story: "Generous proportions meet refined silhouettes in a collection designed to bring ease and character to the heart of your home.",
     products: [
-      { name: "Linen Lounge Sofa", price: "$1,280", image: images.story },
-      { name: "Cloud Bouclé Chair", price: "$680", image: images.chair },
-      { name: "Forma Modular Sofa", price: "$1,760", image: images.sofa },
-      { name: "Miro Lounge Chair", price: "$610", image: images.living },
-      { name: "Cove Two Seat Sofa", price: "$1,390", image: images.chair },
-      { name: "Onda Coffee Table", price: "$540", image: images.table },
-      { name: "Taper Console", price: "$640", image: images.article3 },
-      { name: "Dune Low Table", price: "$460", image: images.article2 },
+      { name: "Linen Lounge Sofa", price: "Rs. 95,000", image: images.story },
+      { name: "Cloud Bouclé Chair", price: "Rs. 45,000", image: images.chair },
+      { name: "Forma Modular Sofa", price: "Rs. 1,25,000", image: images.sofa },
+      { name: "Miro Lounge Chair", price: "Rs. 38,000", image: images.living },
+      { name: "Cove Two Seat Sofa", price: "Rs. 85,000", image: images.chair },
+      { name: "Onda Coffee Table", price: "Rs. 32,000", image: images.table },
+      { name: "Taper Console", price: "Rs. 42,000", image: images.article3 },
+      { name: "Dune Low Table", price: "Rs. 28,000", image: images.article2 },
     ],
   },
 };
@@ -57,12 +57,14 @@ export default function LivingRoomPage() {
             <p className="eyebrow">{room.eyebrow}</p>
             <h1>
               <TypeMorph
-                text="ANIMDOCK"
-                target={room.title}
-                morph={true}
-                speed={{ mode: 'static', value: 2 }}
-                variants={{ mode: 'static', value: 15 }}
-                color="#f6f4ef"
+                config={{
+                  text: "ANIMDOCK",
+                  target: room.title,
+                  morph: true,
+                  speed: { mode: 'static', value: 2 },
+                  variants: { mode: 'static', value: 15 },
+                  color: "#f6f4ef"
+                }}
               />
             </h1>
           </div>
@@ -76,8 +78,14 @@ export default function LivingRoomPage() {
             <div><p className="eyebrow">Designed for your space</p><h2>{room.title} Collection</h2></div>
             <span>{room.products.length} pieces</span>
           </div>
-          <div className="product-grid">
-            {room.products.map((item) => <ProductCard item={item} key={item.name} />)}
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8 sm:space-y-0">
+            {room.products.map((item) => (
+              <ProductCard 
+                item={item} 
+                key={item.name} 
+                className="break-inside-avoid mb-8 [&_.image-wrap]:!aspect-auto [&_img]:!h-auto"
+              />
+            ))}
           </div>
         </section>
         <section className="room-story section">

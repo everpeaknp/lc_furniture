@@ -136,7 +136,6 @@ export function BigAutoSlider({ className }: { className?: string }) {
       {/* Controls */}
       <div className="absolute right-4 top-4 z-10 flex items-center gap-2 md:right-6 md:top-6">
         <button
-          size="icon"
           aria-label={userPaused ? "Play slideshow" : "Pause slideshow"}
           onClick={() => setUserPaused((p) => !p)}
           className="h-10 w-10 bg-white/85 text-stone-900 backdrop-blur hover:bg-white flex items-center justify-center"
@@ -144,7 +143,6 @@ export function BigAutoSlider({ className }: { className?: string }) {
           {userPaused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
         </button>
         <button
-          size="icon"
           aria-label="Previous slide"
           onClick={() => step(-1)}
           className="h-10 w-10 bg-white/85 text-stone-900 backdrop-blur hover:bg-white flex items-center justify-center"
@@ -152,7 +150,6 @@ export function BigAutoSlider({ className }: { className?: string }) {
           <ChevronLeft className="h-5 w-5" />
         </button>
         <button
-          size="icon"
           aria-label="Next slide"
           onClick={() => step(1)}
           className="h-10 w-10 bg-white/85 text-stone-900 backdrop-blur hover:bg-white flex items-center justify-center"
@@ -248,10 +245,10 @@ export function HoverSliderCard({ className }: { className?: string }) {
       </div>
 
       {/* Arrows */}
-      <button size="icon" aria-label="Previous product" onClick={() => step(-1)} onPointerMove={(e) => e.stopPropagation()} className={`${arrowClass} left-3`}>
+      <button aria-label="Previous product" onClick={() => step(-1)} onPointerMove={(e) => e.stopPropagation()} className={`${arrowClass} left-3`}>
         <ChevronLeft className="h-5 w-5" />
       </button>
-      <button size="icon" aria-label="Next product" onClick={() => step(1)} onPointerMove={(e) => e.stopPropagation()} className={`${arrowClass} right-3`}>
+      <button aria-label="Next product" onClick={() => step(1)} onPointerMove={(e) => e.stopPropagation()} className={`${arrowClass} right-3`}>
         <ChevronRight className="h-5 w-5" />
       </button>
 
@@ -303,7 +300,7 @@ export function FixedOfferCard({ className }: { className?: string }) {
             </span>
             <h3 className="mt-3 flex items-start gap-2 text-2xl font-semibold leading-tight font-serif">
               <Truck className="mt-1 h-5 w-5 shrink-0" aria-hidden />
-              Free shipping on orders over $500
+              Free shipping on orders over Rs. 50,000
             </h3>
           </div>
           <div className="flex h-20 w-20 shrink-0 flex-col items-center justify-center bg-[#D9A441] text-stone-900">

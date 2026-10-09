@@ -40,12 +40,14 @@ export default function BlogPage() {
           <p className="eyebrow">The Furtinuer journal</p>
           <h1>
             <TypeMorph
-              text="ANIMDOCK"
-              target="Notes on"
-              morph={true}
-              speed={{ mode: 'static', value: 2 }}
-              variants={{ mode: 'static', value: 15 }}
-              color="#262720"
+              config={{
+                text: "ANIMDOCK",
+                target: "Notes on",
+                morph: true,
+                speed: { mode: 'static', value: 2 },
+                variants: { mode: 'static', value: 15 },
+                color: "#262720"
+              }}
             />
             <br />
             Living Well

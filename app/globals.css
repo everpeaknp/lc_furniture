@@ -11,7 +11,28 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+
+html.lenis, html.lenis body {
+  height: auto;
+  width: 100vw;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
 body { margin: 0; min-width: 320px; }
 button, input { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
@@ -50,8 +71,8 @@ img { display: block; width: 100%; }
 
 .nav { display: flex; align-items: center; gap: 34px; }
 .nav a, .header-tools, .eyebrow {
-  font-size: 10px;
-  font-weight: 600;
+  font-size: 7px !important;
+  font-weight: 400;
   letter-spacing: .16em;
   text-transform: uppercase;
 }
@@ -326,8 +347,15 @@ p {
   background: #e8e6e0;
 }
 .benefit span {
-  font-size: 32px;
+  font-size: 48px;
   margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.benefit span svg {
+  width: 48px;
+  height: 48px;
 }
 .benefit small {
   display: block;

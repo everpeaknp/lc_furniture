@@ -1,12 +1,16 @@
 'use client';
 
 import { FormEvent, useState } from "react";
+import { motion } from "framer-motion";
+import { z } from "zod";
+import { Truck, Store, Package, RotateCcw } from "lucide-react";
 import MegaMenuHeader from "@/components/MegaMenuHeader";
 import SiteFooter from "@/components/SiteFooter";
 import ProductCard from "@/components/ProductCard";
 import Arrow from "@/components/Arrow";
 import TypeMorph from "@/components/TypeMorph";
 import { Hero } from "@/components/Hero";
+import AnimatedSection from "@/components/AnimatedSection";
 
 const images = {
   hero: "https://images.unsplash.com/photo-1653629495477-b42f0f43ce3f?auto=format&fit=crop&w=1400&q=85",
@@ -39,13 +43,23 @@ const trending = [
   { name: "Writing Table", price: "$400", image: images.desk },
 ];
 
+const emailSchema = z.string().email('Please enter a valid email address');
+
 export default function HomePage() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
 
   const subscribe = (event: FormEvent) => {
     event.preventDefault();
-    if (!email.trim()) return;
+    setError("");
+
+    const result = emailSchema.safeParse(email);
+    if (!result.success) {
+      setError(result.error.issues[0].message);
+      return;
+    }
+
     setMessage("Thank you — your first look is on its way.");
     setEmail("");
   };
@@ -57,26 +71,52 @@ export default function HomePage() {
       <main id="top" className="pt-20">
         <Hero />
 
-        <section className="benefits section" aria-label="Store benefits">
+        <AnimatedSection className="benefits section" aria-label="Store benefits">
           {[
-            ["□", "Quick delivery", "Within 3–5 days"],
-            ["▽", "Pick up in store", "Free in-store pickup"],
-            ["◇", "Special packaging", "Beautifully protected"],
-            ["↻", "Returns policy", "30-day returns"],
-          ].map(([icon, title, note]) => (
-            <div className="benefit" key={title}>
+            [<Truck />, "Quick delivery", "Within 3–5 days"],
+            [<Store />, "Pick up in store", "Free in-store pickup"],
+            [<Package />, "Special packaging", "Beautifully protected"],
+            [<RotateCcw />, "Returns policy", "30-day returns"],
+          ].map(([icon, title, note], index) => (
+            <motion.div
+              className="benefit"
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
               <span>{icon}</span>
               <p><b>{title}</b><small>{note}</small></p>
-            </div>
+            </motion.div>
           ))}
-        </section>
+        </AnimatedSection>
 
-        <section className="story section" id="about">
-          <div className="story-image">
+        <AnimatedSection className="story section" id="about" delay={0.2}>
+          <motion.div
+            className="story-image"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <img src={images.story} alt="Comfortable neutral sofa" />
-            <button className="play" aria-label="Play our story video">▶</button>
-          </div>
-          <div className="story-copy">
+            <motion.button
+              className="play"
+              aria-label="Play our story video"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              ▶
+            </motion.button>
+          </motion.div>
+          <motion.div
+            className="story-copy"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             <p className="eyebrow">Our story</p>
             <h2>Since 1990's</h2>
             <p>
@@ -88,96 +128,181 @@ export default function HomePage() {
               marked by time, and passed on.
             </p>
             <a className="text-link" href="#journal">About us <Arrow /></a>
-          </div>
-        </section>
+          </motion.div>
+        </AnimatedSection>
 
-        <section className="collection section" id="shop">
-          <div className="section-heading">
+        <AnimatedSection className="collection section" id="shop" delay={0.3}>
+          <motion.div
+            className="section-heading"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
             <div><p className="eyebrow">Selected for you</p><h2>Our Featured Products</h2></div>
             <a href="/shop">Shop all <Arrow /></a>
-          </div>
+          </motion.div>
           <div className="product-grid">
-            {featured.map((item) => <ProductCard item={item} key={item.name} />)}
+            {featured.map((item, index) => (
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <ProductCard item={item} />
+              </motion.div>
+            ))}
           </div>
           <div className="carousel-dots"><span className="active" /><span /><span /></div>
-        </section>
+        </AnimatedSection>
 
-        <section className="quote section">
-          <button aria-label="Previous review"><Arrow direction="left" /></button>
-          <blockquote>
+        <AnimatedSection className="quote section" delay={0.4}>
+          <motion.button
+            aria-label="Previous review"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Arrow direction="left" />
+          </motion.button>
+          <motion.blockquote
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <span>"</span>
             <p>
               Premium thought, honest materials and a quiet confidence. The pieces feel considered,
               but never precious — exactly how a home should be.
             </p>
             <cite>— Marina Ellis, London</cite>
-          </blockquote>
-          <button aria-label="Next review"><Arrow /></button>
-        </section>
+          </motion.blockquote>
+          <motion.button
+            aria-label="Next review"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Arrow />
+          </motion.button>
+        </AnimatedSection>
 
-        <section className="rooms section">
+        <AnimatedSection className="rooms section" delay={0.5}>
           {[
             ["Living rooms", images.living, "/living-room"],
             ["Bedrooms", images.bedroom, "/bedroom"],
             ["Dining", images.kitchen, "/dining"],
-          ].map(([name, image, href]) => (
-            <a href={href} className="room" key={name}>
+          ].map(([name, image, href], index) => (
+            <motion.a
+              href={href}
+              className="room"
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
+              whileHover={{ scale: 1.02 }}
+            >
               <span>{name}</span>
               <img src={image} alt={`${name} furniture collection`} />
               <i><Arrow /></i>
-            </a>
+            </motion.a>
           ))}
-        </section>
+        </AnimatedSection>
 
-        <section className="newsletter section">
-          <p className="eyebrow">The Furtinuer letter</p>
-          <h2>Get Offers &amp; Discounts<br />by Subscribing Us</h2>
-          <form onSubmit={subscribe}>
-            <label className="sr-only" htmlFor="email">Email address</label>
-            <input
-              id="email"
-              type="email"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              placeholder="Your email address"
-              required
-            />
-            <button type="submit">Subscribe now</button>
-          </form>
-          <p className="form-message" aria-live="polite">{message}</p>
-        </section>
+        <AnimatedSection className="newsletter section" delay={0.6}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <p className="eyebrow">The Furtinuer letter</p>
+            <h2>Get Offers &amp; Discounts<br />by Subscribing Us</h2>
+            <form onSubmit={subscribe}>
+              <label className="sr-only" htmlFor="email">Email address</label>
+              <input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                placeholder="Your email address"
+                required
+              />
+              <motion.button
+                type="submit"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Subscribe now
+              </motion.button>
+            </form>
+            {error && <p className="form-message" style={{ color: '#e53935' }}>{error}</p>}
+            <p className="form-message" aria-live="polite" style={{ color: '#1e9e76' }}>{message}</p>
+          </motion.div>
+        </AnimatedSection>
 
-        <section className="collection section" id="trending">
-          <div className="section-heading">
+        <AnimatedSection className="collection section" id="trending" delay={0.7}>
+          <motion.div
+            className="section-heading"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
             <div><p className="eyebrow">The current edit</p><h2>Trending Products</h2></div>
             <a href="/shop">Shop all <Arrow /></a>
-          </div>
+          </motion.div>
           <div className="product-grid">
-            {trending.map((item) => <ProductCard item={item} key={item.name} />)}
+            {trending.map((item, index) => (
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <ProductCard item={item} />
+              </motion.div>
+            ))}
           </div>
           <div className="carousel-dots"><span className="active" /><span /><span /></div>
-        </section>
+        </AnimatedSection>
 
-        <section className="articles section" id="journal">
-          <div className="section-heading">
+        <AnimatedSection className="articles section" id="journal" delay={0.8}>
+          <motion.div
+            className="section-heading"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
             <div><p className="eyebrow">Notes on living well</p><h2>Read Our Articles</h2></div>
             <a href="#journal">See all articles <Arrow /></a>
-          </div>
+          </motion.div>
           <div className="article-grid">
             {[
               ["Soft Living: Interiors Built for Belonging", images.article1, "Design"],
               ["Trending Modern Furniture Ideas in 2025", images.article2, "Inspiration"],
               ["Why Simple Furniture Design Looks Fabulous", images.article3, "Guide"],
-            ].map(([title, image, category]) => (
-              <article key={title}>
+            ].map(([title, image, category], index) => (
+              <motion.article
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                whileHover={{ y: -5 }}
+              >
                 <a href="#journal"><img src={image} alt="" /></a>
                 <p>{category} · 6 min read</p>
                 <h3><a href="#journal">{title}</a></h3>
                 <span>Discover simple ways to make your space more restful, personal, and enduring.</span>
-              </article>
+              </motion.article>
             ))}
           </div>
-        </section>
+        </AnimatedSection>
       </main>
 
       <SiteFooter />

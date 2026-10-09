@@ -21,12 +21,14 @@ export default function ContactPage() {
           <p className="eyebrow">We would love to hear from you</p>
           <h1>
             <TypeMorph
-              text="ANIMDOCK"
-              target="Let's"
-              morph={true}
-              speed={{ mode: 'static', value: 2 }}
-              variants={{ mode: 'static', value: 15 }}
-              color="#262720"
+              config={{
+                text: "ANIMDOCK",
+                target: "Let's",
+                morph: true,
+                speed: { mode: 'static', value: 2 },
+                variants: { mode: 'static', value: 15 },
+                color: "#262720"
+              }}
             />
             <br />
             Talk

@@ -10,9 +10,8 @@
   //   "installOn": { "includes": ["**/*.json"], "excludes": ["test/**"] }
   //
   // Only list files that affect the *toolchain or dependency tree* here —
-  // NOT application source files. Vite's dev server already watches
-  // application code (src/**/*) and config (vite.config.ts) via its own HMR
-  // pipeline, so including them here would cause a redundant full restart.
+  // NOT application source files. Next.js watches application code and
+  // configuration through its own development pipeline.
   "installOn": [
     "package.json",
     "pnpm-lock.yaml"

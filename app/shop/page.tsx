@@ -71,12 +71,14 @@ export default function ShopPage() {
           <p className="eyebrow">Objects for considered living</p>
           <h1>
             <TypeMorph
-              text="ANIMDOCK"
-              target="Furniture"
-              morph={true}
-              speed={{ mode: 'static', value: 2 }}
-              variants={{ mode: 'static', value: 15 }}
-              color="#262720"
+              config={{
+                text: "ANIMDOCK",
+                target: "Furniture",
+                morph: true,
+                speed: { mode: 'static', value: 2 },
+                variants: { mode: 'static', value: 15 },
+                color: "#262720"
+              }}
             />
             <br />
             Collection

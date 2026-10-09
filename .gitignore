@@ -3,8 +3,7 @@ dist/
 build/
 .cache/
 .env*
-.vite/
-vite.config.*.timestamp-*
+.next/
 *.tsbuildinfo
 *-debug.log*
 logs/

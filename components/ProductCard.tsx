@@ -1,8 +1,8 @@
 import Arrow from "./Arrow";
 
-export default function ProductCard({ item }: { item: { name: string; price: string; image: string } }) {
+export default function ProductCard({ item, className = "" }: { item: { name: string; price: string; image: string }, className?: string }) {
   return (
-    <article className="product-card">
+    <article className={`product-card ${className}`}>
       <a href="#shop" className="image-wrap">
         <img src={item.image} alt={item.name} />
         <span className="product-action">View piece</span>

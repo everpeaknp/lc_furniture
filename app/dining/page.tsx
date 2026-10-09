@@ -57,12 +57,14 @@ export default function DiningPage() {
             <p className="eyebrow">{room.eyebrow}</p>
             <h1>
               <TypeMorph
-                text="ANIMDOCK"
-                target={room.title}
-                morph={true}
-                speed={{ mode: 'static', value: 2 }}
-                variants={{ mode: 'static', value: 15 }}
-                color="#f6f4ef"
+                config={{
+                  text: "ANIMDOCK",
+                  target: room.title,
+                  morph: true,
+                  speed: { mode: 'static', value: 2 },
+                  variants: { mode: 'static', value: 15 },
+                  color: "#f6f4ef"
+                }}
               />
             </h1>
           </div>

@@ -69,7 +69,7 @@ const TypeMorph: React.FC<TypeMorphProps> = ({
   const [displayText, setDisplayText] = useState(config.text);
   const [currentCharIndex, setCurrentCharIndex] = useState(0);
   const [isMorphing, setIsMorphing] = useState(config.morph);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
 
   useEffect(() => {
     if (!config.morph) {
