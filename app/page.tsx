@@ -11,6 +11,7 @@ import Arrow from "@/components/Arrow";
 import TypeMorph from "@/components/TypeMorph";
 import { Hero } from "@/components/Hero";
 import AnimatedSection from "@/components/AnimatedSection";
+import FestiveCountdown from "@/components/FestiveCountdown";
 
 const images = {
   hero: "https://images.unsplash.com/photo-1653629495477-b42f0f43ce3f?auto=format&fit=crop&w=1400&q=85",
@@ -69,7 +70,8 @@ export default function HomePage() {
       <MegaMenuHeader />
 
       <main id="top" className="pt-20">
-        <Hero />
+        <FestiveCountdown />
+          <Hero />
 
         <AnimatedSection className="benefits section" aria-label="Store benefits">
           {[
