@@ -1,0 +1,10 @@
+{
+  "description": "Effortlessly convert images into ready-to-use Next.js code, streamlining the development process for web developers and designers.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
