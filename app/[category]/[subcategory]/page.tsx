@@ -96,9 +96,9 @@ export default async function SubcategoryPage({
             </div>
             <span>{data.products.length} pieces</span>
           </div>
-          <div className="product-grid">
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8 sm:space-y-0">
             {data.products.map((item) => (
-              <ProductCard item={item} key={item.name} />
+              <ProductCard key={item.name} item={item} className="break-inside-avoid mb-8 [&_.image-wrap]:!aspect-auto [&_img]:!h-auto" />
             ))}
           </div>
         </section>

@@ -78,8 +78,10 @@ export default function BedroomPage() {
             <div><p className="eyebrow">Designed for your space</p><h2>{room.title} Collection</h2></div>
             <span>{room.products.length} pieces</span>
           </div>
-          <div className="product-grid">
-            {room.products.map((item) => <ProductCard item={item} key={item.name} />)}
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8 sm:space-y-0">
+            {room.products.map((item) => (
+              <ProductCard key={item.name} item={item} className="break-inside-avoid mb-8 [&_.image-wrap]:!aspect-auto [&_img]:!h-auto" />
+            ))}
           </div>
         </section>
         <section className="room-story section">

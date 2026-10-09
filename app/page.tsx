@@ -142,7 +142,7 @@ export default function HomePage() {
             <div><p className="eyebrow">Selected for you</p><h2>Our Featured Products</h2></div>
             <a href="/shop">Shop all <Arrow /></a>
           </motion.div>
-          <div className="product-grid">
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8 sm:space-y-0">
             {featured.map((item, index) => (
               <motion.div
                 key={item.name}
@@ -150,6 +150,7 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="break-inside-avoid mb-8 [&_.image-wrap]:!aspect-auto [&_img]:!h-auto"
               >
                 <ProductCard item={item} />
               </motion.div>
@@ -254,7 +255,7 @@ export default function HomePage() {
             <div><p className="eyebrow">The current edit</p><h2>Trending Products</h2></div>
             <a href="/shop">Shop all <Arrow /></a>
           </motion.div>
-          <div className="product-grid">
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8 sm:space-y-0">
             {trending.map((item, index) => (
               <motion.div
                 key={item.name}
@@ -262,6 +263,7 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="break-inside-avoid mb-8 [&_.image-wrap]:!aspect-auto [&_img]:!h-auto"
               >
                 <ProductCard item={item} />
               </motion.div>

@@ -44,7 +44,7 @@ const catalog = [
   { name: "Frame Shelving Unit", price: "Rs. 64,000", image: images.desk, category: "Storage" },
 ];
 
-export default function ShopPage() {
+function ShopContent() {
   const searchParams = useSearchParams();
   const requestedCategory = searchParams.get("category");
   const [category, setCategory] = useState(
@@ -115,11 +115,13 @@ export default function ShopPage() {
           </div>
         </section>
 
-        <section className="catalog-grid section" aria-live="polite">
-          {products.map((item, index) => (
-            <div className={index === 0 && category === "All" ? "catalog-featured" : ""} key={item.name}>
+        <section className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8 sm:space-y-0 section" aria-live="polite">
+          {products.map((item) => (
+            <div className="break-inside-avoid mb-8 relative [&_.image-wrap]:!aspect-auto [&_img]:!h-auto" key={item.name}>
               <ProductCard item={item} />
-              <span className="product-category">{item.category}</span>
+              <span className="absolute top-2 left-2 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-semibold tracking-widest uppercase text-[#5a5952] font-sans">
+                {item.category}
+              </span>
             </div>
           ))}
         </section>
@@ -139,5 +141,15 @@ export default function ShopPage() {
 
       <SiteFooter />
     </div>
+  );
+}
+
+import { Suspense } from 'react';
+
+export default function ShopPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ShopContent />
+    </Suspense>
   );
 }
