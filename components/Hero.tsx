@@ -324,30 +324,33 @@ export function FixedOfferCard({ className }: { className?: string }) {
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#1e3a8a]/95 via-[#1d4ed8]/90 to-[#172554]/95" />
 
       <div className="flex h-full flex-col justify-between gap-4 p-6">
-        <div className="flex items-start justify-between gap-4">
-          <div>
+        <div className="flex flex-col sm:flex-row items-start sm:items-start justify-between gap-4">
+          <div className="flex-1">
             <span className="inline-block px-2 py-1 bg-[#faf8f2] text-[#1e3a8a] text-xs font-semibold tracking-widest uppercase">
               Special offer
             </span>
-            <h3 className="mt-3 flex items-start gap-2 text-2xl font-semibold leading-tight font-sans">
-              <Truck className="mt-1 h-5 w-5 shrink-0" aria-hidden />
-              Free shipping on orders over Rs. 50,000
+            <h3 className="mt-3 text-xl sm:text-2xl font-semibold leading-tight font-sans">
+              Experience seamless shopping
             </h3>
+            <p className="mt-2 flex items-start gap-2 text-sm sm:text-base font-sans text-white/90">
+              <Truck className="mt-1 h-4 w-4 sm:h-5 sm:w-5 shrink-0" aria-hidden />
+              <span>Get free shipping on orders over Rs. 50,000</span>
+            </p>
           </div>
-          <div className="flex h-20 w-20 shrink-0 flex-col items-center justify-center bg-[#faf8f2] text-[#1e3a8a]">
-            <BadgePercent className="h-6 w-6" aria-hidden />
-            <span className="mt-1 text-center text-[10px] font-bold leading-tight tracking-widest uppercase">No cost EMI</span>
+          <div className="flex h-16 w-16 sm:h-20 sm:w-20 shrink-0 flex-col items-center justify-center bg-[#faf8f2] text-[#1e3a8a]">
+            <BadgePercent className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden />
+            <span className="mt-1 text-center text-[9px] sm:text-[10px] font-bold leading-tight tracking-widest uppercase">No cost EMI</span>
           </div>
         </div>
 
-        <div className="flex items-center justify-between gap-3">
-          <p className="flex items-center gap-2 text-sm text-white/85 font-sans">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
+          <p className="flex items-center gap-2 text-xs sm:text-sm text-white/85 font-sans">
             <MapPin className="h-4 w-4 shrink-0" aria-hidden />
-            Visit an experience store near you
+            <span>Visit an experience store</span>
           </p>
           <Link
             href="/contact"
-            className="shrink-0 px-4 py-2 border border-white/70 bg-transparent text-white text-sm font-semibold tracking-widest uppercase hover:bg-white hover:text-[#1e3a8a] transition-colors"
+            className="shrink-0 px-4 py-2 border border-white/70 bg-transparent text-white text-xs sm:text-sm font-semibold tracking-widest uppercase hover:bg-white hover:text-[#1e3a8a] transition-colors text-center whitespace-nowrap"
           >
             Find a store <ArrowRight className="inline h-4 w-4 ml-1" />
           </Link>

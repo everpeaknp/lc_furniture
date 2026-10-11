@@ -393,8 +393,11 @@ p {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
-  padding: 60px 0;
+  padding: 60px 40px;
   background: #e8e6e0;
+  width: 100%;
+  max-width: 100%;
+  margin-inline: 0;
 }
 .benefit span {
   font-size: 48px;

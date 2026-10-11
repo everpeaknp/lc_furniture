@@ -79,23 +79,16 @@ export default function FestiveCountdown() {
         }}
       />
 
-      <div className="relative mx-auto flex flex-wrap items-center justify-between gap-y-3 gap-x-6 px-4 py-2.5 md:px-12 max-w-[1440px]">
+      <div className="relative mx-auto flex flex-wrap items-center justify-between gap-y-3 gap-x-6 px-4 py-4 md:px-12 max-w-[1440px] h-full">
         {/* Left: Banner text */}
-        <div className="flex items-center gap-2.5">
-          <Sparkles className="h-4 w-4 text-[#fde68a] shrink-0" />
-          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2">
-            <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#fde68a]">
-              Festive Sale
-            </span>
-            <span className="hidden sm:inline text-white/30">•</span>
-            <p className="text-xs sm:text-sm font-medium leading-tight text-white">
-              Up to <span className="text-[#fde68a] font-bold">40% off</span> — limited time only
-            </p>
-          </div>
+        <div className="flex items-center h-full">
+          <p className="text-sm sm:text-base font-medium leading-normal text-white">
+            Grab the biggest Sale for limited time only
+          </p>
         </div>
 
         {/* Centre: Small Square Sales Timer (Length = Breadth) */}
-        <div className="flex items-center gap-1.5 sm:gap-2" aria-label="Sales countdown timer">
+        <div className="flex items-center h-full gap-1.5 sm:gap-2" aria-label="Sales countdown timer">
           {timerUnits.map((unit, idx) => (
             <div key={unit.key} className="flex items-center gap-1.5 sm:gap-2">
               <div
