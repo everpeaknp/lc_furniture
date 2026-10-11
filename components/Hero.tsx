@@ -1,8 +1,8 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, BadgePercent, ChevronLeft, ChevronRight, MapPin, Pause, Play, Truck } from "lucide-react";
+import { AnimatePresence, motion, useMotionValue, useReducedMotion } from "framer-motion";
+import { ArrowRight, BadgePercent, ChevronLeft, ChevronRight, MapPin, Truck } from "lucide-react";
 import Link from "next/link";
 
 const images = {
@@ -22,17 +22,17 @@ const images = {
   story: "https://images.unsplash.com/photo-1605774337664-7a846e9cdf17?auto=format&fit=crop&w=1200&q=85",
 };
 
-export type BigSlide = { id: string; label: string; href: string; image: string; alt: string };
+export type BigSlide = { id: string; label: string; tagline: string; href: string; image: string; alt: string };
 export type HoverSlide = { id: string; label: string; tagline: string; href: string; image: string; alt: string };
 
 export const bigSlides: BigSlide[] = [
-  { id: "festive", label: "New Collection", href: "/shop", image: images.hero, alt: "New furniture collection" },
-  { id: "beds", label: "Bedroom Sets", href: "/bedroom", image: images.bedroom, alt: "Shop bedroom furniture" },
-  { id: "dining", label: "Dining Tables", href: "/dining", image: images.dining, alt: "Dining table sets" },
-  { id: "sofa-cum-beds", label: "Sofas", href: "/living-room", image: images.sofa, alt: "Sofa collection" },
-  { id: "coffee-tables", label: "Coffee Tables", href: "/shop", image: images.table, alt: "Coffee tables" },
-  { id: "lounge-chairs", label: "Lounge Chairs", href: "/living-room", image: images.chair, alt: "Lounge chairs" },
-  { id: "study-tables", label: "Study Tables", href: "/study-office", image: images.desk, alt: "Study tables" },
+  { id: "festive", label: "New Collection", tagline: "Fresh arrivals crafted for timeless living.", href: "/shop", image: images.hero, alt: "New furniture collection" },
+  { id: "beds", label: "Bedroom Sets", tagline: "Rest deeper in spaces built for comfort.", href: "/bedroom", image: images.bedroom, alt: "Shop bedroom furniture" },
+  { id: "dining", label: "Dining Tables", tagline: "Where every meal becomes a memory.", href: "/dining", image: images.dining, alt: "Dining table sets" },
+  { id: "sofa-cum-beds", label: "Sofas", tagline: "Sink in, stay a while, live beautifully.", href: "/living-room", image: images.sofa, alt: "Sofa collection" },
+  { id: "coffee-tables", label: "Coffee Tables", tagline: "The centrepiece every living room deserves.", href: "/shop", image: images.table, alt: "Coffee tables" },
+  { id: "lounge-chairs", label: "Lounge Chairs", tagline: "Designed for the moments you slow down.", href: "/living-room", image: images.chair, alt: "Lounge chairs" },
+  { id: "study-tables", label: "Study Tables", tagline: "Built for focus, made to inspire.", href: "/study-office", image: images.desk, alt: "Study tables" },
 ];
 
 export const hoverSlides: HoverSlide[] = [
@@ -65,20 +65,15 @@ export function BigAutoSlider({ className }: { className?: string }) {
   const [progress, setProgress] = useState(0);
   const [hovering, setHovering] = useState(false);
   const [focused, setFocused] = useState(false);
-  const [userPaused, setUserPaused] = useState(false);
-  const paused = hovering || focused || userPaused || !!reduceMotion;
+  const isSwiping = useRef(false);
+  const dragX = useMotionValue(0);
+  const paused = hovering || focused || !!reduceMotion;
 
   const step = useCallback((dir: 1 | -1) => {
     setDirection(dir);
     setIndex((i) => (i + dir + N) % N);
     setProgress(0);
   }, []);
-
-  const jump = (i: number) => {
-    setDirection(i > index ? 1 : -1);
-    setIndex(i);
-    setProgress(0);
-  };
 
   useEffect(() => {
     if (paused) return;
@@ -97,7 +92,7 @@ export function BigAutoSlider({ className }: { className?: string }) {
       role="region"
       aria-roledescription="carousel"
       aria-label="Featured collections"
-      className={`relative isolate overflow-hidden bg-stone-900 ${className}`}
+      className={`relative isolate overflow-hidden bg-stone-900 select-none ${className}`}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
       onFocus={() => setFocused(true)}
@@ -107,11 +102,15 @@ export function BigAutoSlider({ className }: { className?: string }) {
         if (e.key === "ArrowRight") step(1);
       }}
     >
+      {/* Slide images */}
       <div aria-live={paused ? "polite" : "off"} className="absolute inset-0">
         <AnimatePresence initial={false} custom={direction} mode="popLayout">
           <motion.a
             key={slide.id}
             href={slide.href}
+            onClick={(e) => {
+              if (isSwiping.current) e.preventDefault();
+            }}
             custom={direction}
             variants={variants}
             initial="enter"
@@ -120,71 +119,123 @@ export function BigAutoSlider({ className }: { className?: string }) {
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             aria-label={`${slide.label} – slide ${index + 1} of ${N}`}
             className="absolute inset-0 block focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-white/80"
+            style={{ x: dragX }}
           >
             <img
               src={slide.image}
               alt={slide.alt}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover pointer-events-none"
               loading={index === 0 ? "eager" : "lazy"}
               draggable={false}
             />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-black/65 via-black/25 to-transparent" />
           </motion.a>
         </AnimatePresence>
       </div>
 
-      {/* Controls */}
-      <div className="absolute right-4 top-4 z-10 flex items-center gap-2 md:right-6 md:top-6">
-        <button
-          aria-label={userPaused ? "Play slideshow" : "Pause slideshow"}
-          onClick={() => setUserPaused((p) => !p)}
-          className="h-10 w-10 bg-white/85 text-stone-900 backdrop-blur hover:bg-white flex items-center justify-center"
-        >
-          {userPaused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
-        </button>
-        <button
-          aria-label="Previous slide"
-          onClick={() => step(-1)}
-          className="h-10 w-10 bg-white/85 text-stone-900 backdrop-blur hover:bg-white flex items-center justify-center"
-        >
-          <ChevronLeft className="h-5 w-5" />
-        </button>
-        <button
-          aria-label="Next slide"
-          onClick={() => step(1)}
-          className="h-10 w-10 bg-white/85 text-stone-900 backdrop-blur hover:bg-white flex items-center justify-center"
-        >
-          <ChevronRight className="h-5 w-5" />
-        </button>
+      {/* Invisible drag capture layer */}
+      <motion.div
+        className="absolute inset-0 z-10 cursor-grab active:cursor-grabbing touch-none"
+        drag="x"
+        dragConstraints={{ left: 0, right: 0 }}
+        dragElastic={0.15}
+        style={{ x: dragX }}
+        onDragStart={() => {
+          isSwiping.current = true;
+        }}
+        onDragEnd={(_e, info) => {
+          dragX.set(0);
+          if (info.offset.x < -50 || info.velocity.x < -300) {
+            step(1);
+          } else if (info.offset.x > 50 || info.velocity.x > 300) {
+            step(-1);
+          }
+          setTimeout(() => {
+            isSwiping.current = false;
+          }, 100);
+        }}
+      />
+
+      {/* Explore button — top left */}
+      <div className="absolute left-4 top-4 z-20 md:left-8 md:top-6">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.a
+            key={slide.id}
+            href={slide.href}
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 8 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-white hover:bg-stone-100 active:bg-stone-200 text-stone-900 text-xs font-semibold tracking-[0.15em] uppercase transition-all duration-200 select-none shadow-sm"
+          >
+            Explore
+            <ArrowRight className="h-3.5 w-3.5" />
+          </motion.a>
+        </AnimatePresence>
       </div>
 
-      {/* Tabs with progress */}
-      <div role="tablist" aria-label="Choose slide" className="absolute inset-x-4 bottom-4 z-10 grid grid-cols-7 gap-2 md:inset-x-8 md:bottom-6">
-        {bigSlides.map((s, i) => {
-          const active = i === index;
-          const width = i < index ? 100 : active ? Math.min(progress, 100) : 0;
-          return (
-            <button
-              key={s.id}
-              role="tab"
-              aria-selected={active}
-              aria-label={s.label}
-              onClick={() => jump(i)}
-              className="group text-left focus-visible:outline-none"
+      {/* Slide text + progress lines (bottom overlay) */}
+      <div className="absolute inset-x-0 bottom-0 z-20 pointer-events-none">
+        {/* Dark gradient for readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+
+        <div className="relative px-4 pb-4 md:px-8 md:pb-6">
+          {/* Animated title + description */}
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={slide.id}
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              className="mb-4 pointer-events-none select-none"
             >
-              <div className="h-[3px] overflow-hidden bg-white/30 group-focus-visible:ring-2 group-focus-visible:ring-white">
-                <div className="h-full bg-white" style={{ width: `${width}%` }} />
-              </div>
-              <span
-                className={`mt-2 hidden truncate text-xs font-medium transition-colors md:block font-sans tracking-widest uppercase ${
-                  active ? "text-white" : "text-white/65 group-hover:text-white"
-                }`}
-              >
-                {s.label}
-              </span>
-            </button>
-          );
-        })}
+              <p className="mb-1.5 text-[11px] font-semibold tracking-[0.22em] uppercase text-white/55 font-sans">
+                — {slide.label}
+              </p>
+              <h2 className="text-2xl md:text-4xl font-semibold leading-tight text-white font-sans">
+                {slide.label}
+              </h2>
+              <p className="mt-2 text-sm md:text-base text-white/70 font-sans font-light">
+                {slide.tagline}
+              </p>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Progress line indicators */}
+          <div
+            role="tablist"
+            aria-label="Slide indicators"
+            className="flex gap-2 pointer-events-auto"
+          >
+            {bigSlides.map((s, i) => {
+              const active = i === index;
+              const past = i < index;
+              const fillWidth = past ? 100 : active ? Math.min(progress, 100) : 0;
+              return (
+                <button
+                  key={s.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={active}
+                  aria-label={s.label}
+                  onClick={() => {
+                    setDirection(i > index ? 1 : -1);
+                    setIndex(i);
+                    setProgress(0);
+                  }}
+                  className="flex-1 group focus-visible:outline-none"
+                >
+                  <div className="relative h-[3px] overflow-hidden rounded-full bg-white/30 group-focus-visible:ring-2 group-focus-visible:ring-white group-hover:bg-white/50 transition-colors">
+                    <div
+                      className="absolute inset-y-0 left-0 bg-white rounded-full transition-none"
+                      style={{ width: `${fillWidth}%` }}
+                    />
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -235,7 +286,6 @@ export function HoverSliderCard({ className }: { className?: string }) {
           className="absolute inset-0 h-full w-full object-cover"
         />
       </AnimatePresence>
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/10" />
 
       {/* Segment indicator */}
       <div className="absolute inset-x-5 top-4 z-10 flex gap-1" aria-hidden>
@@ -244,41 +294,22 @@ export function HoverSliderCard({ className }: { className?: string }) {
         ))}
       </div>
 
-      {/* Arrows */}
-      <button aria-label="Previous product" onClick={() => step(-1)} onPointerMove={(e) => e.stopPropagation()} className={`${arrowClass} left-3`}>
-        <ChevronLeft className="h-5 w-5" />
-      </button>
-      <button aria-label="Next product" onClick={() => step(1)} onPointerMove={(e) => e.stopPropagation()} className={`${arrowClass} right-3`}>
-        <ChevronRight className="h-5 w-5" />
-      </button>
-
-      {/* Copy + CTA */}
-      <div className="absolute inset-x-0 bottom-0 z-10 flex items-end justify-between gap-3 p-5 text-white">
-        <div className="min-w-0">
-          <span className="mb-2 inline-block px-2 py-1 bg-white/90 text-stone-900 text-xs font-semibold tracking-widest uppercase">
-            {index + 1} / {HN}
-          </span>
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={slide.id}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.2 }}
-            >
-              <h3 className="truncate text-2xl font-semibold leading-tight font-sans">{slide.label}</h3>
-              <p className="truncate text-sm text-white/85 font-sans">{slide.tagline}</p>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-        <Link
-          href={slide.href}
-          className={`shrink-0 px-4 py-2 text-sm font-semibold tracking-widest uppercase transition-colors duration-200 ${
-            hovered ? "bg-[#1e3a8a] text-white hover:bg-[#1d4ed8]" : "bg-[#faf8f2] text-[#172554] hover:bg-white"
-          }`}
-        >
-          Shop now <ArrowRight className="inline h-4 w-4 ml-1" />
-        </Link>
+      {/* Explore button — bottom right */}
+      <div className="absolute bottom-4 right-4 z-10 md:bottom-5 md:right-5">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.a
+            key={slide.id}
+            href={slide.href}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white hover:bg-stone-100 active:bg-stone-200 text-stone-900 text-xs font-semibold tracking-[0.15em] uppercase transition-all duration-200 shadow-sm select-none"
+          >
+            Explore
+            <ArrowRight className="h-3.5 w-3.5" />
+          </motion.a>
+        </AnimatePresence>
       </div>
     </motion.div>
   );
@@ -337,8 +368,8 @@ export function Hero() {
   };
 
   return (
-    <section aria-label="Featured offers" className="mx-auto w-full max-w-[1440px] px-4 py-6 md:px-12 md:py-8">
-      <motion.div variants={container} initial="hidden" animate="show" className="grid gap-6 lg:grid-cols-[minmax(0,920fr)_400px]">
+    <section aria-label="Featured offers" className="w-full my-3 px-3 sm:px-6">
+      <motion.div variants={container} initial="hidden" animate="show" className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_400px]">
         <motion.div variants={item} className="h-[420px] md:h-[520px] lg:h-[640px]">
           <BigAutoSlider className="h-full" />
         </motion.div>
