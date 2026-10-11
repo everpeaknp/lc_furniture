@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   distDir: 'build',
+  transpilePackages: ['lucide-react'],
   images: {
     remotePatterns: [
       {

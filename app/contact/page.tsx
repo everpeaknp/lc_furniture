@@ -1,7 +1,6 @@
 'use client';
 
 import { FormEvent, useState } from "react";
-import MegaMenuHeader from "@/components/MegaMenuHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Arrow from "@/components/Arrow";
 import TypeMorph from "@/components/TypeMorph";
@@ -15,8 +14,7 @@ export default function ContactPage() {
 
   return (
     <div className="site-shell">
-      <MegaMenuHeader />
-      <main className="contact-page pt-20">
+      <main className="contact-page">
         <section className="contact-intro">
           <p className="eyebrow">We would love to hear from you</p>
           <h1>

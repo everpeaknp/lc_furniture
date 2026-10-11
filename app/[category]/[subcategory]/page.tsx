@@ -1,4 +1,3 @@
-import MegaMenuHeader from "@/components/MegaMenuHeader";
 import SiteFooter from "@/components/SiteFooter";
 import ProductCard from "@/components/ProductCard";
 import Arrow from "@/components/Arrow";
@@ -72,8 +71,7 @@ export default async function SubcategoryPage({
 
   return (
     <div className="site-shell">
-      <MegaMenuHeader />
-      <main className="pt-20">
+      <main>
         <section className="room-page-hero">
           <img src={data.hero} alt={`${title} collection`} />
           <div>

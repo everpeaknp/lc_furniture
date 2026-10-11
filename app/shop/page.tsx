@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import MegaMenuHeader from "@/components/MegaMenuHeader";
 import SiteFooter from "@/components/SiteFooter";
 import ProductCard from "@/components/ProductCard";
 import Arrow from "@/components/Arrow";
@@ -64,9 +63,7 @@ function ShopContent() {
 
   return (
     <div className="site-shell">
-      <MegaMenuHeader />
-
-      <main className="pt-20">
+      <main>
         <section className="catalog-hero section">
           <p className="eyebrow">Objects for considered living</p>
           <h1>

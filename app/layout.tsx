@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "Furtinuer - Quality Furniture for Real Homes",
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <LenisProvider />
+        <Navbar />
         {children}
       </body>
     </html>

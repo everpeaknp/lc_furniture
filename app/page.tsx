@@ -4,7 +4,6 @@ import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
 import { z } from "zod";
 import { Truck, Store, Package, RotateCcw } from "lucide-react";
-import MegaMenuHeader from "@/components/MegaMenuHeader";
 import SiteFooter from "@/components/SiteFooter";
 import ProductCard from "@/components/ProductCard";
 import Arrow from "@/components/Arrow";
@@ -12,6 +11,7 @@ import TypeMorph from "@/components/TypeMorph";
 import { Hero } from "@/components/Hero";
 import AnimatedSection from "@/components/AnimatedSection";
 import FestiveCountdown from "@/components/FestiveCountdown";
+import SaleBanner from "@/components/SaleBanner";
 
 const images = {
   hero: "https://images.unsplash.com/photo-1653629495477-b42f0f43ce3f?auto=format&fit=crop&w=1400&q=85",
@@ -41,7 +41,6 @@ const trending = [
   { name: "A Vase Table", price: "Rs. 22,000", image: images.table },
   { name: "Vintage Sofa", price: "Rs. 65,000", image: images.chair },
   { name: "Home Chest", price: "Rs. 28,000", image: images.cabinet },
-  { name: "Writing Table", price: "Rs. 34,000", image: images.desk },
 ];
 
 const emailSchema = z.string().email('Please enter a valid email address');
@@ -67,11 +66,10 @@ export default function HomePage() {
 
   return (
     <div className="site-shell">
-      <MegaMenuHeader />
-
-      <main id="top" className="pt-20">
+      <main id="top">
+        <Hero />
+        <SaleBanner />
         <FestiveCountdown />
-          <Hero />
 
         <AnimatedSection className="benefits section" aria-label="Store benefits">
           {[

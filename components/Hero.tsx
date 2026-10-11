@@ -274,7 +274,7 @@ export function HoverSliderCard({ className }: { className?: string }) {
         <Link
           href={slide.href}
           className={`shrink-0 px-4 py-2 text-sm font-semibold tracking-widest uppercase transition-colors duration-200 ${
-            hovered ? "bg-[#262720] text-white hover:bg-[#3a3933]" : "bg-white text-stone-900 hover:bg-white/90"
+            hovered ? "bg-[#1e3a8a] text-white hover:bg-[#1d4ed8]" : "bg-[#faf8f2] text-[#172554] hover:bg-white"
           }`}
         >
           Shop now <ArrowRight className="inline h-4 w-4 ml-1" />
@@ -290,12 +290,12 @@ export function FixedOfferCard({ className }: { className?: string }) {
   return (
     <aside aria-label="Standing offers" className={`relative isolate overflow-hidden text-white ${className}`}>
       <img src={offerImage} alt="" aria-hidden className="absolute inset-0 -z-20 h-full w-full object-cover" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#435471]/95 via-[#435471]/90 to-[#2B374D]/90" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#1e3a8a]/95 via-[#1d4ed8]/90 to-[#172554]/95" />
 
       <div className="flex h-full flex-col justify-between gap-4 p-6">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <span className="inline-block px-2 py-1 bg-[#D9A441] text-stone-900 text-xs font-semibold tracking-widest uppercase">
+            <span className="inline-block px-2 py-1 bg-[#faf8f2] text-[#1e3a8a] text-xs font-semibold tracking-widest uppercase">
               Special offer
             </span>
             <h3 className="mt-3 flex items-start gap-2 text-2xl font-semibold leading-tight font-sans">
@@ -303,7 +303,7 @@ export function FixedOfferCard({ className }: { className?: string }) {
               Free shipping on orders over Rs. 50,000
             </h3>
           </div>
-          <div className="flex h-20 w-20 shrink-0 flex-col items-center justify-center bg-[#D9A441] text-stone-900">
+          <div className="flex h-20 w-20 shrink-0 flex-col items-center justify-center bg-[#faf8f2] text-[#1e3a8a]">
             <BadgePercent className="h-6 w-6" aria-hidden />
             <span className="mt-1 text-center text-[10px] font-bold leading-tight tracking-widest uppercase">No cost EMI</span>
           </div>
@@ -316,7 +316,7 @@ export function FixedOfferCard({ className }: { className?: string }) {
           </p>
           <Link
             href="/contact"
-            className="shrink-0 px-4 py-2 border border-white/70 bg-transparent text-white text-sm font-semibold tracking-widest uppercase hover:bg-white hover:text-[#2B374D] transition-colors"
+            className="shrink-0 px-4 py-2 border border-white/70 bg-transparent text-white text-sm font-semibold tracking-widest uppercase hover:bg-white hover:text-[#1e3a8a] transition-colors"
           >
             Find a store <ArrowRight className="inline h-4 w-4 ml-1" />
           </Link>

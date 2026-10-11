@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Sparkles } from "lucide-react";
+import { Sparkles, X } from "lucide-react";
 
 const SALE_KEY = "festive_sale_end";
 
@@ -18,98 +18,120 @@ function getOrCreateEndTime(): number {
   return end;
 }
 
-interface TimeLeft { hours: number; minutes: number; seconds: number; }
+type TimeLeft = {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+};
 
-function calcTimeLeft(end: number): TimeLeft {
-  const diff = Math.max(0, end - Date.now());
+function calculateTimeLeft(target: number): TimeLeft {
+  const diff = Math.max(0, target - Date.now());
+  const totalSecs = Math.floor(diff / 1000);
   return {
-    hours:   Math.floor(diff / (1000 * 60 * 60)),
-    minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
-    seconds: Math.floor((diff % (1000 * 60)) / 1000),
+    days: Math.floor(totalSecs / 86400),
+    hours: Math.floor((totalSecs % 86400) / 3600),
+    minutes: Math.floor((totalSecs % 3600) / 60),
+    seconds: totalSecs % 60,
   };
 }
 
-function Pad({ n }: { n: number }) {
-  return <>{String(n).padStart(2, "0")}</>;
+function pad(num: number): string {
+  return String(Math.max(0, num)).padStart(2, "0");
 }
 
 export default function FestiveCountdown() {
-  const endRef = useRef<number>(0);
-  const [time, setTime] = useState<TimeLeft>({ hours: 48, minutes: 0, seconds: 0 });
+  const [end, setEnd] = useState<number>(0);
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [mounted, setMounted] = useState(false);
   const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
-    endRef.current = getOrCreateEndTime();
-    setTime(calcTimeLeft(endRef.current));
-    const id = setInterval(() => setTime(calcTimeLeft(endRef.current)), 1000);
-    return () => clearInterval(id);
+    const target = getOrCreateEndTime();
+    setEnd(target);
+    setTimeLeft(calculateTimeLeft(target));
+    setMounted(true);
+
+    const interval = window.setInterval(() => {
+      setTimeLeft(calculateTimeLeft(target));
+    }, 1000);
+
+    return () => window.clearInterval(interval);
   }, []);
 
   if (dismissed) return null;
 
+  const timerUnits = [
+    { key: "days", label: "Days", value: pad(timeLeft.days) },
+    { key: "hours", label: "Hrs", value: pad(timeLeft.hours) },
+    { key: "minutes", label: "Min", value: pad(timeLeft.minutes) },
+    { key: "seconds", label: "Sec", value: pad(timeLeft.seconds) },
+  ];
+
   return (
-    <div className="relative w-full bg-[#262720] text-[#f6f4ef] font-sans overflow-hidden">
-      {/* animated shimmer */}
+    <div className="relative w-full bg-[#1e3a8a] text-white font-sans overflow-hidden border-y border-[#172554] shadow-sm">
+      {/* Animated subtle shimmer */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-10"
+        className="pointer-events-none absolute inset-0 opacity-15"
         style={{
-          background: "linear-gradient(90deg, transparent 0%, #D9A441 40%, transparent 80%)",
+          background: "linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.35) 40%, transparent 80%)",
           animation: "festive-shimmer 3s linear infinite",
         }}
       />
 
-      <div className="relative mx-auto flex flex-wrap items-center justify-between gap-y-2 gap-x-6 px-6 py-3 md:px-10 max-w-7xl">
-        {/* Left: label */}
-        <div className="flex items-center gap-3">
-          <Sparkles className="h-5 w-5 text-[#D9A441] shrink-0" />
-          <div>
-            <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#D9A441]">Festive Sale</p>
-            <p className="text-sm font-medium leading-tight">
-              Up to <span className="text-[#D9A441] font-bold">40% off</span> — limited time only
+      <div className="relative mx-auto flex flex-wrap items-center justify-between gap-y-3 gap-x-6 px-4 py-2.5 md:px-12 max-w-[1440px]">
+        {/* Left: Banner text */}
+        <div className="flex items-center gap-2.5">
+          <Sparkles className="h-4 w-4 text-[#fde68a] shrink-0" />
+          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2">
+            <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#fde68a]">
+              Festive Sale
+            </span>
+            <span className="hidden sm:inline text-white/30">•</span>
+            <p className="text-xs sm:text-sm font-medium leading-tight text-white">
+              Up to <span className="text-[#fde68a] font-bold">40% off</span> — limited time only
             </p>
           </div>
         </div>
 
-        {/* Centre: countdown */}
-        <div className="flex items-center gap-1.5 text-center">
-          <div className="flex flex-col items-center">
-            <div className="min-w-[44px] rounded bg-white/10 px-3 py-1.5 text-2xl font-bold tabular-nums tracking-tight">
-              <Pad n={time.hours} />
+        {/* Centre: Small Square Sales Timer (Length = Breadth) */}
+        <div className="flex items-center gap-1.5 sm:gap-2" aria-label="Sales countdown timer">
+          {timerUnits.map((unit, idx) => (
+            <div key={unit.key} className="flex items-center gap-1.5 sm:gap-2">
+              <div
+                className="w-10 h-10 sm:w-11 sm:h-11 aspect-square rounded-md bg-[#172554] border border-[#60a5fa]/40 flex flex-col items-center justify-center text-center shadow-inner select-none transition-transform hover:scale-105"
+                title={`${unit.label}: ${unit.value}`}
+              >
+                <span className="font-mono text-xs sm:text-sm font-bold text-white leading-none tabular-nums">
+                  {mounted ? unit.value : "--"}
+                </span>
+                <span className="text-[7px] sm:text-[8px] font-semibold uppercase tracking-wider text-[#bfdbfe] mt-0.5 leading-none">
+                  {unit.label}
+                </span>
+              </div>
+              {idx < timerUnits.length - 1 && (
+                <span className="text-[#93c5fd]/60 font-mono text-xs font-bold leading-none select-none">
+                  :
+                </span>
+              )}
             </div>
-            <span className="mt-0.5 text-[9px] font-semibold uppercase tracking-widest text-white/50">Hrs</span>
-          </div>
-          <span className="mb-4 text-2xl font-bold text-white/40">:</span>
-          <div className="flex flex-col items-center">
-            <div className="min-w-[44px] rounded bg-white/10 px-3 py-1.5 text-2xl font-bold tabular-nums tracking-tight">
-              <Pad n={time.minutes} />
-            </div>
-            <span className="mt-0.5 text-[9px] font-semibold uppercase tracking-widest text-white/50">Min</span>
-          </div>
-          <span className="mb-4 text-2xl font-bold text-white/40">:</span>
-          <div className="flex flex-col items-center">
-            <div className="min-w-[44px] rounded bg-white/10 px-3 py-1.5 text-2xl font-bold tabular-nums tracking-tight">
-              <Pad n={time.seconds} />
-            </div>
-            <span className="mt-0.5 text-[9px] font-semibold uppercase tracking-widest text-white/50">Sec</span>
-          </div>
+          ))}
         </div>
 
-        {/* Right: CTA + close */}
-        <div className="flex items-center gap-4">
+        {/* Right: CTA & Dismiss */}
+        <div className="flex items-center gap-3">
           <Link
             href="/shop"
-            className="shrink-0 bg-[#D9A441] px-5 py-2 text-xs font-bold uppercase tracking-[0.15em] text-[#262720] hover:opacity-90 transition-opacity font-sans"
+            className="shrink-0 bg-[#faf8f2] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-[#1e3a8a] hover:bg-white transition-colors font-sans rounded-none shadow-sm"
           >
             Shop Sale
           </Link>
           <button
             onClick={() => setDismissed(true)}
             aria-label="Dismiss banner"
-            className="p-1 text-white/40 hover:text-white transition-colors"
+            className="p-1 text-white/60 hover:text-white transition-colors"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            <X className="h-4 w-4" />
           </button>
         </div>
       </div>

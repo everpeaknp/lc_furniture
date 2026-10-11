@@ -1,6 +1,5 @@
 'use client';
 
-import MegaMenuHeader from "@/components/MegaMenuHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Arrow from "@/components/Arrow";
 import TypeMorph from "@/components/TypeMorph";
@@ -34,8 +33,7 @@ const journalArticles = [
 export default function BlogPage() {
   return (
     <div className="site-shell">
-      <MegaMenuHeader />
-      <main className="pt-20">
+      <main>
         <section className="editorial-hero section">
           <p className="eyebrow">The Furtinuer journal</p>
           <h1>
