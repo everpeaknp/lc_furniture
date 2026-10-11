@@ -202,22 +202,6 @@ const NAV_ITEMS: NavItem[] = [
       card_image_url: images.desk,
     },
   },
-  {
-    id: 5,
-    label: "Blog",
-    href: "/blog",
-    order: 5,
-    columns: [],
-    panel: undefined,
-  },
-  {
-    id: 6,
-    label: "Contact",
-    href: "/contact",
-    order: 6,
-    columns: [],
-    panel: undefined,
-  },
 ];
 
 function MegaMenuPanel({
