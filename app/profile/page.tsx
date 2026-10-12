@@ -34,7 +34,7 @@ export default function ProfilePage() {
     <div className="min-h-screen bg-[#faf8f2] py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-[#172554] mb-2">My Account</h1>
+          <h1 className="text-3xl font-bold text-black mb-2">My Account</h1>
           <p className="text-[#64748b]">Manage your account settings and preferences</p>
         </div>
 
@@ -49,7 +49,7 @@ export default function ProfilePage() {
                     {user.name.split(' ').map(n => n[0]).join('')}
                   </AvatarFallback>
                 </Avatar>
-                <CardTitle className="text-xl text-[#172554]">{user.name}</CardTitle>
+                <CardTitle className="text-xl text-black">{user.name}</CardTitle>
                 <CardDescription className="text-[#64748b]">{user.email}</CardDescription>
               </CardHeader>
               <CardContent>
@@ -101,7 +101,7 @@ export default function ProfilePage() {
               <TabsContent value="orders" className="mt-6">
                 <Card className="border-[#e2dcd2]">
                   <CardHeader>
-                    <CardTitle className="text-lg text-[#172554]">Order History</CardTitle>
+                    <CardTitle className="text-lg text-black">Order History</CardTitle>
                     <CardDescription className="text-[#64748b]">View and track your recent orders</CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -112,7 +112,7 @@ export default function ProfilePage() {
                             <div className="flex items-center gap-3 mb-2">
                               <ShoppingBag className="h-5 w-5 text-[#1e3a8a]" />
                               <div>
-                                <p className="font-semibold text-[#172554]">{order.id}</p>
+                                <p className="font-semibold text-black">{order.id}</p>
                                 <p className="text-sm text-[#64748b]">{order.date}</p>
                               </div>
                             </div>
@@ -125,7 +125,7 @@ export default function ProfilePage() {
                             </span>
                           </div>
                           <div className="text-right">
-                            <p className="font-semibold text-[#172554]">{order.total}</p>
+                            <p className="font-semibold text-black">{order.total}</p>
                             <Button variant="link" className="text-[#1e3a8a] text-sm p-0 h-auto">
                               View Details
                             </Button>
@@ -140,7 +140,7 @@ export default function ProfilePage() {
               <TabsContent value="wishlist" className="mt-6">
                 <Card className="border-[#e2dcd2]">
                   <CardHeader>
-                    <CardTitle className="text-lg text-[#172554]">My Wishlist</CardTitle>
+                    <CardTitle className="text-lg text-black">My Wishlist</CardTitle>
                     <CardDescription className="text-[#64748b]">Items you've saved for later</CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -153,7 +153,7 @@ export default function ProfilePage() {
                             className="w-20 h-20 object-cover rounded-sm"
                           />
                           <div className="flex-1">
-                            <h4 className="font-semibold text-[#172554] text-sm mb-1">{item.name}</h4>
+                            <h4 className="font-semibold text-black text-sm mb-1">{item.name}</h4>
                             <p className="text-[#1e3a8a] font-semibold mb-2">{item.price}</p>
                             <Button size="sm" className="text-xs">
                               Add to Cart
@@ -169,7 +169,7 @@ export default function ProfilePage() {
               <TabsContent value="personal" className="mt-6">
                 <Card className="border-[#e2dcd2]">
                   <CardHeader>
-                    <CardTitle className="text-lg text-[#172554]">Personal Information</CardTitle>
+                    <CardTitle className="text-lg text-black">Personal Information</CardTitle>
                     <CardDescription className="text-[#64748b]">Update your personal details</CardDescription>
                   </CardHeader>
                   <CardContent>

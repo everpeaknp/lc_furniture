@@ -78,7 +78,7 @@ export default function StoresPage() {
                   className="w-full h-64 object-cover"
                 />
                 <div className="p-8">
-                  <h3 className="text-2xl font-serif text-[#172554] mb-4">{store.name}</h3>
+                  <h3 className="text-2xl font-serif text-black mb-4">{store.name}</h3>
                   
                   <div className="space-y-4 mb-6">
                     <div className="flex items-start gap-3">
@@ -118,7 +118,7 @@ export default function StoresPage() {
         <section className="section bg-[#f6f4ef]">
           <div className="max-w-3xl mx-auto text-center">
             <p className="eyebrow mb-4">Need help?</p>
-            <h2 className="text-3xl font-serif text-[#172554] mb-6">Book a Design Consultation</h2>
+            <h2 className="text-3xl font-serif text-black mb-6">Book a Design Consultation</h2>
             <p className="text-[#5a5952] mb-8 leading-relaxed">
               Our expert design consultants are available to help you plan your space, select the right furniture, and create a home that reflects your style. Schedule a free in-store consultation today.
             </p>

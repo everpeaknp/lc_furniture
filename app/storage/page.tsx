@@ -58,10 +58,6 @@ export default function StoragePage() {
             </h1>
           </div>
         </section>
-        <section className="room-page-intro section">
-          <p>{room.description}</p>
-          <a className="text-link" href="#collection">Explore collection <Arrow /></a>
-        </section>
         <section className="room-products section" id="collection">
           <div className="section-heading">
             <div><p className="eyebrow">Designed for organization</p><h2>{room.title} Collection</h2></div>

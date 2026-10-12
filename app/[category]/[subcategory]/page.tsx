@@ -17,6 +17,16 @@ const subcategoryData: Record<string, { hero: string, intro: string, products: A
       { name: "Cloud Bouclé Sofa", price: "Rs. 1,60,000", image: "https://images.unsplash.com/photo-1540574163026-643ea20d25b5?auto=format&fit=crop&w=900&q=80" },
     ]
   },
+  "recliners": {
+    hero: "https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?auto=format&fit=crop&w=1200&q=85",
+    intro: "Experience ultimate relaxation with our premium recliners. Featuring smooth mechanisms, ergonomic support, and luxurious upholstery for the perfect lounging experience.",
+    products: [
+      { name: "Classic Recliner", price: "Rs. 68,000", image: "https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?auto=format&fit=crop&w=900&q=80" },
+      { name: "Power Recliner", price: "Rs. 95,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Leather Recliner", price: "Rs. 1,25,000", image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=900&q=80" },
+      { name: "Swivel Recliner", price: "Rs. 85,000", image: "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
   "coffee-tables": {
     hero: "https://images.unsplash.com/photo-1532372320572-cda25653a26d?auto=format&fit=crop&w=1200&q=85",
     intro: "Anchor your living room with our collection of coffee tables. Crafted from solid wood, travertine, and glass to suit any space.",
@@ -80,10 +90,6 @@ export default async function SubcategoryPage({
               {title}
             </h1>
           </div>
-        </section>
-        
-        <section className="room-page-intro section">
-          <p>{data.intro}</p>
         </section>
 
         <section className="room-products section">

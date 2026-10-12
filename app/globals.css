@@ -508,10 +508,12 @@ p {
   font-size: 14px;
   font-family: "DM Sans", sans-serif;
   font-weight: 500;
+  color: black !important;
 }
 .product-meta p {
   margin: 0;
   font-size: 14px;
+  color: black !important;
 }
 .product-meta button {
   background: none;
