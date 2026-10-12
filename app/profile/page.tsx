@@ -14,8 +14,8 @@ export default function ProfilePage() {
   const [user, setUser] = useState({
     name: 'John Doe',
     email: 'john.doe@example.com',
-    phone: '+91 98765 43210',
-    address: '123 Main Street, Bangalore, Karnataka',
+    phone: '+977 9800000000',
+    address: 'Main Street, Pokhara, Nepal',
   });
 
   const orders = [
