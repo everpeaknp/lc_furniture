@@ -56,6 +56,36 @@ const subcategoryData: Record<string, { hero: string, intro: string, products: A
       { name: "Oak Console Table", price: "Rs. 45,000", image: "https://images.unsplash.com/photo-1499933374294-4584851497cc?auto=format&fit=crop&w=900&q=80" },
       { name: "Floating Console", price: "Rs. 62,000", image: "https://images.unsplash.com/photo-1507652313519-d4e9174996cb?auto=format&fit=crop&w=900&q=80" },
     ]
+  },
+  "patio-furniture": {
+    hero: "https://images.unsplash.com/photo-1600210491363-e6c8fc5e87c0?auto=format&fit=crop&w=1200&q=85",
+    intro: "Transform your patio into an outdoor living room with our weather-resistant dining sets, loungers, and seating. Built to withstand the elements while maintaining style.",
+    products: [
+      { name: "Patio Dining Set", price: "Rs. 1,45,000", image: "https://images.unsplash.com/photo-1600210491363-e6c8fc5e87c0?auto=format&fit=crop&w=900&q=80" },
+      { name: "Aluminum Bistro Set", price: "Rs. 55,000", image: "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=900&q=80" },
+      { name: "Teak Coffee Table", price: "Rs. 45,000", image: "https://images.unsplash.com/photo-1600210491363-e6c8fc5e87c0?auto=format&fit=crop&w=900&q=80" },
+      { name: "Outdoor Sectional", price: "Rs. 1,85,000", image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
+  "garden-chairs": {
+    hero: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85",
+    intro: "Relax in style with our garden chairs and loungers. From classic Adirondack to modern armchairs, find the perfect seating for your garden or balcony.",
+    products: [
+      { name: "Garden Lounge Chair", price: "Rs. 35,000", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" },
+      { name: "Sun Lounger", price: "Rs. 42,000", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" },
+      { name: "Adirondack Chair", price: "Rs. 28,000", image: "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=900&q=80" },
+      { name: "Garden Bench", price: "Rs. 38,000", image: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1b?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
+  "outdoor-swings": {
+    hero: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1b?auto=format&fit=crop&w=1200&q=85",
+    intro: "Add charm and relaxation to your outdoor space with our swings and hammocks. Perfect for lazy afternoons and peaceful evenings in your garden or patio.",
+    products: [
+      { name: "Outdoor Swing", price: "Rs. 85,000", image: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1b?auto=format&fit=crop&w=900&q=80" },
+      { name: "Hammock Chair", price: "Rs. 18,000", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" },
+      { name: "Garden Swing Set", price: "Rs. 95,000", image: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1b?auto=format&fit=crop&w=900&q=80" },
+      { name: "Porch Swing", price: "Rs. 62,000", image: "https://images.unsplash.com/photo-1600210491363-e6c8fc5e87c0?auto=format&fit=crop&w=900&q=80" },
+    ]
   }
 };
 
