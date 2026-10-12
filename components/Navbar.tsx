@@ -144,7 +144,7 @@ export default function Navbar() {
   const actions = [
     { label: "Stores", icon: MapPin, href: "/stores" },
     { label: "Profile", icon: UserRound, href: "/profile" },
-    { label: "Wishlist", icon: Heart, href: "/wishlist" },
+    { label: "Wishlist", icon: Heart, href: "/profile" },
     { label: "Cart", icon: ShoppingBag, href: "/cart" },
   ];
 

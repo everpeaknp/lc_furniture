@@ -3,7 +3,6 @@
 import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
 import { z } from "zod";
-import { Truck, Store, Package, RotateCcw } from "lucide-react";
 import SiteFooter from "@/components/SiteFooter";
 import ProductCard from "@/components/ProductCard";
 import Arrow from "@/components/Arrow";
@@ -12,6 +11,7 @@ import { Hero } from "@/components/Hero";
 import AnimatedSection from "@/components/AnimatedSection";
 import FestiveCountdown from "@/components/FestiveCountdown";
 import SaleBanner from "@/components/SaleBanner";
+import FurnitureBenefits from "@/components/FurnitureBenefits";
 
 const images = {
   hero: "https://images.unsplash.com/photo-1653629495477-b42f0f43ce3f?auto=format&fit=crop&w=1400&q=85",
@@ -71,26 +71,7 @@ export default function HomePage() {
         <SaleBanner />
         <FestiveCountdown />
 
-        <AnimatedSection className="benefits section" aria-label="Store benefits">
-          {[
-            [<Truck />, "Quick delivery", "Within 3–5 days"],
-            [<Store />, "Pick up in store", "Free in-store pickup"],
-            [<Package />, "Special packaging", "Beautifully protected"],
-            [<RotateCcw />, "Returns policy", "30-day returns"],
-          ].map(([icon, title, note], index) => (
-            <motion.div
-              className="benefit"
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <span>{icon}</span>
-              <p><b>{title}</b><small>{note}</small></p>
-            </motion.div>
-          ))}
-        </AnimatedSection>
+        <FurnitureBenefits />
 
         <AnimatedSection className="story section" id="about" delay={0.2}>
           <motion.div
