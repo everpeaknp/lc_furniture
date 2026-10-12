@@ -80,6 +80,7 @@ export default function LivingRoomPage() {
             {room.products.map((item) => (
               <ProductCard 
                 item={item} 
+                productId={item.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}
                 key={item.name} 
                 className="break-inside-avoid mb-8 [&_.image-wrap]:!aspect-auto [&_img]:!h-auto"
               />

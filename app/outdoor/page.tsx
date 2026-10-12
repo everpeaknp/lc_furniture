@@ -1,0 +1,89 @@
+'use client';
+
+import SiteFooter from "@/components/SiteFooter";
+import ProductCard from "@/components/ProductCard";
+import Arrow from "@/components/Arrow";
+import TypeMorph from "@/components/TypeMorph";
+
+const images = {
+  hero: "https://images.unsplash.com/photo-1600210491363-e6c8fc5e87c0?auto=format&fit=crop&w=1400&q=85",
+  patio: "https://images.unsplash.com/photo-1600210491363-e6c8fc5e87c0?auto=format&fit=crop&w=900&q=80",
+  garden: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80",
+  swing: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1b?auto=format&fit=crop&w=900&q=80",
+  outdoor: "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=900&q=80",
+};
+
+const roomData = {
+  "/outdoor": {
+    eyebrow: "Bring the comfort outside",
+    title: "Outdoor",
+    description: "Transform your patio, garden, or balcony into a serene retreat with our weather-resistant outdoor furniture collection designed for durability and style.",
+    hero: images.patio,
+    note: "Weather-proof elegance",
+    story: "Crafted with materials that withstand the elements while maintaining their beauty, our outdoor collection lets you enjoy your outdoor spaces in style, season after season.",
+    products: [
+      { name: "Patio Dining Set", price: "Rs. 1,45,000", image: images.patio },
+      { name: "Garden Lounge Chair", price: "Rs. 35,000", image: images.garden },
+      { name: "Outdoor Swing", price: "Rs. 85,000", image: images.swing },
+      { name: "Aluminum Bistro Set", price: "Rs. 55,000", image: images.outdoor },
+      { name: "Teak Coffee Table", price: "Rs. 45,000", image: images.patio },
+      { name: "Sun Lounger", price: "Rs. 42,000", image: images.garden },
+      { name: "Garden Bench", price: "Rs. 38,000", image: images.swing },
+      { name: "Parasol Stand", price: "Rs. 18,000", image: images.outdoor },
+    ],
+  },
+};
+
+export default function OutdoorPage() {
+  const room = roomData["/outdoor"];
+
+  return (
+    <div className="site-shell">
+      <main>
+        <section className="room-page-hero">
+          <img src={room.hero} alt={`${room.title} furniture collection`} />
+          <div>
+            <p className="eyebrow">{room.eyebrow}</p>
+            <h1>
+              <TypeMorph
+                config={{
+                  text: "ANIMDOCK",
+                  target: room.title,
+                  morph: true,
+                  speed: { mode: 'static', value: 2 },
+                  variants: { mode: 'static', value: 15 },
+                  color: "#f6f4ef"
+                }}
+              />
+            </h1>
+          </div>
+        </section>
+        <section className="room-page-intro section">
+          <p>{room.description}</p>
+          <a className="text-link" href="#collection">Explore collection <Arrow /></a>
+        </section>
+        <section className="room-products section" id="collection">
+          <div className="section-heading">
+            <div><p className="eyebrow">Designed for outdoors</p><h2>{room.title} Collection</h2></div>
+            <span>{room.products.length} pieces</span>
+          </div>
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8 sm:space-y-0">
+            {room.products.map((item) => (
+              <ProductCard key={item.name} item={item} productId={item.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')} className="break-inside-avoid mb-8 [&_.image-wrap]:!aspect-auto [&_img]:!h-auto" />
+            ))}
+          </div>
+        </section>
+        <section className="room-story section">
+          <img src={room.products[3].image} alt="" />
+          <div>
+            <p className="eyebrow">The room edit</p>
+            <h2>{room.note}</h2>
+            <p>{room.story}</p>
+            <a className="text-link" href="/contact">Talk to a designer <Arrow /></a>
+          </div>
+        </section>
+      </main>
+      <SiteFooter />
+    </div>
+  );
+}

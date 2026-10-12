@@ -36,8 +36,8 @@ const links: Record<string, string> = {
   Dining: "/dining",
   Storage: "/storage",
   "Study & Office": "/study-office",
-  Outdoor: "/shop",
-  "Decor & Furnishing": "/shop",
+  Outdoor: "/outdoor",
+  "Decor & Furnishing": "/decor-furnishing",
   Interiors: "/contact",
   "New Arrivals": "/shop",
 };
@@ -156,7 +156,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className="relative z-50 w-full border-b border-[#e5e0d4] bg-[#faf8f2] text-[#172554]">
+    <header className="fixed left-0 top-0 z-[100] w-full border-b border-[#e5e0d4] bg-[#faf8f2] shadow-lg text-[#172554]">
       {/* Top announcement */}
       <div className="flex min-h-8 items-center justify-center gap-2 bg-[#1e3a8a] px-4 py-2 text-[10px] tracking-[0.14em] text-white sm:text-[11px]">
         <span>DESIGNED FOR SLOWER, BETTER LIVING</span>
@@ -258,7 +258,7 @@ export default function Navbar() {
       {/* Desktop category navigation */}
       <nav
         aria-label="Furniture categories"
-        className="hidden border-t border-[#ede8df] md:block"
+        className="hidden border-t-2 border-[#e5e0d4] bg-[#f5f3ed] md:block"
       >
         <div className="mx-auto flex max-w-[1800px] items-center justify-between gap-6 overflow-x-auto px-7 lg:gap-7 lg:px-12">
           {categories.map((category) => (

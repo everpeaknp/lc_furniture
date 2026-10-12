@@ -498,7 +498,6 @@ function MobileNavItem({
 export default function MegaMenuHeader() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -507,13 +506,6 @@ export default function MegaMenuHeader() {
   const headerRef = useRef<HTMLElement>(null);
   const searchRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -568,13 +560,7 @@ export default function MegaMenuHeader() {
   return (
     <header
       ref={headerRef}
-      className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${
-        isScrolled
-          ? "bg-[#f6f4ef]/95 backdrop-blur-md shadow-md"
-          : openMenuId
-          ? "bg-[#f6f4ef] shadow-none"
-          : "bg-[#f6f4ef] shadow-none"
-      }`}
+      className="fixed left-0 top-0 z-[100] w-full bg-[#f6f4ef]/98 backdrop-blur-md shadow-lg border-b border-[#dfddd7] transition-all duration-300"
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
 
