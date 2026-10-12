@@ -1,0 +1,169 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  z-index: 20;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 48px;
+  padding: 0 15px;
+  border: 1px solid #dedbd2;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.searchIcon {
+  flex-shrink: 0;
+  color: #74795a;
+}
+
+.searchBar input {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #29291f;
+  font: inherit;
+  font-size: 14px;
+}
+
+.searchBar input::placeholder {
+  color: #99978d;
+}
+
+.clear {
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: #777;
+  cursor: pointer;
+}
+
+.results {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  max-height: 420px;
+  overflow-y: auto;
+  border: 1px solid #e4e0d7;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 12px 35px rgb(0 0 0 / 10%);
+}
+
+.resultHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid #eeeae2;
+  color: #77796c;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 12px 16px;
+  color: inherit;
+  text-decoration: none;
+  transition: background 150ms ease;
+}
+
+.result:hover {
+  background: #f7f5ef;
+}
+
+.image,
+.imagePlaceholder {
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  object-fit: cover;
+  background: #f0eee7;
+}
+
+.imagePlaceholder {
+  display: grid;
+  place-items: center;
+  color: #898b72;
+}
+
+.productInfo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.productInfo strong {
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.productInfo span {
+  color: #858378;
+  font-size: 11px;
+}
+
+.price {
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.empty {
+  padding: 22px 16px;
+  color: #77796c;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.viewAll {
+  display: block;
+  padding: 12px 16px;
+  text-align: center;
+  color: #74795a;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  border-top: 1px solid #eeeae2;
+  transition: background 150ms ease;
+}
+
+.viewAll:hover {
+  background: #f7f5ef;
+  color: #29291f;
+}
+
+@media (max-width: 480px) {
+  .price {
+    font-size: 11px;
+  }
+
+  .result {
+    gap: 9px;
+    padding: 10px;
+  }
+
+  .image,
+  .imagePlaceholder {
+    width: 45px;
+    height: 45px;
+  }
+}

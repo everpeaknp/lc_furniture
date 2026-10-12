@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, User, LogOut, ChevronDown, ChevronRight, Search, ShoppingCart, Heart } from "lucide-react";
+import FurnitureSearch from "@/components/FurnitureSearch";
+import { type FurnitureProduct } from "@/lib/furnitureSearch";
 
 const images = {
   hero: "https://images.unsplash.com/photo-1653629495477-b42f0f43ce3f?auto=format&fit=crop&w=1400&q=85",
@@ -17,6 +19,90 @@ const images = {
   cabinet: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=900&q=80",
   desk: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=900&q=80",
 };
+
+const furnitureProducts: FurnitureProduct[] = [
+  {
+    id: "sofa-001",
+    name: "Linen Lounge Sofa",
+    category: "Sofas",
+    description: "Comfortable beige living room sofa",
+    price: 95000,
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=300&q=80",
+    href: "/sofas",
+  },
+  {
+    id: "sofa-002",
+    name: "Forma Modular Sofa",
+    category: "Sofas",
+    description: "Modern modular sectional sofa",
+    price: 145000,
+    image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=300&q=80",
+    href: "/sofas",
+  },
+  {
+    id: "chair-001",
+    name: "Cloud Bouclé Chair",
+    category: "Lounge Chairs",
+    description: "Comfortable armchair with bouclé fabric",
+    price: 54000,
+    image: "https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?auto=format&fit=crop&w=300&q=80",
+    href: "/living-room",
+  },
+  {
+    id: "table-001",
+    name: "Onda Coffee Table",
+    category: "Coffee Tables",
+    description: "Modern glass coffee table",
+    price: 45000,
+    image: "https://images.unsplash.com/photo-1532372320572-cda25653a26d?auto=format&fit=crop&w=300&q=80",
+    href: "/living-room",
+  },
+  {
+    id: "shelf-001",
+    name: "Arch Bookshelf",
+    category: "Bookshelves",
+    description: "Minimalist wooden bookshelf",
+    price: 65000,
+    image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=300&q=80",
+    href: "/storage",
+  },
+  {
+    id: "bed-001",
+    name: "Mara Oak Bed",
+    category: "King Size Beds",
+    description: "Solid oak king size bed frame",
+    price: 142000,
+    image: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=300&q=80",
+    href: "/bedroom",
+  },
+  {
+    id: "wardrobe-001",
+    name: "Arc Wardrobe",
+    category: "Wardrobes",
+    description: "Spacious sliding door wardrobe",
+    price: 105000,
+    image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=300&q=80",
+    href: "/storage",
+  },
+  {
+    id: "dining-001",
+    name: "Luma Dining Table",
+    category: "Dining Sets",
+    description: "6-seater dining table set",
+    price: 92000,
+    image: "https://images.unsplash.com/photo-1656403002413-2ac6137237d6?auto=format&fit=crop&w=300&q=80",
+    href: "/dining",
+  },
+  {
+    id: "desk-001",
+    name: "Arco Writing Desk",
+    category: "Study Tables",
+    description: "Elegant writing desk for home office",
+    price: 58000,
+    image: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=300&q=80",
+    href: "/study-office",
+  },
+];
 
 export type NavItem = {
   id: number;
@@ -416,12 +502,10 @@ export default function MegaMenuHeader() {
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
   const [openMenuId, setOpenMenuId] = useState<number | null>(null);
   const profileRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLElement>(null);
   const searchRef = useRef<HTMLDivElement>(null);
-  const searchPanelRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -436,14 +520,6 @@ export default function MegaMenuHeader() {
       const target = e.target as Node;
       if (profileRef.current && !profileRef.current.contains(target)) {
         setIsProfileOpen(false);
-      }
-      if (
-        searchRef.current &&
-        !searchRef.current.contains(target) &&
-        searchPanelRef.current &&
-        !searchPanelRef.current.contains(target)
-      ) {
-        setIsSearchOpen(false);
       }
     };
     document.addEventListener("mousedown", handler);
@@ -558,35 +634,46 @@ export default function MegaMenuHeader() {
         {/* Right CTAs */}
         <div className="hidden md:flex items-center gap-3">
           {/* ── Search icon ── */}
-          <div ref={searchRef}>
+          <div ref={searchRef} className="relative">
             <button
               type="button"
-              onClick={() => { setIsSearchOpen(!isSearchOpen); setSearchQuery(""); }}
+              onClick={() => setIsSearchOpen(!isSearchOpen)}
               className={`p-2 transition-colors ${isSearchOpen ? "text-[#262720]" : "text-[#5a5952] hover:text-[#262720]"}`}
               aria-label="Search"
               aria-expanded={isSearchOpen}
             >
               {isSearchOpen ? <X className="h-5 w-5" /> : <Search className="h-5 w-5" />}
             </button>
+
+            {isSearchOpen && (
+              <div className="absolute right-0 top-12 w-[600px] bg-[#f6f4ef] border border-[#dfddd7] rounded-lg shadow-2xl p-4 z-50">
+                <FurnitureSearch
+                  products={furnitureProducts}
+                  onOpenChange={(isOpen) => {
+                    if (!isOpen) setIsSearchOpen(false);
+                  }}
+                />
+              </div>
+            )}
           </div>
 
 
 
-          <button
-            type="button"
+          <Link
+            href="/wishlist"
             className="p-2 text-[#5a5952] hover:text-[#262720] transition-colors"
             aria-label="Wishlist"
           >
             <Heart className="h-5 w-5" />
-          </button>
+          </Link>
 
-          <button
-            type="button"
+          <Link
+            href="/cart"
             className="p-2 text-[#5a5952] hover:text-[#262720] transition-colors"
             aria-label="Cart"
           >
             <ShoppingCart className="h-5 w-5" />
-          </button>
+          </Link>
 
           <div className="relative" ref={profileRef}>
             <button
@@ -659,147 +746,6 @@ export default function MegaMenuHeader() {
         )}
       </div>
 
-      {/* Full-width Search Panel */}
-      <div
-        ref={searchPanelRef}
-        className={`
-          hidden md:block w-full bg-[#f6f4ef]
-          transition-all duration-300 ease-in-out overflow-hidden border-t border-[#dfddd7]
-          ${isSearchOpen ? "max-h-[85vh] opacity-100" : "max-h-0 opacity-0 pointer-events-none"}
-        `}
-        aria-hidden={!isSearchOpen}
-      >
-        <div className="mx-auto max-w-7xl px-6 py-10 md:px-10">
-          <div className="flex gap-12">
-            
-            {/* Search Input Area */}
-            <div className="w-1/3 flex flex-col border-r border-[#dfddd7] pr-12">
-              <div className="flex items-center gap-3 border-b border-[#dfddd7] pb-4 mb-8">
-                <Search className="h-6 w-6 text-[#9a9b93]" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search products..."
-                  className="flex-1 bg-transparent text-xl font-medium text-[#262720] placeholder:text-[#9a9b93] outline-none font-sans"
-                  autoFocus={isSearchOpen}
-                />
-                {searchQuery && (
-                  <button onClick={() => setSearchQuery("")} className="text-[#9a9b93] hover:text-[#262720]">
-                    <X className="h-5 w-5" />
-                  </button>
-                )}
-              </div>
-              
-              <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#9a9b93] mb-4 font-sans">Trending Searches</p>
-              <div className="flex flex-wrap gap-2">
-                {["Sofa Sets", "Wooden Beds", "Dining Table", "Office Chair", "Wardrobe", "Coffee Table"].map((term) => (
-                  <button
-                    key={term}
-                    onClick={() => setSearchQuery(term)}
-                    className="px-4 py-2 text-sm font-medium bg-white border border-[#dfddd7] text-[#5a5952] hover:border-[#262720] hover:text-[#262720] transition-colors font-sans"
-                  >
-                    {term}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Search Results Area */}
-            <div className="flex-1">
-              {!searchQuery ? (
-                <div>
-                  <div className="flex justify-between items-center mb-6">
-                    <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#9a9b93] font-sans">Browse by Room</p>
-                  </div>
-                  <div className="grid grid-cols-4 gap-6">
-                    {[
-                      { label: "Living Room", href: "/living-room", img: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=400&q=80" },
-                      { label: "Bedroom", href: "/bedroom", img: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=400&q=80" },
-                      { label: "Dining", href: "/dining", img: "https://images.unsplash.com/photo-1656403002413-2ac6137237d6?auto=format&fit=crop&w=400&q=80" },
-                      { label: "Study & Office", href: "/study-office", img: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=400&q=80" },
-                    ].map((room) => (
-                      <Link
-                        key={room.label}
-                        href={room.href}
-                        onClick={() => setIsSearchOpen(false)}
-                        className="group flex flex-col gap-3"
-                      >
-                        <div className="aspect-[4/3] bg-[#e8e6e0] overflow-hidden">
-                          <img src={room.img} alt={room.label} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                        </div>
-                        <span className="text-base font-medium text-[#262720] font-sans group-hover:underline">{room.label}</span>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ) : (
-                (() => {
-                  const q = searchQuery.toLowerCase();
-                  const allProducts = [
-                    { name: "Linen Lounge Sofa", price: "Rs. 95,000", category: "Sofas", href: "/living-room/sofas", img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=300&q=80" },
-                    { name: "Forma Modular Sofa", price: "Rs. 1,45,000", category: "Sofas", href: "/living-room/sofas", img: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=300&q=80" },
-                    { name: "Cloud Bouclé Chair", price: "Rs. 54,000", category: "Lounge Chairs", href: "/living-room/lounge-chairs", img: "https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?auto=format&fit=crop&w=300&q=80" },
-                    { name: "Onda Coffee Table", price: "Rs. 45,000", category: "Coffee Tables", href: "/living-room/coffee-tables", img: "https://images.unsplash.com/photo-1532372320572-cda25653a26d?auto=format&fit=crop&w=300&q=80" },
-                    { name: "Arch Bookshelf", price: "Rs. 65,000", category: "Bookshelves", href: "/living-room/bookshelves", img: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=300&q=80" },
-                    { name: "Mara Oak Bed", price: "Rs. 1,42,000", category: "King Size Beds", href: "/bedroom/king-size-beds", img: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=300&q=80" },
-                    { name: "Arc Wardrobe", price: "Rs. 1,05,000", category: "Wardrobes", href: "/bedroom/wardrobes", img: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=300&q=80" },
-                    { name: "Luma Dining Table", price: "Rs. 92,000", category: "Dining Sets", href: "/dining/6-seater-dining", img: "https://images.unsplash.com/photo-1656403002413-2ac6137237d6?auto=format&fit=crop&w=300&q=80" },
-                    { name: "Arco Writing Desk", price: "Rs. 58,000", category: "Study Tables", href: "/study-office/study-tables", img: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=300&q=80" },
-                  ];
-                  const results = allProducts.filter(
-                    (p) => p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q)
-                  ).slice(0, 4); // Only show top 4 results in panel
-
-                  return results.length > 0 ? (
-                    <div>
-                      <div className="flex justify-between items-center mb-6">
-                        <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#9a9b93] font-sans">
-                          Top Results for &quot;{searchQuery}&quot;
-                        </p>
-                        <Link
-                          href={`/shop?q=${encodeURIComponent(searchQuery)}`}
-                          onClick={() => setIsSearchOpen(false)}
-                          className="text-xs font-semibold tracking-[0.18em] uppercase text-[#262720] hover:underline font-sans"
-                        >
-                          View all →
-                        </Link>
-                      </div>
-                      <div className="grid grid-cols-4 gap-6">
-                        {results.map((product) => (
-                          <Link
-                            key={product.name}
-                            href={product.href}
-                            onClick={() => { setIsSearchOpen(false); setSearchQuery(""); }}
-                            className="group flex flex-col gap-3"
-                          >
-                            <div className="aspect-square bg-[#e8e6e0] overflow-hidden relative">
-                              <img src={product.img} alt={product.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                              <div className="absolute top-2 left-2 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-semibold tracking-widest uppercase text-[#5a5952] font-sans">
-                                {product.category}
-                              </div>
-                            </div>
-                            <div>
-                              <p className="text-base font-medium text-[#262720] font-sans group-hover:underline">{product.name}</p>
-                              <p className="text-sm text-[#9a9b93] font-sans">{product.price}</p>
-                            </div>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="flex flex-col items-center justify-center h-full text-center">
-                      <p className="text-xl font-medium text-[#262720] font-sans mb-2">No results found for &quot;{searchQuery}&quot;</p>
-                      <p className="text-[#9a9b93] font-sans">Check the spelling or try a different search term.</p>
-                    </div>
-                  );
-                })()
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Mobile Menu */}
       <div
         className={`
@@ -824,18 +770,18 @@ export default function MegaMenuHeader() {
             >
               <Search className="h-4 w-4" /> Search
             </button>
-            <button
-              type="button"
+            <Link
+              href="/wishlist"
               className="flex items-center gap-2 border border-[#dfddd7] text-[#5a5952] text-sm py-3 hover:bg-gray-50 transition-colors font-sans"
             >
               <Heart className="h-4 w-4" /> Wishlist
-            </button>
-            <button
-              type="button"
+            </Link>
+            <Link
+              href="/cart"
               className="flex items-center gap-2 border border-[#dfddd7] text-[#5a5952] text-sm py-3 hover:bg-gray-50 transition-colors font-sans"
             >
               <ShoppingCart className="h-4 w-4" /> Cart
-            </button>
+            </Link>
             <button
               type="button"
               onClick={() => setIsSignedIn((v) => !v)}
