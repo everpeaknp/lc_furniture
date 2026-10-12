@@ -156,7 +156,8 @@ export default function Navbar() {
   }
 
   return (
-    <header className="fixed left-0 top-0 z-[100] w-full border-b border-[#e5e0d4] bg-[#faf8f2] shadow-lg text-[#172554]">
+    <>
+    <header className="w-full bg-[#faf8f2] text-[#172554]">
       {/* Top announcement */}
       <div className="flex min-h-8 items-center justify-center gap-2 bg-[#1e3a8a] px-4 py-2 text-[10px] tracking-[0.14em] text-white sm:text-[11px]">
         <span>DESIGNED FOR SLOWER, BETTER LIVING</span>
@@ -255,6 +256,9 @@ export default function Navbar() {
         </div>
       </div>
 
+    </header>
+
+    <div className="sticky top-0 z-[100] w-full border-b border-[#e5e0d4] shadow-lg">
       {/* Desktop category navigation */}
       <nav
         aria-label="Furniture categories"
@@ -342,6 +346,7 @@ export default function Navbar() {
           </div>
         </div>
       )}
+    </div>
 
       {/* Mobile menu */}
       {menuOpen && (
@@ -391,6 +396,6 @@ export default function Navbar() {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }

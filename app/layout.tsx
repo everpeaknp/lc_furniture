@@ -17,8 +17,10 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <LenisProvider />
-        <Navbar />
-        {children}
+        <div className="min-h-screen">
+          <Navbar />
+          {children}
+        </div>
       </body>
     </html>
   );
