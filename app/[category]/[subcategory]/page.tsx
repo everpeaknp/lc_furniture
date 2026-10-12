@@ -46,6 +46,16 @@ const subcategoryData: Record<string, { hero: string, intro: string, products: A
       { name: "Walnut Cabinet", price: "Rs. 89,000", image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=900&q=80" },
       { name: "Gallery Shelving", price: "Rs. 56,000", image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80" },
     ]
+  },
+  "console-tables": {
+    hero: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1200&q=85",
+    intro: "Elegant console tables that add sophistication to entryways, hallways, and living spaces. Perfect for displaying decor and creating stylish focal points.",
+    products: [
+      { name: "Taper Console", price: "Rs. 52,000", image: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=900&q=80" },
+      { name: "Marble Console", price: "Rs. 78,000", image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Oak Console Table", price: "Rs. 45,000", image: "https://images.unsplash.com/photo-1499933374294-4584851497cc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Floating Console", price: "Rs. 62,000", image: "https://images.unsplash.com/photo-1507652313519-d4e9174996cb?auto=format&fit=crop&w=900&q=80" },
+    ]
   }
 };
 
