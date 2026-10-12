@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import {
   Search,
@@ -112,6 +113,7 @@ const megaMenuData: Record<string, { heading: string; subcategories: string[]; i
 };
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [search, setSearch] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
@@ -265,26 +267,31 @@ export default function Navbar() {
         className="hidden border-t-2 border-[#e5e0d4] bg-[#f5f3ed] md:block"
       >
         <div className="mx-auto flex max-w-[1800px] items-center justify-between gap-6 overflow-x-auto px-7 lg:gap-7 lg:px-12">
-          {categories.map((category) => (
-            <div
-              key={category}
-              className="relative"
-              onMouseEnter={() => handleMouseEnter(category)}
-              onMouseLeave={handleMouseLeave}
-            >
-              <Link
-                href={links[category]}
-                className={`relative flex min-h-[54px] shrink-0 items-center gap-1 whitespace-nowrap text-[11px] transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#1e3a8a] after:transition-all hover:text-[#1e3a8a] hover:after:w-full lg:text-xs ${
-                  category === "New Arrivals"
-                    ? "font-semibold text-[#1e3a8a]"
-                    : "text-[#475569]"
-                }`}
+          {categories.map((category) => {
+            const isActive = pathname === links[category];
+            return (
+              <div
+                key={category}
+                className="relative"
+                onMouseEnter={() => handleMouseEnter(category)}
+                onMouseLeave={handleMouseLeave}
               >
-                {category}
-                <ChevronDown className="h-3 w-3 opacity-50" />
-              </Link>
-            </div>
-          ))}
+                <Link
+                  href={links[category]}
+                  className={`relative flex min-h-[54px] shrink-0 items-center gap-1 whitespace-nowrap text-[11px] transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-[#1e3a8a] after:transition-all hover:text-[#1e3a8a] hover:after:w-full lg:text-xs ${
+                    isActive
+                      ? "font-semibold text-[#1e3a8a] after:w-full"
+                      : category === "New Arrivals"
+                      ? "font-semibold text-[#1e3a8a]"
+                      : "text-[#475569] after:w-0"
+                  }`}
+                >
+                  {category}
+                  <ChevronDown className="h-3 w-3 opacity-50" />
+                </Link>
+              </div>
+            );
+          })}
         </div>
       </nav>
 
@@ -369,23 +376,28 @@ export default function Navbar() {
           </form>
 
           <div className="grid grid-cols-2 gap-x-5">
-            {categories.map((category, index) => (
-              <Link
-                key={category}
-                href={links[category]}
-                onClick={() => setMenuOpen(false)}
-                className={`flex min-h-[53px] items-center justify-between gap-2 border-b border-[#e5e0d4] py-3 text-sm ${
-                  category === "New Arrivals"
-                    ? "font-semibold text-[#1e3a8a]"
-                    : "text-[#334155]"
-                }`}
-              >
-                <span>{category}</span>
-                {index < categories.length && (
-                  <ArrowUpRight size={14} className="shrink-0 opacity-60 text-[#1e3a8a]" />
-                )}
-              </Link>
-            ))}
+            {categories.map((category, index) => {
+              const isActive = pathname === links[category];
+              return (
+                <Link
+                  key={category}
+                  href={links[category]}
+                  onClick={() => setMenuOpen(false)}
+                  className={`flex min-h-[53px] items-center justify-between gap-2 border-b border-[#e5e0d4] py-3 text-sm ${
+                    isActive
+                      ? "font-semibold text-[#1e3a8a]"
+                      : category === "New Arrivals"
+                      ? "font-semibold text-[#1e3a8a]"
+                      : "text-[#334155]"
+                  }`}
+                >
+                  <span>{category}</span>
+                  {index < categories.length && (
+                    <ArrowUpRight size={14} className="shrink-0 opacity-60 text-[#1e3a8a]" />
+                  )}
+                </Link>
+              );
+            })}
           </div>
 
           <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3 text-xs text-[#64748b]">
