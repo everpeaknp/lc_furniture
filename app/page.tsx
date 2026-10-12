@@ -9,8 +9,8 @@ import Arrow from "@/components/Arrow";
 import TypeMorph from "@/components/TypeMorph";
 import { Hero } from "@/components/Hero";
 import AnimatedSection from "@/components/AnimatedSection";
-import FestiveCountdown from "@/components/FestiveCountdown";
-import SaleBanner from "@/components/SaleBanner";
+import SaleCountdown from "@/components/SaleCountdown";
+import SaleMarquee from "@/components/SaleMarquee";
 import FurnitureBenefits from "@/components/FurnitureBenefits";
 
 const images = {
@@ -68,8 +68,8 @@ export default function HomePage() {
     <div className="site-shell">
       <main id="top">
         <Hero />
-        <SaleBanner />
-        <FestiveCountdown />
+        <SaleMarquee />
+        <SaleCountdown />
 
         <FurnitureBenefits />
 
