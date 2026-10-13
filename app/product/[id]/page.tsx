@@ -109,7 +109,7 @@ const products: Record<string, { id: string; name: string; price: string; image:
     id: 'mara-oak-bed',
     name: "Mara Oak Bed",
     price: "Rs. 1,42,000",
-    image: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=1400&q=85",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
     description: "The Mara Oak Bed offers timeless elegance with solid oak construction. Featuring a comfortable headboard and sturdy frame, it creates a serene sanctuary for restful sleep.",
     category: "Bedroom"
   },
@@ -125,7 +125,7 @@ const products: Record<string, { id: string; name: string; price: string; image:
     id: 'platform-queen-bed',
     name: "Platform Queen Bed",
     price: "Rs. 95,000",
-    image: "https://images.unsplash.com/photo-1507652313519-d4e9174996cb?auto=format&fit=crop&w=1400&q=85",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
     description: "The Platform Queen Bed offers a minimalist design with a low profile. Its clean lines and solid construction provide modern style without compromising on comfort.",
     category: "Bedroom"
   },
@@ -136,6 +136,70 @@ const products: Record<string, { id: string; name: string; price: string; image:
     image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
     description: "The Storage Queen Bed combines comfort with practicality. Featuring built-in drawers beneath the mattress, it maximizes space while maintaining a sleek, elegant appearance.",
     category: "Bedroom"
+  },
+  'mara-oak-king-bed': {
+    id: 'mara-oak-king-bed',
+    name: "Mara Oak King Bed",
+    price: "Rs. 1,65,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Mara Oak King Bed offers expansive luxury with solid oak construction. Its grand proportions and elegant headboard create a stunning centerpiece for spacious master bedrooms.",
+    category: "Bedroom"
+  },
+  'upholstered-king-bed': {
+    id: 'upholstered-king-bed',
+    name: "Upholstered King Bed",
+    price: "Rs. 1,45,000",
+    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=85",
+    description: "The Upholstered King Bed features a luxurious fabric headboard and sturdy frame. Its generous dimensions and soft texture create the ultimate sleep sanctuary.",
+    category: "Bedroom"
+  },
+  'platform-king-bed': {
+    id: 'platform-king-bed',
+    name: "Platform King Bed",
+    price: "Rs. 1,15,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Platform King Bed offers a minimalist design with expansive sleeping space. Its low profile and clean lines provide modern style without compromising on comfort.",
+    category: "Bedroom"
+  },
+  'storage-king-bed': {
+    id: 'storage-king-bed',
+    name: "Storage King Bed",
+    price: "Rs. 1,35,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Storage King Bed combines luxury with practicality. Featuring built-in drawers beneath the mattress, it maximizes space in large bedrooms while maintaining elegance.",
+    category: "Bedroom"
+  },
+  'arch-bookshelf': {
+    id: 'arch-bookshelf',
+    name: "Arch Bookshelf",
+    price: "Rs. 65,000",
+    image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=1400&q=85",
+    description: "The Arch Bookshelf features a distinctive arched design that adds architectural interest to any room. Its open shelving provides ample space for books and decor.",
+    category: "Storage"
+  },
+  'linear-wall-shelf': {
+    id: 'linear-wall-shelf',
+    name: "Linear Wall Shelf",
+    price: "Rs. 24,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Linear Wall Shelf offers a clean, minimalist design perfect for modern spaces. Its streamlined profile provides display space without overwhelming the room.",
+    category: "Storage"
+  },
+  'walnut-cabinet': {
+    id: 'walnut-cabinet',
+    name: "Walnut Cabinet",
+    price: "Rs. 89,000",
+    image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=1400&q=85",
+    description: "The Walnut Cabinet combines rich walnut wood with functional storage. Its elegant design and spacious compartments make it perfect for dining rooms or living areas.",
+    category: "Storage"
+  },
+  'gallery-shelving': {
+    id: 'gallery-shelving',
+    name: "Gallery Shelving",
+    price: "Rs. 56,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Gallery Shelving system offers versatile display options for art and collectibles. Its modular design allows you to create custom arrangements that suit your space.",
+    category: "Storage"
   },
   'fawn-bedside-table': {
     id: 'fawn-bedside-table',
@@ -153,6 +217,22 @@ const products: Record<string, { id: string; name: string; price: string; image:
     description: "The Linen Bench adds versatile seating to your bedroom or entryway. Its upholstered cushion provides comfort while the sleek design complements any decor.",
     category: "Bedroom"
   },
+  'oak-dining-bench': {
+    id: 'oak-dining-bench',
+    name: "Oak Dining Bench",
+    price: "Rs. 42,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Oak Dining Bench features solid oak construction with natural warmth. Perfect for dining tables, it provides comfortable seating for multiple guests while adding rustic charm.",
+    category: "Dining"
+  },
+  'upholstered-bench': {
+    id: 'upholstered-bench',
+    name: "Upholstered Bench",
+    price: "Rs. 48,000",
+    image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=1400&q=85",
+    description: "The Upholstered Bench combines comfort with elegance. Its cushioned seat and premium fabric provide luxurious seating for dining areas or entryways.",
+    category: "Dining"
+  },
   'arc-wardrobe': {
     id: 'arc-wardrobe',
     name: "Arc Wardrobe",
@@ -167,6 +247,30 @@ const products: Record<string, { id: string; name: string; price: string; image:
     price: "Rs. 74,000",
     image: "https://images.unsplash.com/photo-1600210491305-7396500b5b31?auto=format&fit=crop&w=1400&q=85",
     description: "The Noma Dresser offers ample storage with six spacious drawers. Its minimalist design and smooth-gliding hardware make it a practical yet stylish addition to any bedroom.",
+    category: "Bedroom"
+  },
+  'oak-dresser': {
+    id: 'oak-dresser',
+    name: "Oak Dresser",
+    price: "Rs. 65,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Oak Dresser combines natural oak with practical storage. Its warm tones and clean lines provide both functionality and style for your bedroom.",
+    category: "Bedroom"
+  },
+  'modern-dresser': {
+    id: 'modern-dresser',
+    name: "Modern Dresser",
+    price: "Rs. 82,000",
+    image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=1400&q=85",
+    description: "The Modern Dresser features sleek design with ample drawer space. Its contemporary look and smooth hardware make it perfect for modern bedrooms.",
+    category: "Bedroom"
+  },
+  'vintage-dresser': {
+    id: 'vintage-dresser',
+    name: "Vintage Dresser",
+    price: "Rs. 58,000",
+    image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=1400&q=85",
+    description: "The Vintage Dresser brings classic charm to your bedroom. Its traditional design and quality construction provide timeless storage with elegant appeal.",
     category: "Bedroom"
   },
   'soft-lounge-chair': {
@@ -306,6 +410,86 @@ const products: Record<string, { id: string; name: string; price: string; image:
     description: "The Luma Dining Table combines modern design with exceptional craftsmanship. Its solid wood top and sturdy base create a stunning centerpiece for family gatherings.",
     category: "Dining"
   },
+  'oak-4-seater': {
+    id: 'oak-4-seater',
+    name: "Oak 4-Seater",
+    price: "Rs. 78,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Oak 4-Seater Table features solid oak construction with natural warmth. Perfect for family meals, its sturdy design and beautiful grain make it a timeless addition to any dining room.",
+    category: "Dining"
+  },
+  'round-4-seater': {
+    id: 'round-4-seater',
+    name: "Round 4-Seater",
+    price: "Rs. 65,000",
+    image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=1400&q=85",
+    description: "The Round 4-Seater Table offers intimate dining with its circular design. Perfect for smaller spaces, it promotes conversation while providing comfortable seating for four.",
+    category: "Dining"
+  },
+  'glass-4-seater': {
+    id: 'glass-4-seater',
+    name: "Glass 4-Seater",
+    price: "Rs. 85,000",
+    image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=1400&q=85",
+    description: "The Glass 4-Seater Table features a tempered glass top with elegant metal legs. Its modern design creates visual lightness while providing a durable surface for dining.",
+    category: "Dining"
+  },
+  'oak-6-seater': {
+    id: 'oak-6-seater',
+    name: "Oak 6-Seater",
+    price: "Rs. 1,05,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Oak 6-Seater Table offers generous seating with solid oak construction. Perfect for family gatherings, its spacious design and natural warmth create an inviting dining experience.",
+    category: "Dining"
+  },
+  'rectangular-6-seater': {
+    id: 'rectangular-6-seater',
+    name: "Rectangular 6-Seater",
+    price: "Rs. 95,000",
+    image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=1400&q=85",
+    description: "The Rectangular 6-Seater Table features clean lines and a spacious surface. Its classic rectangular design provides comfortable seating for six while fitting beautifully in most dining rooms.",
+    category: "Dining"
+  },
+  'glass-6-seater': {
+    id: 'glass-6-seater',
+    name: "Glass 6-Seater",
+    price: "Rs. 1,25,000",
+    image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=1400&q=85",
+    description: "The Glass 6-Seater Table combines elegance with modern design. Its tempered glass top and sleek metal base create a sophisticated centerpiece for larger dining spaces.",
+    category: "Dining"
+  },
+  'grand-extension-table': {
+    id: 'grand-extension-table',
+    name: "Grand Extension Table",
+    price: "Rs. 1,85,000",
+    image: "https://images.unsplash.com/photo-1653629495477-b42f0f43ce3f?auto=format&fit=crop&w=1400&q=85",
+    description: "The Grand Extension Table offers versatility with its extendable design. Perfect for hosting large gatherings, it expands to accommodate 8-10 guests while maintaining elegant proportions.",
+    category: "Dining"
+  },
+  'oak-8-seater': {
+    id: 'oak-8-seater',
+    name: "Oak 8-Seater",
+    price: "Rs. 1,65,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Oak 8-Seater Table provides generous seating with solid oak construction. Its robust design and natural warmth create an impressive centerpiece for grand dining rooms.",
+    category: "Dining"
+  },
+  'marble-8-seater': {
+    id: 'marble-8-seater',
+    name: "Marble 8-Seater",
+    price: "Rs. 2,15,000",
+    image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=1400&q=85",
+    description: "The Marble 8-Seater Table epitomizes luxury with its stunning marble top. Its elegant design and premium materials create a sophisticated dining experience for special occasions.",
+    category: "Dining"
+  },
+  'glass-8-seater': {
+    id: 'glass-8-seater',
+    name: "Glass 8-Seater",
+    price: "Rs. 1,95,000",
+    image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=1400&q=85",
+    description: "The Glass 8-Seater Table combines modern aesthetics with grand proportions. Its tempered glass top and sleek base create a contemporary focal point for luxury dining spaces.",
+    category: "Dining"
+  },
   'noma-dining-chair': {
     id: 'noma-dining-chair',
     name: "Noma Dining Chair",
@@ -320,6 +504,14 @@ const products: Record<string, { id: string; name: string; price: string; image:
     price: "Rs. 28,000",
     image: "https://images.unsplash.com/photo-1706380469091-3bd9b7865b71?auto=format&fit=crop&w=1400&q=85",
     description: "The Marta Dining Chair features a sculptural back design and premium upholstery. Its unique aesthetic adds character to any dining room while providing exceptional comfort.",
+    category: "Dining"
+  },
+  'upholstered-chair': {
+    id: 'upholstered-chair',
+    name: "Upholstered Chair",
+    price: "Rs. 35,000",
+    image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=1400&q=85",
+    description: "The Upholstered Chair combines comfort with elegance. Its cushioned seat and back provide superior comfort for long dinner parties while adding sophistication to your dining space.",
     category: "Dining"
   },
   'atelier-sideboard': {
@@ -369,6 +561,22 @@ const products: Record<string, { id: string; name: string; price: string; image:
     price: "Rs. 1,25,000",
     image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=1400&q=85",
     description: "The Oak Wardrobe features solid oak construction with adjustable shelves and hanging space. Its timeless design provides ample storage while enhancing your bedroom decor.",
+    category: "Storage"
+  },
+  'sliding-door-wardrobe': {
+    id: 'sliding-door-wardrobe',
+    name: "Sliding Door Wardrobe",
+    price: "Rs. 95,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Sliding Door Wardrobe offers space-saving design with smooth sliding doors. Perfect for smaller bedrooms, it provides generous storage without requiring clearance space for doors.",
+    category: "Storage"
+  },
+  'walk-in-wardrobe': {
+    id: 'walk-in-wardrobe',
+    name: "Walk-in Wardrobe",
+    price: "Rs. 1,85,000",
+    image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=1400&q=85",
+    description: "The Walk-in Wardrobe creates a luxurious dressing space with its expansive design. Featuring multiple compartments, hanging rails, and shelving for ultimate organization.",
     category: "Storage"
   },
   'modern-bookshelf': {
@@ -427,6 +635,30 @@ const products: Record<string, { id: string; name: string; price: string; image:
     description: "The Chest of Drawers provides ample storage with smooth-gliding drawers. Its compact footprint makes it ideal for bedrooms or hallways.",
     category: "Storage"
   },
+  'tall-chest': {
+    id: 'tall-chest',
+    name: "Tall Chest",
+    price: "Rs. 52,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Tall Chest maximizes vertical space with multiple drawers. Perfect for smaller rooms, it provides generous storage without taking up much floor area.",
+    category: "Storage"
+  },
+  'wide-chest': {
+    id: 'wide-chest',
+    name: "Wide Chest",
+    price: "Rs. 68,000",
+    image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=1400&q=85",
+    description: "The Wide Chest offers expansive storage with a low profile. Its wide design provides ample surface space for decor while keeping items organized.",
+    category: "Storage"
+  },
+  'compact-chest': {
+    id: 'compact-chest',
+    name: "Compact Chest",
+    price: "Rs. 38,000",
+    image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=1400&q=85",
+    description: "The Compact Chest is perfect for small spaces. Its efficient design provides essential storage in a minimal footprint, ideal for apartments or nurseries.",
+    category: "Storage"
+  },
   'display-cabinet': {
     id: 'display-cabinet',
     name: "Display Cabinet",
@@ -441,6 +673,30 @@ const products: Record<string, { id: string; name: string; price: string; image:
     price: "Rs. 32,000",
     image: "https://images.unsplash.com/photo-1594620302200-9a762244a156?auto=format&fit=crop&w=1400&q=85",
     description: "The Floating Shelves offer a modern storage solution for books and decor. Their sleek design creates visual interest while maximizing wall space.",
+    category: "Storage"
+  },
+  'wall-shelf-set': {
+    id: 'wall-shelf-set',
+    name: "Wall Shelf Set",
+    price: "Rs. 28,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Wall Shelf Set provides versatile storage in a coordinated design. Perfect for displaying books, plants, and decorative items in any room.",
+    category: "Storage"
+  },
+  'corner-shelf': {
+    id: 'corner-shelf',
+    name: "Corner Shelf",
+    price: "Rs. 22,000",
+    image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=1400&q=85",
+    description: "The Corner Shelf maximizes unused corner space with its triangular design. Perfect for small rooms, it provides storage without taking up valuable floor area.",
+    category: "Storage"
+  },
+  'industrial-rack': {
+    id: 'industrial-rack',
+    name: "Industrial Rack",
+    price: "Rs. 45,000",
+    image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=1400&q=85",
+    description: "The Industrial Rack features sturdy metal construction with multiple shelves. Its robust design and industrial aesthetic make it perfect for garages, workshops, or modern homes.",
     category: "Storage"
   },
   'storage-bench': {
@@ -541,6 +797,86 @@ const products: Record<string, { id: string; name: string; price: string; image:
     description: "The King Size Memory Foam Mattress contours to your body for personalized support. Its high-density foam provides pressure relief and optimal spinal alignment for restful sleep.",
     category: "Mattress"
   },
+  'queen-size-memory-foam': {
+    id: 'queen-size-memory-foam',
+    name: "Queen Size Memory Foam",
+    price: "Rs. 72,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Queen Size Memory Foam Mattress offers the perfect balance of comfort and support. Its responsive foam adapts to your body shape for a personalized sleep experience.",
+    category: "Mattress"
+  },
+  'single-memory-foam': {
+    id: 'single-memory-foam',
+    name: "Single Memory Foam",
+    price: "Rs. 45,000",
+    image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1400&q=85",
+    description: "The Single Memory Foam Mattress provides quality foam construction for smaller spaces. Its supportive design ensures a comfortable night's sleep without compromising on quality.",
+    category: "Mattress"
+  },
+  'hybrid-memory-foam': {
+    id: 'hybrid-memory-foam',
+    name: "Hybrid Memory Foam",
+    price: "Rs. 95,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Hybrid Memory Foam Mattress combines memory foam with support layers for the best of both worlds. Enjoy the contouring comfort of foam with the responsive support of a hybrid design.",
+    category: "Mattress"
+  },
+  'king-size-spring': {
+    id: 'king-size-spring',
+    name: "King Size Spring",
+    price: "Rs. 78,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The King Size Spring Mattress features traditional coil construction for bounce and support. Its premium springs provide excellent airflow and durability for restful sleep.",
+    category: "Mattress"
+  },
+  'king-size-hybrid': {
+    id: 'king-size-hybrid',
+    name: "King Size Hybrid",
+    price: "Rs. 95,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The King Size Hybrid Mattress combines the best of foam and spring technology. Its memory foam top layer provides pressure relief while the spring base offers support.",
+    category: "Mattress"
+  },
+  'king-size-orthopedic': {
+    id: 'king-size-orthopedic',
+    name: "King Size Orthopedic",
+    price: "Rs. 88,000",
+    image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1400&q=85",
+    description: "The King Size Orthopedic Mattress is designed for superior back support. Its firm construction and targeted support zones promote proper spinal alignment for those with back pain.",
+    category: "Mattress"
+  },
+  'single-spring': {
+    id: 'single-spring',
+    name: "Single Spring",
+    price: "Rs. 45,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Single Spring Mattress offers traditional coil support in a compact size. Perfect for guest rooms or smaller bedrooms, it provides durable comfort at an affordable price.",
+    category: "Mattress"
+  },
+  'premium-spring': {
+    id: 'premium-spring',
+    name: "Premium Spring",
+    price: "Rs. 85,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Premium Spring Mattress features high-quality coil construction with reinforced edges. Its enhanced support system provides edge-to-edge comfort and durability.",
+    category: "Mattress"
+  },
+  'queen-size-hybrid': {
+    id: 'queen-size-hybrid',
+    name: "Queen Size Hybrid",
+    price: "Rs. 82,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Queen Size Hybrid Mattress combines foam comfort with spring support. Its balanced design offers pressure relief and responsive support for couples.",
+    category: "Mattress"
+  },
+  'queen-size-orthopedic': {
+    id: 'queen-size-orthopedic',
+    name: "Queen Size Orthopedic",
+    price: "Rs. 75,000",
+    image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1400&q=85",
+    description: "The Queen Size Orthopedic Mattress provides firm support for back health. Its targeted support zones and durable construction ensure restful sleep with proper spinal alignment.",
+    category: "Mattress"
+  },
   'queen-size-spring': {
     id: 'queen-size-spring',
     name: "Queen Size Spring",
@@ -555,6 +891,22 @@ const products: Record<string, { id: string; name: string; price: string; image:
     price: "Rs. 45,000",
     image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1400&q=85",
     description: "The Single Mattress offers comfort and support for smaller spaces. Its quality foam construction provides the perfect balance of softness and support for a good night's sleep.",
+    category: "Mattress"
+  },
+  'single-hybrid': {
+    id: 'single-hybrid',
+    name: "Single Hybrid",
+    price: "Rs. 52,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Single Hybrid Mattress combines foam comfort with spring support in a compact size. Perfect for guest rooms, it offers premium comfort without taking up much space.",
+    category: "Mattress"
+  },
+  'single-orthopedic': {
+    id: 'single-orthopedic',
+    name: "Single Orthopedic",
+    price: "Rs. 48,000",
+    image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1400&q=85",
+    description: "The Single Orthopedic Mattress provides firm support for back health in a compact size. Its targeted support zones ensure proper spinal alignment for restful sleep.",
     category: "Mattress"
   },
   'hybrid-mattress': {

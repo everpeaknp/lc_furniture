@@ -31,10 +31,50 @@ const subcategoryData: Record<string, { hero: string, intro: string, products: A
     hero: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=1200&q=85",
     intro: "Discover our collection of queen-size beds designed for comfort and style. Perfect for master bedrooms, these beds offer generous sleeping space with elegant designs.",
     products: [
-      { name: "Mara Oak Bed", price: "Rs. 1,42,000", image: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=900&q=80" },
+      { name: "Mara Oak Bed", price: "Rs. 1,42,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
       { name: "Upholstered Queen Bed", price: "Rs. 1,25,000", image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80" },
       { name: "Platform Queen Bed", price: "Rs. 95,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
       { name: "Storage Queen Bed", price: "Rs. 1,15,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
+  "king-size-beds": {
+    hero: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=1200&q=85",
+    intro: "Experience ultimate luxury with our king-size beds. Designed for spacious master bedrooms, these beds offer expansive sleeping space with premium materials and elegant craftsmanship.",
+    products: [
+      { name: "Mara Oak King Bed", price: "Rs. 1,65,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Upholstered King Bed", price: "Rs. 1,45,000", image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80" },
+      { name: "Platform King Bed", price: "Rs. 1,15,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Storage King Bed", price: "Rs. 1,35,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
+  "wardrobes": {
+    hero: "https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&fit=crop&w=1200&q=85",
+    intro: "Organize your bedroom with our stylish wardrobes. From spacious sliding doors to elegant hinged designs, find the perfect storage solution for your clothing and accessories.",
+    products: [
+      { name: "Arc Wardrobe", price: "Rs. 1,05,000", image: "https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&fit=crop&w=900&q=80" },
+      { name: "Oak Wardrobe", price: "Rs. 1,25,000", image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=900&q=80" },
+      { name: "Sliding Door Wardrobe", price: "Rs. 95,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Walk-in Wardrobe", price: "Rs. 1,85,000", image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
+  "dressers": {
+    hero: "https://images.unsplash.com/photo-1600210491305-7396500b5b31?auto=format&fit=crop&w=1200&q=85",
+    intro: "Complete your bedroom with our elegant dressers. Featuring multiple drawers and beautiful finishes, these pieces provide essential storage while enhancing your decor.",
+    products: [
+      { name: "Noma Dresser", price: "Rs. 74,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Oak Dresser", price: "Rs. 65,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Modern Dresser", price: "Rs. 82,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Vintage Dresser", price: "Rs. 58,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
+  "chest-of-drawers": {
+    hero: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=1200&q=85",
+    intro: "Maximize your storage with our chest of drawers. Perfect for bedrooms, hallways, or nurseries, these versatile pieces offer organized storage in a compact footprint.",
+    products: [
+      { name: "Chest of Drawers", price: "Rs. 45,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Tall Chest", price: "Rs. 52,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Wide Chest", price: "Rs. 68,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Compact Chest", price: "Rs. 38,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
     ]
   },
   "coffee-tables": {
@@ -47,14 +87,64 @@ const subcategoryData: Record<string, { hero: string, intro: string, products: A
       { name: "Oak Round Table", price: "Rs. 26,000", image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=900&q=80" },
     ]
   },
+  "4-seater-dining": {
+    hero: "https://images.unsplash.com/photo-1653629495477-b42f0f43ce3f?auto=format&fit=crop&w=1200&q=85",
+    intro: "Gather family and friends around our 4-seater dining tables. Perfect for intimate meals and everyday dining, these tables combine style with practicality.",
+    products: [
+      { name: "Luma Dining Table", price: "Rs. 92,000", image: "https://images.unsplash.com/photo-1653629495477-b42f0f43ce3f?auto=format&fit=crop&w=900&q=80" },
+      { name: "Oak 4-Seater", price: "Rs. 78,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Round 4-Seater", price: "Rs. 65,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Glass 4-Seater", price: "Rs. 85,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
+  "dining-chairs": {
+    hero: "https://images.unsplash.com/photo-1656403002413-2ac6137237d6?auto=format&fit=crop&w=1200&q=85",
+    intro: "Complete your dining set with our stylish dining chairs. From ergonomic designs to elegant styles, find the perfect seating for your dining room.",
+    products: [
+      { name: "Noma Dining Chair", price: "Rs. 26,000", image: "https://images.unsplash.com/photo-1656403002413-2ac6137237d6?auto=format&fit=crop&w=900&q=80" },
+      { name: "Marta Dining Chair", price: "Rs. 28,000", image: "https://images.unsplash.com/photo-1706380469091-3bd9b7865b71?auto=format&fit=crop&w=900&q=80" },
+      { name: "Cane Armchair", price: "Rs. 32,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Upholstered Chair", price: "Rs. 35,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
+  "6-seater-dining": {
+    hero: "https://images.unsplash.com/photo-1653629495477-b42f0f43ce3f?auto=format&fit=crop&w=1200&q=85",
+    intro: "Host memorable dinner parties with our 6-seater dining tables. Designed for larger families and entertaining, these tables offer spacious seating without compromising on style.",
+    products: [
+      { name: "Oval Extension Table", price: "Rs. 1,18,000", image: "https://images.unsplash.com/photo-1653629495477-b42f0f43ce3f?auto=format&fit=crop&w=900&q=80" },
+      { name: "Oak 6-Seater", price: "Rs. 1,05,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Rectangular 6-Seater", price: "Rs. 95,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Glass 6-Seater", price: "Rs. 1,25,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
+  "bench-seating": {
+    hero: "https://images.unsplash.com/photo-1612152605347-f93296cb657d?auto=format&fit=crop&w=1200&q=85",
+    intro: "Add versatility to your dining space with our bench seating. Perfect for accommodating extra guests or creating a casual dining atmosphere, benches offer flexible seating solutions.",
+    products: [
+      { name: "Linen Bench", price: "Rs. 38,000", image: "https://images.unsplash.com/photo-1612152605347-f93296cb657d?auto=format&fit=crop&w=900&q=80" },
+      { name: "Oak Dining Bench", price: "Rs. 42,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Upholstered Bench", price: "Rs. 48,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Storage Bench", price: "Rs. 52,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
+  "8-seater-dining": {
+    hero: "https://images.unsplash.com/photo-1653629495477-b42f0f43ce3f?auto=format&fit=crop&w=1200&q=85",
+    intro: "Elevate your hosting with our 8-seater dining tables. Designed for grand dining rooms and entertaining large groups, these tables make a statement while providing ample seating.",
+    products: [
+      { name: "Grand Extension Table", price: "Rs. 1,85,000", image: "https://images.unsplash.com/photo-1653629495477-b42f0f43ce3f?auto=format&fit=crop&w=900&q=80" },
+      { name: "Oak 8-Seater", price: "Rs. 1,65,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Marble 8-Seater", price: "Rs. 2,15,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Glass 8-Seater", price: "Rs. 1,95,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
   "bookshelves": {
     hero: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=1200&q=85",
     intro: "Display your treasured objects and library with our open shelving units and bookcases, blending utility with sculptural design.",
     products: [
       { name: "Arch Bookshelf", price: "Rs. 65,000", image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=900&q=80" },
-      { name: "Linear Wall Shelf", price: "Rs. 24,000", image: "https://images.unsplash.com/photo-1507652313519-d4e9174996cb?auto=format&fit=crop&w=900&q=80" },
+      { name: "Linear Wall Shelf", price: "Rs. 24,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
       { name: "Walnut Cabinet", price: "Rs. 89,000", image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=900&q=80" },
-      { name: "Gallery Shelving", price: "Rs. 56,000", image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80" },
+      { name: "Gallery Shelving", price: "Rs. 56,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
     ]
   },
   "console-tables": {
@@ -115,6 +205,66 @@ const subcategoryData: Record<string, { hero: string, intro: string, products: A
       { name: "Hammock Chair", price: "Rs. 18,000", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" },
       { name: "Garden Swing Set", price: "Rs. 95,000", image: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1b?auto=format&fit=crop&w=900&q=80" },
       { name: "Porch Swing", price: "Rs. 62,000", image: "https://images.unsplash.com/photo-1600210491363-e6c8fc5e87c0?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
+  "memory-foam": {
+    hero: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=85",
+    intro: "Experience unparalleled comfort with our memory foam mattresses. Contouring to your body for personalized support and pressure relief, these mattresses provide the perfect balance of softness and support.",
+    products: [
+      { name: "King Size Memory Foam", price: "Rs. 85,000", image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=80" },
+      { name: "Queen Size Memory Foam", price: "Rs. 72,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Single Memory Foam", price: "Rs. 45,000", image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=80" },
+      { name: "Hybrid Memory Foam", price: "Rs. 95,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
+  "king-size": {
+    hero: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=85",
+    intro: "Experience ultimate luxury with our king-size mattresses. Designed for spacious master bedrooms, these mattresses offer expansive sleeping space with premium materials for the perfect night's rest.",
+    products: [
+      { name: "King Size Memory Foam", price: "Rs. 85,000", image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=80" },
+      { name: "King Size Spring", price: "Rs. 78,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "King Size Hybrid", price: "Rs. 95,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "King Size Orthopedic", price: "Rs. 88,000", image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
+  "spring": {
+    hero: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=1200&q=85",
+    intro: "Enjoy traditional comfort with our spring mattresses. Featuring responsive coil construction for bounce and support, these mattresses provide excellent airflow and durable comfort.",
+    products: [
+      { name: "Queen Size Spring", price: "Rs. 72,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "King Size Spring", price: "Rs. 78,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Single Spring", price: "Rs. 45,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Premium Spring", price: "Rs. 85,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
+  "queen-size": {
+    hero: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=85",
+    intro: "Discover our queen-size mattresses, perfect for couples and spacious bedrooms. These mattresses offer generous sleeping space with various comfort levels to suit your preferences.",
+    products: [
+      { name: "Queen Size Memory Foam", price: "Rs. 72,000", image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=80" },
+      { name: "Queen Size Spring", price: "Rs. 72,000", image: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=900&q=80" },
+      { name: "Queen Size Hybrid", price: "Rs. 82,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Queen Size Orthopedic", price: "Rs. 75,000", image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
+  "single": {
+    hero: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=85",
+    intro: "Perfect for guest rooms, children's rooms, or smaller spaces, our single mattresses offer quality comfort in a compact size without compromising on support.",
+    products: [
+      { name: "Single Memory Foam", price: "Rs. 45,000", image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=80" },
+      { name: "Single Spring", price: "Rs. 42,000", image: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=900&q=80" },
+      { name: "Single Hybrid", price: "Rs. 52,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Single Orthopedic", price: "Rs. 48,000", image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
+  "shelves": {
+    hero: "https://images.unsplash.com/photo-1594620302200-9a762244a156?auto=format&fit=crop&w=1200&q=85",
+    intro: "Organize any space with our versatile shelving solutions. From wall-mounted floating shelves to sturdy freestanding units, find the perfect storage for books, decor, and essentials.",
+    products: [
+      { name: "Floating Shelves", price: "Rs. 32,000", image: "https://images.unsplash.com/photo-1594620302200-9a762244a156?auto=format&fit=crop&w=900&q=80" },
+      { name: "Wall Shelf Set", price: "Rs. 28,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Corner Shelf", price: "Rs. 22,000", image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=900&q=80" },
+      { name: "Industrial Rack", price: "Rs. 45,000", image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=900&q=80" },
     ]
   }
 };
