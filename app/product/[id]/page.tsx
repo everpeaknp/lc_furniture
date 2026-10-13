@@ -72,6 +72,22 @@ const products: Record<string, { id: string; name: string; price: string; image:
     description: "The Power Recliner offers effortless comfort with its electric reclining mechanism. With the touch of a button, adjust your position for reading, watching TV, or napping. Premium leather and plush cushioning complete the luxury experience.",
     category: "Sofas"
   },
+  'swivel-recliner': {
+    id: 'swivel-recliner',
+    name: "Swivel Recliner",
+    price: "Rs. 85,000",
+    image: "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=1400&q=85",
+    description: "The Swivel Recliner combines smooth 360-degree rotation with comfortable reclining. Perfect for entertaining or enjoying your favorite shows, this chair offers versatility and style in one elegant package.",
+    category: "Sofas"
+  },
+  'leather-recliner': {
+    id: 'leather-recliner',
+    name: "Leather Recliner",
+    price: "Rs. 1,25,000",
+    image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=1400&q=85",
+    description: "The Leather Recliner epitomizes luxury with its premium genuine leather upholstery. Rich color, smooth texture, and exceptional durability make this recliner a timeless addition to any sophisticated living space.",
+    category: "Sofas"
+  },
   'sofa-cum-bed': {
     id: 'sofa-cum-bed',
     name: "Sofa Cum Bed",
