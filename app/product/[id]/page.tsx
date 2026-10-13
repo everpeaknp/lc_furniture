@@ -617,12 +617,12 @@ export default function ProductPage() {
           <div className="section-heading">
             <div><p className="eyebrow">You might also like</p><h2>Similar Products</h2></div>
           </div>
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8 sm:space-y-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {Object.entries(products)
               .filter(([id, p]) => id !== productId && p.category === product.category)
               .slice(0, 3)
               .map(([id, item]) => (
-                <ProductCard key={id} item={{ name: item.name, price: item.price, image: item.image }} productId={id} className="break-inside-avoid mb-8 [&_.image-wrap]:!aspect-auto [&_img]:!h-auto" />
+                <ProductCard key={id} item={{ name: item.name, price: item.price, image: item.image }} productId={id} />
               ))}
           </div>
         </section>
@@ -632,12 +632,12 @@ export default function ProductPage() {
           <div className="section-heading">
             <div><p className="eyebrow">Curated for you</p><h2>Recommended</h2></div>
           </div>
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8 sm:space-y-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {Object.entries(products)
               .filter(([id]) => id !== productId)
-              .slice(0, 4)
+              .slice(0, 3)
               .map(([id, item]) => (
-                <ProductCard key={id} item={{ name: item.name, price: item.price, image: item.image }} productId={id} className="break-inside-avoid mb-8 [&_.image-wrap]:!aspect-auto [&_img]:!h-auto" />
+                <ProductCard key={id} item={{ name: item.name, price: item.price, image: item.image }} productId={id} />
               ))}
           </div>
         </section>
