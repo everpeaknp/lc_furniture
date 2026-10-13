@@ -57,6 +57,16 @@ const subcategoryData: Record<string, { hero: string, intro: string, products: A
       { name: "Floating Console", price: "Rs. 62,000", image: "https://images.unsplash.com/photo-1507652313519-d4e9174996cb?auto=format&fit=crop&w=900&q=80" },
     ]
   },
+  "display-units": {
+    hero: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=1200&q=85",
+    intro: "Showcase your cherished possessions with our display units and cabinets. Featuring glass doors, adjustable shelves, and elegant designs perfect for any living room.",
+    products: [
+      { name: "Oak Display Cabinet", price: "Rs. 82,000", image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=900&q=80" },
+      { name: "Glass Display Unit", price: "Rs. 95,000", image: "https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&fit=crop&w=900&q=80" },
+      { name: "Modern Showcase", price: "Rs. 1,15,000", image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=900&q=80" },
+      { name: "Wall Display Unit", price: "Rs. 68,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
   "patio-furniture": {
     hero: "https://images.unsplash.com/photo-1600210491363-e6c8fc5e87c0?auto=format&fit=crop&w=1200&q=85",
     intro: "Transform your patio into an outdoor living room with our weather-resistant dining sets, loungers, and seating. Built to withstand the elements while maintaining style.",
@@ -142,7 +152,7 @@ export default async function SubcategoryPage({
           </div>
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8 sm:space-y-0">
             {data.products.map((item) => (
-              <ProductCard key={item.name} item={item} className="break-inside-avoid mb-8 [&_.image-wrap]:!aspect-auto [&_img]:!h-auto" />
+              <ProductCard key={item.name} item={item} productId={item.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')} className="break-inside-avoid mb-8 [&_.image-wrap]:!aspect-auto [&_img]:!h-auto" />
             ))}
           </div>
         </section>

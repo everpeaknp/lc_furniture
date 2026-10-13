@@ -64,6 +64,14 @@ const products: Record<string, { id: string; name: string; price: string; image:
     description: "Experience ultimate relaxation with the Classic Recliner. Featuring smooth reclining mechanism, premium leather upholstery, and ergonomic lumbar support for the perfect lounging experience.",
     category: "Sofas"
   },
+  'power-recliner': {
+    id: 'power-recliner',
+    name: "Power Recliner",
+    price: "Rs. 95,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Power Recliner offers effortless comfort with its electric reclining mechanism. With the touch of a button, adjust your position for reading, watching TV, or napping. Premium leather and plush cushioning complete the luxury experience.",
+    category: "Sofas"
+  },
   'sofa-cum-bed': {
     id: 'sofa-cum-bed',
     name: "Sofa Cum Bed",
@@ -233,6 +241,46 @@ const products: Record<string, { id: string; name: string; price: string; image:
     price: "Rs. 68,000",
     image: "https://images.unsplash.com/photo-1594620302200-9a762244a156?auto=format&fit=crop&w=1400&q=85",
     description: "The Modern Bookshelf combines functionality with style. Open shelving design allows you to display your book collection and decorative items beautifully.",
+    category: "Storage"
+  },
+  'display-units': {
+    id: 'display-units',
+    name: "Display Units",
+    price: "Rs. 78,000",
+    image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=1400&q=85",
+    description: "The Display Units feature glass doors and adjustable shelves. Perfect for showcasing your prized possessions while keeping them protected from dust.",
+    category: "Storage"
+  },
+  'wall-display-unit': {
+    id: 'wall-display-unit',
+    name: "Wall Display Unit",
+    price: "Rs. 68,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Wall Display Unit offers a modern storage solution with sleek design. Perfect for displaying books, decor, and collectibles while maximizing wall space.",
+    category: "Storage"
+  },
+  'oak-display-cabinet': {
+    id: 'oak-display-cabinet',
+    name: "Oak Display Cabinet",
+    price: "Rs. 82,000",
+    image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=1400&q=85",
+    description: "The Oak Display Cabinet features glass doors and adjustable shelves. Perfect for showcasing your prized possessions while keeping them protected from dust.",
+    category: "Storage"
+  },
+  'glass-display-unit': {
+    id: 'glass-display-unit',
+    name: "Glass Display Unit",
+    price: "Rs. 95,000",
+    image: "https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&fit=crop&w=1400&q=85",
+    description: "The Glass Display Unit features elegant glass panels and LED lighting. Perfect for displaying collectibles and creating a stunning focal point in your living room.",
+    category: "Storage"
+  },
+  'modern-showcase': {
+    id: 'modern-showcase',
+    name: "Modern Showcase",
+    price: "Rs. 1,15,000",
+    image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=1400&q=85",
+    description: "The Modern Showcase combines contemporary design with functional storage. Its spacious compartments and glass doors provide the perfect platform for your treasured items.",
     category: "Storage"
   },
   'chest-of-drawers': {
