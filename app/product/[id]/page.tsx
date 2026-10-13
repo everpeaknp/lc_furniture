@@ -40,6 +40,14 @@ const products: Record<string, { id: string; name: string; price: string; image:
     description: "Wrap yourself in luxury with the Cloud Bouclé Sofa. Featuring soft, textured bouclé fabric and plush cushioning, this sofa creates a cozy, inviting atmosphere while making a bold style statement.",
     category: "Sofas"
   },
+  'cloud-boucl-sofa': {
+    id: 'cloud-boucl-sofa',
+    name: "Cloud Bouclé Sofa",
+    price: "Rs. 1,60,000",
+    image: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1400&q=85",
+    description: "Wrap yourself in luxury with the Cloud Bouclé Sofa. Featuring soft, textured bouclé fabric and plush cushioning, this sofa creates a cozy, inviting atmosphere while making a bold style statement.",
+    category: "Sofas"
+  },
   'forma-modular-sofa': {
     id: 'forma-modular-sofa',
     name: "Forma Modular Sofa",
@@ -119,6 +127,14 @@ const products: Record<string, { id: string; name: string; price: string; image:
     price: "Rs. 48,000",
     image: "https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?auto=format&fit=crop&w=1400&q=85",
     description: "The Soft Lounge Chair provides comfortable seating for your bedroom or reading nook. Its plush cushioning and ergonomic design ensure hours of relaxation.",
+    category: "Bedroom"
+  },
+  'miro-lounge-chair': {
+    id: 'miro-lounge-chair',
+    name: "Miro Lounge Chair",
+    price: "Rs. 52,000",
+    image: "https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?auto=format&fit=crop&w=1400&q=85",
+    description: "The Miro Lounge Chair combines modern design with exceptional comfort. Its sculptural form and premium upholstery make it a statement piece for any living space.",
     category: "Bedroom"
   },
   'oak-vanity-desk': {
