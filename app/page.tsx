@@ -67,8 +67,8 @@ export default function HomePage() {
   return (
     <div className="site-shell">
       <main id="top">
-        <Hero />
         <SaleMarquee />
+        <Hero />
         <SaleCountdown />
 
         <FurnitureBenefits />

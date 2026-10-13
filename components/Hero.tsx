@@ -371,7 +371,7 @@ export function Hero() {
   };
 
   return (
-    <section aria-label="Featured offers" className="w-full my-3 px-3 sm:px-6">
+    <section aria-label="Featured offers" className="w-full">
       <motion.div variants={container} initial="hidden" animate="show" className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_400px]">
         <motion.div variants={item} className="h-[420px] md:h-[520px] lg:h-[640px]">
           <BigAutoSlider className="h-full" />
