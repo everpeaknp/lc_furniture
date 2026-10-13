@@ -715,6 +715,22 @@ const products: Record<string, { id: string; name: string; price: string; image:
     description: "The Console Storage offers versatile storage with drawers and shelves. Its elegant design works well in hallways, living rooms, or dining areas.",
     category: "Storage"
   },
+  'modern-cabinet': {
+    id: 'modern-cabinet',
+    name: "Modern Cabinet",
+    price: "Rs. 68,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Modern Cabinet features sleek design with ample storage space. Its clean lines and smooth hardware make it perfect for contemporary living spaces.",
+    category: "Storage"
+  },
+  'storage-cabinet': {
+    id: 'storage-cabinet',
+    name: "Storage Cabinet",
+    price: "Rs. 52,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Storage Cabinet provides versatile storage with adjustable shelves. Perfect for organizing any room, its practical design keeps essentials neatly stored.",
+    category: "Storage"
+  },
   'modular-storage': {
     id: 'modular-storage',
     name: "Modular Storage",
@@ -738,6 +754,30 @@ const products: Record<string, { id: string; name: string; price: string; image:
     price: "Rs. 36,000",
     image: "https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?auto=format&fit=crop&w=1400&q=85",
     description: "The Miro Task Chair offers ergonomic support for long work sessions. Its adjustable height and comfortable cushioning ensure you stay productive without sacrificing comfort.",
+    category: "Study & Office"
+  },
+  'ergonomic-chair': {
+    id: 'ergonomic-chair',
+    name: "Ergonomic Chair",
+    price: "Rs. 45,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Ergonomic Chair is designed for all-day comfort with adjustable lumbar support, armrests, and seat height. Its breathable mesh back keeps you cool during long work sessions.",
+    category: "Study & Office"
+  },
+  'executive-chair': {
+    id: 'executive-chair',
+    name: "Executive Chair",
+    price: "Rs. 65,000",
+    image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=1400&q=85",
+    description: "The Executive Chair combines premium leather with sophisticated design. Perfect for leadership roles, it provides exceptional comfort with executive styling for your office.",
+    category: "Study & Office"
+  },
+  'mesh-chair': {
+    id: 'mesh-chair',
+    name: "Mesh Chair",
+    price: "Rs. 38,000",
+    image: "https://images.unsplash.com/photo-1594620302200-9a762244a156?auto=format&fit=crop&w=1400&q=85",
+    description: "The Mesh Chair features a breathable mesh back for superior airflow. Its ergonomic design and adjustable features provide comfortable seating for extended work periods.",
     category: "Study & Office"
   },
   'frame-shelving-unit': {
@@ -764,12 +804,76 @@ const products: Record<string, { id: string; name: string; price: string; image:
     description: "The Studio Work Table provides a large, sturdy surface for creative work. Its solid construction and clean design make it perfect for artists, designers, and professionals.",
     category: "Study & Office"
   },
+  'oak-study-desk': {
+    id: 'oak-study-desk',
+    name: "Oak Study Desk",
+    price: "Rs. 45,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Oak Study Desk combines natural oak with practical design. Its spacious surface and drawer storage make it perfect for students and home offices.",
+    category: "Study & Office"
+  },
+  'executive-desk': {
+    id: 'executive-desk',
+    name: "Executive Desk",
+    price: "Rs. 85,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Executive Desk commands attention with its substantial design and premium materials. Perfect for leadership roles, it provides ample workspace with sophisticated styling.",
+    category: "Study & Office"
+  },
+  'standing-desk': {
+    id: 'standing-desk',
+    name: "Standing Desk",
+    price: "Rs. 65,000",
+    image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=1400&q=85",
+    description: "The Standing Desk promotes healthy work habits with adjustable height. Switch between sitting and standing to boost energy and productivity throughout the day.",
+    category: "Study & Office"
+  },
+  'l-shaped-desk': {
+    id: 'l-shaped-desk',
+    name: "L-Shaped Desk",
+    price: "Rs. 72,000",
+    image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=1400&q=85",
+    description: "The L-Shaped Desk maximizes corner space with its efficient design. Perfect for multi-monitor setups, it provides extensive workspace while fitting neatly into any room.",
+    category: "Study & Office"
+  },
+  'compact-office-desk': {
+    id: 'compact-office-desk',
+    name: "Compact Office Desk",
+    price: "Rs. 42,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Compact Office Desk is perfect for small spaces. Its efficient design provides essential workspace without overwhelming your room, ideal for apartments and home offices.",
+    category: "Study & Office"
+  },
   'oak-file-cabinet': {
     id: 'oak-file-cabinet',
     name: "Oak File Cabinet",
     price: "Rs. 32,000",
     image: "https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&fit=crop&w=1400&q=85",
     description: "The Oak File Cabinet offers secure storage for documents and office supplies. Its lockable drawers and solid construction keep your important papers safe and organized.",
+    category: "Study & Office"
+  },
+  'mobile-file-cabinet': {
+    id: 'mobile-file-cabinet',
+    name: "Mobile File Cabinet",
+    price: "Rs. 28,000",
+    image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=1400&q=85",
+    description: "The Mobile File Cabinet features casters for easy mobility. Perfect for flexible office layouts, it provides document storage that can be moved wherever needed.",
+    category: "Study & Office"
+  },
+  'tall-filing-cabinet': {
+    id: 'tall-filing-cabinet',
+    name: "Tall Filing Cabinet",
+    price: "Rs. 42,000",
+    image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=1400&q=85",
+    description: "The Tall Filing Cabinet maximizes vertical storage space. With multiple drawers and a compact footprint, it's perfect for organizing documents in smaller offices.",
+    category: "Study & Office"
+  },
+  'lateral-file-cabinet': {
+    id: 'lateral-file-cabinet',
+    name: "Lateral File Cabinet",
+    price: "Rs. 38,000",
+    image: "https://images.unsplash.com/photo-1594620302200-9a762244a156?auto=format&fit=crop&w=1400&q=85",
+    description: "The Lateral File Cabinet provides spacious storage with a low profile. Perfect for use under windows or as additional workspace, it combines functionality with versatile design.",
     category: "Study & Office"
   },
   'cove-reading-chair': {

@@ -266,6 +266,56 @@ const subcategoryData: Record<string, { hero: string, intro: string, products: A
       { name: "Corner Shelf", price: "Rs. 22,000", image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=900&q=80" },
       { name: "Industrial Rack", price: "Rs. 45,000", image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=900&q=80" },
     ]
+  },
+  "cabinets": {
+    hero: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=1200&q=85",
+    intro: "Maximize your storage with our versatile cabinets. From kitchen storage to living room display units, find the perfect cabinet to organize and enhance your space.",
+    products: [
+      { name: "Oak Wardrobe", price: "Rs. 1,25,000", image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=900&q=80" },
+      { name: "Modern Cabinet", price: "Rs. 68,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Storage Cabinet", price: "Rs. 52,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Display Cabinet", price: "Rs. 78,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
+  "study-tables": {
+    hero: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1200&q=85",
+    intro: "Create your perfect workspace with our study tables. From compact desks for small rooms to spacious work tables for home offices, find the ideal desk for productivity.",
+    products: [
+      { name: "Arco Writing Desk", price: "Rs. 58,000", image: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=900&q=80" },
+      { name: "Taper Console Desk", price: "Rs. 52,000", image: "https://images.unsplash.com/photo-1706380469091-3bd9b7865b71?auto=format&fit=crop&w=900&q=80" },
+      { name: "Studio Work Table", price: "Rs. 68,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Oak Study Desk", price: "Rs. 45,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
+  "office-desks": {
+    hero: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1200&q=85",
+    intro: "Boost your productivity with our ergonomic office desks. Designed for comfort and efficiency, these desks provide the perfect foundation for your home office or workspace.",
+    products: [
+      { name: "Compact Office Desk", price: "Rs. 42,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Executive Desk", price: "Rs. 85,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Standing Desk", price: "Rs. 65,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "L-Shaped Desk", price: "Rs. 72,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
+  "filing-cabinets": {
+    hero: "https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&fit=crop&w=1200&q=85",
+    intro: "Keep your documents organized with our filing cabinets. Designed for efficient document storage, these cabinets combine functionality with professional aesthetics for your office.",
+    products: [
+      { name: "Oak File Cabinet", price: "Rs. 32,000", image: "https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&fit=crop&w=900&q=80" },
+      { name: "Mobile File Cabinet", price: "Rs. 28,000", image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=900&q=80" },
+      { name: "Tall Filing Cabinet", price: "Rs. 42,000", image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=900&q=80" },
+      { name: "Lateral File Cabinet", price: "Rs. 38,000", image: "https://images.unsplash.com/photo-1594620302200-9a762244a156?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
+  "office-chairs": {
+    hero: "https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?auto=format&fit=crop&w=1200&q=85",
+    intro: "Work in comfort with our ergonomic office chairs. Designed for long working hours, these chairs provide lumbar support, adjustable features, and premium materials for maximum productivity.",
+    products: [
+      { name: "Miro Task Chair", price: "Rs. 36,000", image: "https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?auto=format&fit=crop&w=900&q=80" },
+      { name: "Ergonomic Chair", price: "Rs. 45,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Executive Chair", price: "Rs. 65,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Mesh Chair", price: "Rs. 38,000", image: "https://images.unsplash.com/photo-1594620302200-9a762244a156?auto=format&fit=crop&w=900&q=80" },
+    ]
   }
 };
 
