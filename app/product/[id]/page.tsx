@@ -169,6 +169,38 @@ const products: Record<string, { id: string; name: string; price: string; image:
     description: "The Oak Vanity Desk serves as both a workspace and dressing table. Its elegant design and practical storage make it perfect for modern bedrooms.",
     category: "Bedroom"
   },
+  'dune-low-table': {
+    id: 'dune-low-table',
+    name: "Dune Low Table",
+    price: "Rs. 38,000",
+    image: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1400&q=85",
+    description: "The Dune Low Table offers a low-profile design perfect for modern living rooms. Its clean lines and sturdy construction make it an ideal centerpiece for relaxed seating arrangements.",
+    category: "Dining"
+  },
+  'nero-marble-table': {
+    id: 'nero-marble-table',
+    name: "Nero Marble Table",
+    price: "Rs. 74,000",
+    image: "https://images.unsplash.com/photo-1499933374294-4584851497cc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Nero Marble Table features luxurious marble atop a sleek base. Its dramatic black marble surface creates a stunning focal point while providing a durable surface for everyday use.",
+    category: "Dining"
+  },
+  'onda-coffee-table': {
+    id: 'onda-coffee-table',
+    name: "Onda Coffee Table",
+    price: "Rs. 45,000",
+    image: "https://images.unsplash.com/photo-1532372320572-cda25653a26d?auto=format&fit=crop&w=1400&q=85",
+    description: "The Onda Coffee Table features organic curves inspired by flowing water. Its sculptural design adds artistic flair to your living room while providing a functional surface for drinks and decor.",
+    category: "Dining"
+  },
+  'oak-round-table': {
+    id: 'oak-round-table',
+    name: "Oak Round Table",
+    price: "Rs. 26,000",
+    image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Oak Round Table brings warmth and natural beauty to any space. Crafted from solid oak with a smooth finish, this table is perfect for intimate gatherings or as a stylish accent piece.",
+    category: "Dining"
+  },
   'frame-nightstand': {
     id: 'frame-nightstand',
     name: "Frame Nightstand",
