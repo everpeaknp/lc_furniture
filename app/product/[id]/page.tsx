@@ -113,6 +113,30 @@ const products: Record<string, { id: string; name: string; price: string; image:
     description: "The Mara Oak Bed offers timeless elegance with solid oak construction. Featuring a comfortable headboard and sturdy frame, it creates a serene sanctuary for restful sleep.",
     category: "Bedroom"
   },
+  'upholstered-queen-bed': {
+    id: 'upholstered-queen-bed',
+    name: "Upholstered Queen Bed",
+    price: "Rs. 1,25,000",
+    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=85",
+    description: "The Upholstered Queen Bed features a luxurious fabric headboard and sturdy frame. Its soft texture and elegant design create a cozy and sophisticated bedroom centerpiece.",
+    category: "Bedroom"
+  },
+  'platform-queen-bed': {
+    id: 'platform-queen-bed',
+    name: "Platform Queen Bed",
+    price: "Rs. 95,000",
+    image: "https://images.unsplash.com/photo-1507652313519-d4e9174996cb?auto=format&fit=crop&w=1400&q=85",
+    description: "The Platform Queen Bed offers a minimalist design with a low profile. Its clean lines and solid construction provide modern style without compromising on comfort.",
+    category: "Bedroom"
+  },
+  'storage-queen-bed': {
+    id: 'storage-queen-bed',
+    name: "Storage Queen Bed",
+    price: "Rs. 1,15,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Storage Queen Bed combines comfort with practicality. Featuring built-in drawers beneath the mattress, it maximizes space while maintaining a sleek, elegant appearance.",
+    category: "Bedroom"
+  },
   'fawn-bedside-table': {
     id: 'fawn-bedside-table',
     name: "Fawn Bedside Table",
@@ -200,6 +224,70 @@ const products: Record<string, { id: string; name: string; price: string; image:
     image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=1400&q=85",
     description: "The Oak Round Table brings warmth and natural beauty to any space. Crafted from solid oak with a smooth finish, this table is perfect for intimate gatherings or as a stylish accent piece.",
     category: "Dining"
+  },
+  'taper-console': {
+    id: 'taper-console',
+    name: "Taper Console",
+    price: "Rs. 52,000",
+    image: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1400&q=85",
+    description: "The Taper Console offers elegant tapered legs and a spacious surface. Perfect for entryways or behind sofas, this console table adds sophistication to any space.",
+    category: "Dining"
+  },
+  'marble-console': {
+    id: 'marble-console',
+    name: "Marble Console",
+    price: "Rs. 78,000",
+    image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Marble Console features luxurious marble atop sleek metal legs. Its elegant design makes it perfect for displaying decor and creating a stylish focal point in entryways or living rooms.",
+    category: "Dining"
+  },
+  'oak-console-table': {
+    id: 'oak-console-table',
+    name: "Oak Console Table",
+    price: "Rs. 45,000",
+    image: "https://images.unsplash.com/photo-1499933374294-4584851497cc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Oak Console Table combines natural oak with clean lines. Its sturdy construction and generous surface provide both functionality and style for hallways and living spaces.",
+    category: "Dining"
+  },
+  'floating-console': {
+    id: 'floating-console',
+    name: "Floating Console",
+    price: "Rs. 62,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Floating Console features a wall-mounted design that creates visual lightness. Perfect for modern spaces, it provides storage and display space without taking up floor area.",
+    category: "Dining"
+  },
+  'oak-tv-unit': {
+    id: 'oak-tv-unit',
+    name: "Oak TV Unit",
+    price: "Rs. 52,000",
+    image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=1400&q=85",
+    description: "The Oak TV Unit combines natural oak with practical storage. Featuring drawers and open compartments, it's perfect for organizing media equipment while displaying decor.",
+    category: "Storage"
+  },
+  'modern-tv-console': {
+    id: 'modern-tv-console',
+    name: "Modern TV Console",
+    price: "Rs. 68,000",
+    image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=1400&q=85",
+    description: "The Modern TV Console features sleek lines and contemporary design. With ample storage space and cable management, it keeps your entertainment area organized and stylish.",
+    category: "Storage"
+  },
+  'floating-tv-unit': {
+    id: 'floating-tv-unit',
+    name: "Floating TV Unit",
+    price: "Rs. 45,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Floating TV Unit creates a clean, modern look with its wall-mounted design. Perfect for smaller spaces, it provides storage without taking up valuable floor area.",
+    category: "Storage"
+  },
+  'low-profile-tv-stand': {
+    id: 'low-profile-tv-stand',
+    name: "Low Profile TV Stand",
+    price: "Rs. 38,000",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    description: "The Low Profile TV Stand offers a minimalist design that keeps the focus on your screen. Its low height and clean lines make it perfect for modern entertainment setups.",
+    category: "Storage"
   },
   'frame-nightstand': {
     id: 'frame-nightstand',

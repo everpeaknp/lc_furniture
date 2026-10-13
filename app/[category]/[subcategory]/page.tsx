@@ -27,6 +27,16 @@ const subcategoryData: Record<string, { hero: string, intro: string, products: A
       { name: "Swivel Recliner", price: "Rs. 85,000", image: "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=900&q=80" },
     ]
   },
+  "queen-size-beds": {
+    hero: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=1200&q=85",
+    intro: "Discover our collection of queen-size beds designed for comfort and style. Perfect for master bedrooms, these beds offer generous sleeping space with elegant designs.",
+    products: [
+      { name: "Mara Oak Bed", price: "Rs. 1,42,000", image: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=900&q=80" },
+      { name: "Upholstered Queen Bed", price: "Rs. 1,25,000", image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80" },
+      { name: "Platform Queen Bed", price: "Rs. 95,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Storage Queen Bed", price: "Rs. 1,15,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
   "coffee-tables": {
     hero: "https://images.unsplash.com/photo-1532372320572-cda25653a26d?auto=format&fit=crop&w=1200&q=85",
     intro: "Anchor your living room with our collection of coffee tables. Crafted from solid wood, travertine, and glass to suit any space.",
@@ -54,7 +64,7 @@ const subcategoryData: Record<string, { hero: string, intro: string, products: A
       { name: "Taper Console", price: "Rs. 52,000", image: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=900&q=80" },
       { name: "Marble Console", price: "Rs. 78,000", image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=900&q=80" },
       { name: "Oak Console Table", price: "Rs. 45,000", image: "https://images.unsplash.com/photo-1499933374294-4584851497cc?auto=format&fit=crop&w=900&q=80" },
-      { name: "Floating Console", price: "Rs. 62,000", image: "https://images.unsplash.com/photo-1507652313519-d4e9174996cb?auto=format&fit=crop&w=900&q=80" },
+      { name: "Floating Console", price: "Rs. 62,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
     ]
   },
   "display-units": {
@@ -65,6 +75,16 @@ const subcategoryData: Record<string, { hero: string, intro: string, products: A
       { name: "Glass Display Unit", price: "Rs. 95,000", image: "https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&fit=crop&w=900&q=80" },
       { name: "Modern Showcase", price: "Rs. 1,15,000", image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=900&q=80" },
       { name: "Wall Display Unit", price: "Rs. 68,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
+  "tv-units": {
+    hero: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=1200&q=85",
+    intro: "Complete your entertainment setup with our stylish TV units. Designed to accommodate modern screens while providing storage for media equipment and decor.",
+    products: [
+      { name: "Oak TV Unit", price: "Rs. 52,000", image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=900&q=80" },
+      { name: "Modern TV Console", price: "Rs. 68,000", image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=900&q=80" },
+      { name: "Floating TV Unit", price: "Rs. 45,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Low Profile TV Stand", price: "Rs. 38,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
     ]
   },
   "patio-furniture": {
