@@ -1199,8 +1199,8 @@ export default async function ProductPage({
 
   return (
     <div className="site-shell">
-      <main className="mx-auto max-w-[1440px] px-4 pb-12 pt-6 sm:px-6 lg:px-10">
-        <nav aria-label="Breadcrumb" className="mb-5 flex flex-wrap items-center gap-2 text-xs text-[#64748b]">
+      <main className="w-full pb-12 pt-6">
+        <nav aria-label="Breadcrumb" className="mb-5 flex flex-wrap items-center gap-2 text-xs text-[#64748b] px-6 sm:px-10 lg:px-16 xl:px-20">
           <a href="/" className="hover:text-[#1e3a8a]">Home</a>
           <ChevronRight size={13} />
           <a href="/shop" className="hover:text-[#1e3a8a]">{product.category}</a>
@@ -1208,10 +1208,10 @@ export default async function ProductPage({
           <span className="text-[#172554]">{product.name}</span>
         </nav>
 
-        <section data-product-card className="grid gap-5 border-y border-[#e5e0d4] bg-white p-4 sm:p-6 lg:grid-cols-2 xl:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.92fr)_270px]">
+        <section data-product-card className="grid gap-0 border-y border-[#e5e0d4] bg-white w-full px-6 sm:px-10 lg:px-16 xl:px-20 lg:grid-cols-2 xl:grid-cols-[minmax(0,1.1fr)_minmax(340px,0.9fr)_300px]">
           <ProductGallery image={product.image} name={product.name} />
 
-          <div className="min-w-0 py-1">
+          <div className="min-w-0 py-6 px-6 lg:px-8">
             <div className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#64748b]">
               <BadgeCheck size={15} className="text-[#1e3a8a]" />
               Woodform original
@@ -1278,65 +1278,7 @@ export default async function ProductPage({
           </aside>
         </section>
 
-        <nav aria-label="Product information" className="sticky top-0 z-20 mt-6 flex gap-6 overflow-x-auto border-b border-[#d8d5cc] bg-[#faf8f2] px-1 text-sm">
-          <a href="#description" className="whitespace-nowrap border-b-2 border-[#1e3a8a] py-3 font-semibold text-[#1e3a8a]">Description</a>
-          <a href="#specifications" className="whitespace-nowrap py-3 text-[#475569] hover:text-[#1e3a8a]">Specifications</a>
-          <a href="#reviews" className="whitespace-nowrap py-3 text-[#475569] hover:text-[#1e3a8a]">Reviews</a>
-          <a href="#questions" className="whitespace-nowrap py-3 text-[#475569] hover:text-[#1e3a8a]">Questions</a>
-        </nav>
-
-        <section id="description" className="scroll-mt-16 border-b border-[#e5e0d4] bg-white px-5 py-6 sm:px-8">
-          <h2 className="text-base font-semibold text-[#172554]">Product description</h2>
-          <p className="mt-3 max-w-4xl text-sm leading-6 text-[#475569]">{product.description}</p>
-        </section>
-
-        <section id="specifications" className="scroll-mt-16 border-b border-[#e5e0d4] bg-white px-5 py-6 sm:px-8">
-          <h2 className="text-base font-semibold text-[#172554]">Specifications</h2>
-          <dl className="mt-4 grid grid-cols-1 gap-x-10 sm:grid-cols-2">
-            {specifications.map((specification) => (
-              <div key={specification.label} className="grid grid-cols-[minmax(110px,0.7fr)_1fr] gap-4 border-b border-[#efede7] py-3 text-sm">
-                <dt className="text-[#64748b]">{specification.label}</dt>
-                <dd className="m-0 text-[#172554]">{specification.value}</dd>
-              </div>
-            ))}
-          </dl>
-        </section>
-
-        <section id="reviews" className="scroll-mt-16 border-b border-[#e5e0d4] bg-white px-5 py-6 sm:px-8">
-          <h2 className="text-base font-semibold text-[#172554]">Ratings &amp; reviews</h2>
-          <div className="mt-5 grid gap-8 md:grid-cols-[180px_1fr_auto] md:items-center">
-            <div className="text-center md:border-r md:border-[#e5e0d4] md:py-3">
-              <p className="text-4xl font-light text-[#172554]">0<span className="text-xl text-[#94a3b8]">/5</span></p>
-              <div className="mt-2 flex justify-center gap-1 text-[#cbd5e1]">{Array.from({ length: 5 }, (_, index) => <Star key={index} size={17} />)}</div>
-              <p className="mt-1 text-xs text-[#64748b]">No ratings yet</p>
-            </div>
-            <div className="space-y-2">
-              {[5, 4, 3, 2, 1].map((rating) => (
-                <div key={rating} className="flex items-center gap-3 text-xs text-[#64748b]">
-                  <span className="w-8">{rating} star</span>
-                  <div className="h-2 flex-1 bg-[#eeece6]" />
-                  <span className="w-5 text-right">0</span>
-                </div>
-              ))}
-            </div>
-            <a href="/contact" className="inline-flex min-h-10 items-center justify-center border border-[#1e3a8a] px-4 text-xs font-semibold uppercase tracking-wide text-[#1e3a8a] hover:bg-[#eff3ff]">Write a review</a>
-          </div>
-          <div className="mt-6 border-t border-[#efede7] py-6 text-center text-sm text-[#64748b]">
-            <MessageCircle size={24} className="mx-auto mb-2 text-[#94a3b8]" />
-            Be the first to share your experience with this product.
-          </div>
-        </section>
-
-        <section id="questions" className="scroll-mt-16 border-b border-[#e5e0d4] bg-white px-5 py-6 sm:px-8">
-          <h2 className="text-base font-semibold text-[#172554]">Questions about this product</h2>
-          <div className="py-8 text-center">
-            <CircleHelp size={25} className="mx-auto mb-2 text-[#94a3b8]" />
-            <p className="text-sm text-[#475569]">Have a question about {product.name}?</p>
-            <a href="/contact" className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-[#1e3a8a] hover:underline">Contact our team <ChevronRight size={13} /></a>
-          </div>
-        </section>
-
-        <section className="pt-8">
+        <section className="pt-8 px-6 sm:px-10 lg:px-16 xl:px-20">
           <div className="mb-5 flex items-end justify-between gap-4">
             <div>
               <p className="eyebrow mb-2">You may also like</p>
@@ -1351,7 +1293,7 @@ export default async function ProductPage({
           </div>
         </section>
 
-        <section className="pt-10">
+        <section className="pt-10 px-6 sm:px-10 lg:px-16 xl:px-20 pb-12">
           <div className="mb-5">
             <p className="eyebrow mb-2">Curated for you</p>
             <h2 className="text-xl font-semibold text-[#172554]">Recommended</h2>
