@@ -19,7 +19,7 @@ const roomData = {
     eyebrow: "Sink in, stay a while",
     title: "Sofas",
     description: "Our sofa collection combines comfort with timeless design, crafted to be the heart of your living space for years to come.",
-    hero: images.sofa,
+    hero: "/festival-banner.jpg",
     note: "Designed for connection",
     story: "From intimate two-seaters to spacious sectionals, each piece is built with premium materials and thoughtful details that make every moment at home feel special.",
     products: [
@@ -41,23 +41,8 @@ export default function SofasPage() {
   return (
     <div className="site-shell">
       <main>
-        <section className="room-page-hero">
-          <img src={room.hero} alt={`${room.title} furniture collection`} />
-          <div>
-            <p className="eyebrow">{room.eyebrow}</p>
-            <h1>
-              <TypeMorph
-                config={{
-                  text: "ANIMDOCK",
-                  target: room.title,
-                  morph: true,
-                  speed: { mode: 'static', value: 2 },
-                  variants: { mode: 'static', value: 15 },
-                  color: "#f6f4ef"
-                }}
-              />
-            </h1>
-          </div>
+        <section className="room-page-hero" style={{ height: "auto" }}>
+          <img src={room.hero} alt={`${room.title} furniture collection`} style={{ height: "auto", width: "100%", objectFit: "unset" }} />
         </section>
         <section className="room-products section" id="collection">
           <div className="section-heading">

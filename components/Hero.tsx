@@ -26,7 +26,7 @@ export type BigSlide = { id: string; label: string; tagline: string; href: strin
 export type HoverSlide = { id: string; label: string; tagline: string; href: string; image: string; alt: string };
 
 export const bigSlides: BigSlide[] = [
-  { id: "festive", label: "New Collection", tagline: "Fresh arrivals crafted for timeless living.", href: "/shop", image: images.hero, alt: "New furniture collection" },
+  { id: "festive", label: "New Collection", tagline: "Fresh arrivals crafted for timeless living.", href: "/shop", image: "/festival-banner.jpg", alt: "Grand Festive Furniture Sale" },
   { id: "beds", label: "Bedroom Sets", tagline: "Rest deeper in spaces built for comfort.", href: "/bedroom", image: images.bedroom, alt: "Shop bedroom furniture" },
   { id: "dining", label: "Dining Tables", tagline: "Where every meal becomes a memory.", href: "/dining", image: images.dining, alt: "Dining table sets" },
   { id: "sofa-cum-beds", label: "Sofas", tagline: "Sink in, stay a while, live beautifully.", href: "/living-room", image: images.sofa, alt: "Sofa collection" },

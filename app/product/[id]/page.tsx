@@ -1161,71 +1161,6 @@ const products: Record<string, { id: string; name: string; price: string; image:
     description: "The Parasol Stand provides essential shade on sunny days. Its sturdy construction and adjustable design make it perfect for protecting yourself from the sun while enjoying the outdoors.",
     category: "Outdoor"
   },
-  // Decor & Furnishing
-  'handwoven-rug': {
-    id: 'handwoven-rug',
-    name: "Handwoven Jute Rug",
-    price: "Rs. 28,000",
-    image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=85",
-    description: "The Handwoven Jute Rug adds natural texture to any room. Crafted from sustainable materials, it brings warmth and elegance to your floors.",
-    category: "Decor & Furnishing"
-  },
-  'velvet-cushion-set': {
-    id: 'velvet-cushion-set',
-    name: "Velvet Cushion Set",
-    price: "Rs. 8,500",
-    image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=1400&q=85",
-    description: "Our Velvet Cushion Set adds a touch of luxury to your sofa or bed. The soft velvet fabric and rich colors create an inviting atmosphere.",
-    category: "Decor & Furnishing"
-  },
-  'linen-curtains': {
-    id: 'linen-curtains',
-    name: "Linen Curtains",
-    price: "Rs. 15,000",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
-    description: "The Linen Curtains offer elegant light control while adding softness to your windows. The natural fabric drapes beautifully for a sophisticated look.",
-    category: "Decor & Furnishing"
-  },
-  'abstract-wall-art': {
-    id: 'abstract-wall-art',
-    name: "Abstract Wall Art",
-    price: "Rs. 22,000",
-    image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=85",
-    description: "The Abstract Wall Art features bold colors and dynamic compositions. Its modern design adds visual interest and personality to any room in your home.",
-    category: "Decor & Furnishing"
-  },
-  'floor-lamp': {
-    id: 'floor-lamp',
-    name: "Floor Lamp",
-    price: "Rs. 18,500",
-    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=1400&q=85",
-    description: "Our Floor Lamp provides ambient lighting with modern design. The adjustable height and warm tones create the perfect atmosphere for any room.",
-    category: "Decor & Furnishing"
-  },
-  'woven-throw-blanket': {
-    id: 'woven-throw-blanket',
-    name: "Woven Throw Blanket",
-    price: "Rs. 6,500",
-    image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=1400&q=85",
-    description: "The Woven Throw Blanket adds cozy texture to your sofa or bed. Its soft fabric and beautiful weave pattern provide both warmth and style.",
-    category: "Decor & Furnishing"
-  },
-  'ceramic-vase-set': {
-    id: 'ceramic-vase-set',
-    name: "Ceramic Vase Set",
-    price: "Rs. 12,000",
-    image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=85",
-    description: "The Ceramic Vase Set features minimalist designs in complementary colors. Perfect for displaying fresh or dried flowers, they add a touch of elegance to any space.",
-    category: "Decor & Furnishing"
-  },
-  'table-lamp': {
-    id: 'table-lamp',
-    name: "Table Lamp",
-    price: "Rs. 9,500",
-    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=1400&q=85",
-    description: "The Table Lamp provides focused lighting for reading or work. Its elegant design and warm glow create a cozy atmosphere on your desk or side table.",
-    category: "Decor & Furnishing"
-  },
 };
 
 export default async function ProductPage({
@@ -1273,7 +1208,7 @@ export default async function ProductPage({
           <span className="text-[#172554]">{product.name}</span>
         </nav>
 
-        <section className="grid gap-5 border-y border-[#e5e0d4] bg-white p-4 sm:p-6 lg:grid-cols-2 xl:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.92fr)_270px]">
+        <section data-product-card className="grid gap-5 border-y border-[#e5e0d4] bg-white p-4 sm:p-6 lg:grid-cols-2 xl:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.92fr)_270px]">
           <ProductGallery image={product.image} name={product.name} />
 
           <div className="min-w-0 py-1">

@@ -49,23 +49,8 @@ export default function LivingRoomPage() {
   return (
     <div className="site-shell">
       <main>
-        <section className="room-page-hero">
-          <img src={room.hero} alt={`${room.title} furniture collection`} />
-          <div>
-            <p className="eyebrow">{room.eyebrow}</p>
-            <h1>
-              <TypeMorph
-                config={{
-                  text: "ANIMDOCK",
-                  target: room.title,
-                  morph: true,
-                  speed: { mode: 'static', value: 2 },
-                  variants: { mode: 'static', value: 15 },
-                  color: "#f6f4ef"
-                }}
-              />
-            </h1>
-          </div>
+        <section className="room-page-hero" style={{ height: "auto" }}>
+          <img src="/festival-banner.jpg" alt={`${room.title} furniture collection`} style={{ height: "auto", width: "100%", objectFit: "unset" }} />
         </section>
         <section className="room-products section" id="collection">
           <div className="section-heading">

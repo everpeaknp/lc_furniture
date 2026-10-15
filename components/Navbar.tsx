@@ -24,7 +24,6 @@ const categories = [
   "Storage",
   "Study & Office",
   "Outdoor",
-  "Decor & Furnishing",
   "Interiors",
   "New Arrivals",
 ];
@@ -38,7 +37,6 @@ const links: Record<string, string> = {
   Storage: "/storage",
   "Study & Office": "/study-office",
   Outdoor: "/outdoor",
-  "Decor & Furnishing": "/decor-furnishing",
   Interiors: "/contact",
   "New Arrivals": "/shop",
 };
@@ -91,12 +89,6 @@ const megaMenuData: Record<string, { heading: string; subcategories: string[]; i
     subcategories: ["Patio Furniture", "Garden Chairs", "Outdoor Tables", "Swings", "Parasols"],
     image: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=1200&q=85",
     description: "Create the perfect outdoor retreat with our weather-resistant furniture.",
-  },
-  "Decor & Furnishing": {
-    heading: "Decor & Furnishing",
-    subcategories: ["Rugs", "Curtains", "Cushions", "Wall Art", "Lighting"],
-    image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=600&q=80",
-    description: "Add the finishing touches to your home with our decor collection.",
   },
   Interiors: {
     heading: "Interiors",
