@@ -1,6 +1,8 @@
 import SiteFooter from "@/components/SiteFooter";
 import ProductCard from "@/components/ProductCard";
 import QuantityStepper from "@/components/QuantityStepper";
+import ProductGallery from "@/components/ProductGallery";
+import ProductOptions from "@/components/ProductOptions";
 import WishlistToggle from "@/components/WishlistToggle";
 import {
   BadgeCheck,
@@ -1231,7 +1233,7 @@ export default async function ProductPage({
   searchParams,
 }: {
   params: Promise<{ id: string }>;
-  searchParams: Promise<{ name?: string; price?: string; image?: string }>;
+  searchParams: Promise<{ name?: string; price?: string; image?: string; availability?: string }>;
 }) {
   const [{ id: productId }, cardDetails] = await Promise.all([params, searchParams]);
   const productName = cardDetails.name?.trim() || productId
@@ -1247,6 +1249,7 @@ export default async function ProductPage({
     description: `${productName} combines considered design, quality materials, and everyday comfort for your home.`,
     category: "Furniture",
   };
+  const availability = cardDetails.availability?.trim() || "In stock";
   const catalogProducts = Object.entries(products).filter(([id]) => id !== productId);
   const similarProducts = catalogProducts.filter(([, item]) => item.category === product.category);
   const recommendations = (similarProducts.length ? similarProducts : catalogProducts).slice(0, 3);
@@ -1271,12 +1274,7 @@ export default async function ProductPage({
         </nav>
 
         <section className="grid gap-5 border-y border-[#e5e0d4] bg-white p-4 sm:p-6 lg:grid-cols-2 xl:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.92fr)_270px]">
-          <div className="min-w-0">
-            <div className="grid aspect-square max-h-[580px] place-items-center overflow-hidden bg-[#f1efe9]">
-              <img src={product.image} alt={product.name} className="h-full w-full object-contain" />
-            </div>
-            <p className="mt-3 text-xs text-[#64748b]">Product image: {product.name}</p>
-          </div>
+          <ProductGallery image={product.image} name={product.name} />
 
           <div className="min-w-0 py-1">
             <div className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#64748b]">
@@ -1303,10 +1301,12 @@ export default async function ProductPage({
 
             <p className="mt-4 text-sm leading-6 text-[#475569]">{product.description}</p>
 
+            <ProductOptions category={product.category} name={product.name} />
+
             <div className="mt-5 flex flex-wrap items-center gap-3">
               <span className="text-sm font-medium text-[#334155]">Quantity</span>
               <QuantityStepper />
-              <span className="text-xs text-[#64748b]">Available to order</span>
+              <span className={`text-xs font-medium ${availability === "Low stock" ? "text-amber-700" : "text-emerald-700"}`}>{availability}</span>
             </div>
 
             <div className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2">

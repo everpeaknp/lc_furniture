@@ -188,7 +188,7 @@ export default function HomePage() {
             >
               <span>{name}</span>
               <img src={image} alt={`${name} furniture collection`} />
-              <i><Arrow /></i>
+              <span className="room-arrow" aria-hidden="true"><Arrow /></span>
             </motion.a>
           ))}
         </AnimatedSection>

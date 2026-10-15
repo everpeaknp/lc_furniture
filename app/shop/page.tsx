@@ -6,6 +6,17 @@ import SiteFooter from "@/components/SiteFooter";
 import ProductCard from "@/components/ProductCard";
 import Arrow from "@/components/Arrow";
 import TypeMorph from "@/components/TypeMorph";
+import { Search, X } from "lucide-react";
+
+type Availability = "In stock" | "Low stock" | "Made to order";
+
+type CatalogProduct = {
+  name: string;
+  price: string;
+  image: string;
+  category: string;
+  availability: Availability;
+};
 
 const images = {
   hero: "https://images.unsplash.com/photo-1653629495477-b42f0f43ce3f?auto=format&fit=crop&w=1400&q=85",
@@ -24,23 +35,23 @@ const images = {
   story: "https://images.unsplash.com/photo-1605774337664-7a846e9cdf17?auto=format&fit=crop&w=1200&q=85",
 };
 
-const catalog = [
-  { name: "Linen Lounge Sofa", price: "Rs. 95,000", image: images.story, category: "Sofas" },
-  { name: "Noma Dining Chair", price: "Rs. 26,000", image: images.dining, category: "Chairs" },
-  { name: "Onda Coffee Table", price: "Rs. 45,000", image: images.table, category: "Tables" },
-  { name: "Atelier Sideboard", price: "Rs. 72,000", image: images.cabinet, category: "Storage" },
-  { name: "Cloud Bouclé Chair", price: "Rs. 54,000", image: images.chair, category: "Chairs" },
-  { name: "Arco Writing Desk", price: "Rs. 58,000", image: images.desk, category: "Tables" },
-  { name: "Forma Modular Sofa", price: "Rs. 1,45,000", image: images.sofa, category: "Sofas" },
-  { name: "Fawn Bedside Table", price: "Rs. 24,000", image: images.bedroom, category: "Tables" },
-  { name: "Luma Dining Table", price: "Rs. 92,000", image: images.hero, category: "Tables" },
-  { name: "Miro Lounge Chair", price: "Rs. 48,000", image: images.living, category: "Chairs" },
-  { name: "Oak Display Cabinet", price: "Rs. 82,000", image: images.kitchen, category: "Storage" },
-  { name: "Cove Two Seat Sofa", price: "Rs. 1,15,000", image: images.chair, category: "Sofas" },
-  { name: "Taper Console", price: "Rs. 52,000", image: images.article3, category: "Storage" },
-  { name: "Dune Low Table", price: "Rs. 38,000", image: images.article2, category: "Tables" },
-  { name: "Marta Dining Chair", price: "Rs. 28,000", image: images.hero, category: "Chairs" },
-  { name: "Frame Shelving Unit", price: "Rs. 64,000", image: images.desk, category: "Storage" },
+const catalog: CatalogProduct[] = [
+  { name: "Linen Lounge Sofa", price: "Rs. 95,000", image: images.story, category: "Sofas", availability: "In stock" },
+  { name: "Noma Dining Chair", price: "Rs. 26,000", image: images.dining, category: "Chairs", availability: "In stock" },
+  { name: "Onda Coffee Table", price: "Rs. 45,000", image: images.table, category: "Tables", availability: "In stock" },
+  { name: "Atelier Sideboard", price: "Rs. 72,000", image: images.cabinet, category: "Storage", availability: "Low stock" },
+  { name: "Cloud Bouclé Chair", price: "Rs. 54,000", image: images.chair, category: "Chairs", availability: "In stock" },
+  { name: "Arco Writing Desk", price: "Rs. 58,000", image: images.desk, category: "Tables", availability: "In stock" },
+  { name: "Forma Modular Sofa", price: "Rs. 1,45,000", image: images.sofa, category: "Sofas", availability: "Made to order" },
+  { name: "Fawn Bedside Table", price: "Rs. 24,000", image: images.bedroom, category: "Tables", availability: "In stock" },
+  { name: "Luma Dining Table", price: "Rs. 92,000", image: images.hero, category: "Tables", availability: "In stock" },
+  { name: "Miro Lounge Chair", price: "Rs. 48,000", image: images.living, category: "Chairs", availability: "Low stock" },
+  { name: "Oak Display Cabinet", price: "Rs. 82,000", image: images.kitchen, category: "Storage", availability: "In stock" },
+  { name: "Cove Two Seat Sofa", price: "Rs. 1,15,000", image: images.chair, category: "Sofas", availability: "In stock" },
+  { name: "Taper Console", price: "Rs. 52,000", image: images.article3, category: "Storage", availability: "Made to order" },
+  { name: "Dune Low Table", price: "Rs. 38,000", image: images.article2, category: "Tables", availability: "In stock" },
+  { name: "Marta Dining Chair", price: "Rs. 28,000", image: images.hero, category: "Chairs", availability: "Low stock" },
+  { name: "Frame Shelving Unit", price: "Rs. 64,000", image: images.desk, category: "Storage", availability: "Made to order" },
 ];
 
 function ShopContent() {
@@ -51,15 +62,21 @@ function ShopContent() {
       ? requestedCategory
       : "All",
   );
+  const [search, setSearch] = useState("");
   const [sort, setSort] = useState("featured");
 
   const products = useMemo(() => {
-    const filtered = category === "All" ? [...catalog] : catalog.filter((item) => item.category === category);
+    const query = search.trim().toLowerCase();
+    const filtered = catalog.filter((item) => {
+      const matchesCategory = category === "All" || item.category === category;
+      const matchesSearch = !query || `${item.name} ${item.category}`.toLowerCase().includes(query);
+      return matchesCategory && matchesSearch;
+    });
     if (sort === "low") filtered.sort((a, b) => Number(a.price.replace(/\D/g, "")) - Number(b.price.replace(/\D/g, "")));
     if (sort === "high") filtered.sort((a, b) => Number(b.price.replace(/\D/g, "")) - Number(a.price.replace(/\D/g, "")));
     if (sort === "name") filtered.sort((a, b) => a.name.localeCompare(b.name));
     return filtered;
-  }, [category, sort]);
+  }, [category, search, sort]);
 
   return (
     <div className="site-shell">
@@ -87,6 +104,21 @@ function ShopContent() {
         </section>
 
         <section className="catalog-toolbar section" aria-label="Product filters">
+          <form className="catalog-search" role="search" onSubmit={(event) => event.preventDefault()}>
+            <Search size={18} aria-hidden="true" />
+            <input
+              type="search"
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+              placeholder="Search furniture"
+              aria-label="Search furniture"
+            />
+            {search && (
+              <button type="button" aria-label="Clear search" onClick={() => setSearch("")}>
+                <X size={16} aria-hidden="true" />
+              </button>
+            )}
+          </form>
           <div className="category-filters">
             {["All", "Sofas", "Chairs", "Tables", "Storage"].map((item) => (
               <button
@@ -99,7 +131,7 @@ function ShopContent() {
             ))}
           </div>
           <div className="catalog-sort">
-            <span>{products.length} pieces</span>
+            <span aria-live="polite">{products.length} {products.length === 1 ? "piece" : "pieces"}</span>
             <label>
               <span className="sr-only">Sort products</span>
               <select value={sort} onChange={(event) => setSort(event.target.value)}>
@@ -121,6 +153,11 @@ function ShopContent() {
               </span>
             </div>
           ))}
+          {products.length === 0 && (
+            <div className="py-16 text-center text-sm text-[#64748b]">
+              No furniture matches that search. Try another name or category.
+            </div>
+          )}
         </section>
 
         <section className="catalog-promise">
