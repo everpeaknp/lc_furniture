@@ -124,15 +124,19 @@ function ShopContent() {
         </section>
 
         <section className="catalog-promise">
-          <div>
-            <p className="eyebrow">Made for the long run</p>
-            <h2>Furniture worth<br />living with</h2>
+          <div className="catalog-promise-inner">
+            <div>
+              <p className="eyebrow">Made for the long run</p>
+              <h2>Furniture worth<br />living with</h2>
+            </div>
+            <div>
+              <p>
+                Each piece is designed in our studio and made in small batches by experienced craftspeople.
+                We choose materials for their character, durability, and ability to age beautifully.
+              </p>
+              <a className="text-link" href="/#about">Our approach <Arrow /></a>
+            </div>
           </div>
-          <p>
-            Each piece is designed in our studio and made in small batches by experienced craftspeople.
-            We choose materials for their character, durability, and ability to age beautifully.
-          </p>
-          <a className="text-link" href="/#about">Our approach <Arrow /></a>
         </section>
       </main>
 

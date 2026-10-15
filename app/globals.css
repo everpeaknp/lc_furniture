@@ -806,31 +806,37 @@ footer a:hover { text-decoration: underline; }
   color: #9a9b93;
 }
 .catalog-promise {
-  display: grid;
-  grid-template-columns: 0.6fr 1fr;
-  gap: 80px;
-  align-items: center;
+  display: block;
   padding: 100px 0;
   background: #f6f4ef;
   position: relative;
 }
 
+.catalog-promise-inner {
+  width: min(1180px, calc(100% - 80px));
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 0.6fr) minmax(0, 1fr);
+  gap: 80px;
+  align-items: center;
+}
+
 .catalog-promise::before {
   content: "";
   position: absolute;
-  left: 0;
+  left: max(40px, calc((100% - 1180px) / 2));
   top: 0;
   bottom: 0;
   width: 3px;
   background: #262720;
 }
 
-.catalog-promise > div:first-child {
+.catalog-promise-inner > div:first-child {
   position: relative;
   padding-left: 40px;
 }
 
-.catalog-promise > div:first-child .eyebrow {
+.catalog-promise-inner > div:first-child .eyebrow {
   color: #85816d;
   font-size: 10px;
   font-weight: 600;
@@ -838,7 +844,7 @@ footer a:hover { text-decoration: underline; }
   margin-bottom: 16px;
 }
 
-.catalog-promise > div:first-child h2 {
+.catalog-promise-inner > div:first-child h2 {
   font-size: 48px;
   font-weight: 600;
   line-height: 1.1;
@@ -847,25 +853,25 @@ footer a:hover { text-decoration: underline; }
   margin: 0;
 }
 
-.catalog-promise > div:last-child {
+.catalog-promise-inner > div:last-child {
   max-width: 580px;
 }
 
-.catalog-promise > div:last-child p {
+.catalog-promise-inner > div:last-child p {
   font-size: 16px;
   line-height: 1.7;
   color: #5a5952;
   margin: 0 0 32px;
 }
 
-.catalog-promise .text-link {
+.catalog-promise-inner .text-link {
   color: #262720;
   font-weight: 600;
   border-color: #262720;
   transition: all 0.2s;
 }
 
-.catalog-promise .text-link:hover {
+.catalog-promise-inner .text-link:hover {
   color: #7c8060;
   border-color: #7c8060;
 }
@@ -875,23 +881,25 @@ footer a:hover { text-decoration: underline; }
   .catalog-grid { grid-template-columns: repeat(2, 1fr); }
   .catalog-featured { grid-column: span 1; grid-row: span 1; }
   .catalog-promise {
-    grid-template-columns: 1fr;
-    gap: 40px;
     padding: 60px 0;
   }
+  .catalog-promise-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
   .catalog-promise::before {
-    left: 0;
+    left: 40px;
     top: 0;
     bottom: 0;
     width: 2px;
   }
-  .catalog-promise > div:first-child {
+  .catalog-promise-inner > div:first-child {
     padding-left: 24px;
   }
-  .catalog-promise > div:first-child h2 {
+  .catalog-promise-inner > div:first-child h2 {
     font-size: 36px;
   }
-  .catalog-promise > div:last-child {
+  .catalog-promise-inner > div:last-child {
     max-width: 100%;
   }
 }

@@ -1,6 +1,7 @@
 import SiteFooter from "@/components/SiteFooter";
 import ProductCard from "@/components/ProductCard";
 import QuantityStepper from "@/components/QuantityStepper";
+import WishlistToggle from "@/components/WishlistToggle";
 import {
   BadgeCheck,
   ChevronRight,
@@ -1282,7 +1283,10 @@ export default async function ProductPage({
               <BadgeCheck size={15} className="text-[#1e3a8a]" />
               Woodform original
             </div>
-            <h1 className="text-2xl font-semibold leading-tight text-[#172554] sm:text-3xl">{product.name}</h1>
+            <div className="flex items-start justify-between gap-3">
+              <h1 className="text-2xl font-semibold leading-tight text-[#172554] sm:text-3xl">{product.name}</h1>
+              <WishlistToggle />
+            </div>
             <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-[#64748b]">
               <span className="flex items-center gap-0.5 text-[#c89432]" aria-label="No ratings yet">
                 {Array.from({ length: 5 }, (_, index) => <Star key={index} size={14} />)}
