@@ -21,7 +21,7 @@ const stores = [
     address: "Thamel, Kathmandu, Nepal",
     phone: "+977 1 423456",
     hours: "Sun-Sat: 10:00 AM - 8:00 PM",
-    image: "https://images.unsplash.com/photo-1556912173-3db996ea8c58?auto=format&fit=crop&w=1400&q=85",
+    image: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1400&q=85",
     features: ["Parking Available", "Design Consultation"],
   },
   {

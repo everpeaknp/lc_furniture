@@ -178,13 +178,13 @@ const subcategoryData: Record<string, { hero: string, intro: string, products: A
     ]
   },
   "patio-furniture": {
-    hero: "https://images.unsplash.com/photo-1600210491363-e6c8fc5e87c0?auto=format&fit=crop&w=1200&q=85",
+    hero: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=1200&q=85",
     intro: "Transform your patio into an outdoor living room with our weather-resistant dining sets, loungers, and seating. Built to withstand the elements while maintaining style.",
     products: [
-      { name: "Patio Dining Set", price: "Rs. 1,45,000", image: "https://images.unsplash.com/photo-1600210491363-e6c8fc5e87c0?auto=format&fit=crop&w=900&q=80" },
-      { name: "Aluminum Bistro Set", price: "Rs. 55,000", image: "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=900&q=80" },
-      { name: "Teak Coffee Table", price: "Rs. 45,000", image: "https://images.unsplash.com/photo-1600210491363-e6c8fc5e87c0?auto=format&fit=crop&w=900&q=80" },
-      { name: "Outdoor Sectional", price: "Rs. 1,85,000", image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=900&q=80" },
+      { name: "Patio Dining Set", price: "Rs. 1,45,000", image: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=900&q=80" },
+      { name: "Aluminum Bistro Set", price: "Rs. 55,000", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" },
+      { name: "Teak Coffee Table", price: "Rs. 45,000", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" },
+      { name: "Outdoor Sectional", price: "Rs. 1,85,000", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" },
     ]
   },
   "garden-chairs": {
@@ -194,17 +194,37 @@ const subcategoryData: Record<string, { hero: string, intro: string, products: A
       { name: "Garden Lounge Chair", price: "Rs. 35,000", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" },
       { name: "Sun Lounger", price: "Rs. 42,000", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" },
       { name: "Adirondack Chair", price: "Rs. 28,000", image: "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=900&q=80" },
-      { name: "Garden Bench", price: "Rs. 38,000", image: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1b?auto=format&fit=crop&w=900&q=80" },
+      { name: "Garden Bench", price: "Rs. 38,000", image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=900&q=80" },
     ]
   },
-  "outdoor-swings": {
-    hero: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1b?auto=format&fit=crop&w=1200&q=85",
+  "outdoor-tables": {
+    hero: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=1200&q=85",
+    intro: "Bring people together outdoors with weather-resistant dining and occasional tables designed for patios, gardens, and balconies.",
+    products: [
+      { name: "Patio Dining Table", price: "Rs. 1,45,000", image: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=900&q=80" },
+      { name: "Aluminum Bistro Table", price: "Rs. 55,000", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" },
+      { name: "Teak Coffee Table", price: "Rs. 45,000", image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=900&q=80" },
+      { name: "Garden Side Table", price: "Rs. 38,000", image: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
+  "parasols": {
+    hero: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85",
+    intro: "Add shade and comfort to your outdoor space with practical parasols and accessories made for sunny afternoons.",
+    products: [
+      { name: "Garden Parasol", price: "Rs. 28,000", image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=900&q=80" },
+      { name: "Cantilever Parasol", price: "Rs. 42,000", image: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=900&q=80" },
+      { name: "Parasol Base", price: "Rs. 18,000", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" },
+      { name: "Balcony Parasol", price: "Rs. 24,000", image: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=900&q=80" },
+    ]
+  },
+  "swings": {
+    hero: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=1200&q=85",
     intro: "Add charm and relaxation to your outdoor space with our swings and hammocks. Perfect for lazy afternoons and peaceful evenings in your garden or patio.",
     products: [
-      { name: "Outdoor Swing", price: "Rs. 85,000", image: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1b?auto=format&fit=crop&w=900&q=80" },
+      { name: "Outdoor Swing", price: "Rs. 85,000", image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=900&q=80" },
       { name: "Hammock Chair", price: "Rs. 18,000", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" },
-      { name: "Garden Swing Set", price: "Rs. 95,000", image: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1b?auto=format&fit=crop&w=900&q=80" },
-      { name: "Porch Swing", price: "Rs. 62,000", image: "https://images.unsplash.com/photo-1600210491363-e6c8fc5e87c0?auto=format&fit=crop&w=900&q=80" },
+      { name: "Garden Swing Set", price: "Rs. 95,000", image: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=900&q=80" },
+      { name: "Porch Swing", price: "Rs. 62,000", image: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=900&q=80" },
     ]
   },
   "memory-foam": {
@@ -339,11 +359,11 @@ export default async function SubcategoryPage({
     .join(" ");
 
   const data = subcategoryData[subcategory] || {
-    hero: "https://images.unsplash.com/photo-1618220179428-22790b46a0eb?auto=format&fit=crop&w=1200&q=80",
+    hero: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=1200&q=85",
     intro: `Explore our thoughtfully curated collection of ${title.toLowerCase()}. Designed with both form and function in mind, these pieces bring character and comfort to your ${categoryName.toLowerCase()}.`,
     products: [
       { name: `Modern ${title} 1`, price: "Rs. 32,000", image: "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=900&q=80" },
-      { name: `Classic ${title} 2`, price: "Rs. 24,000", image: "https://images.unsplash.com/photo-1540574163026-643ea20d25b5?auto=format&fit=crop&w=900&q=80" },
+      { name: `Classic ${title} 2`, price: "Rs. 24,000", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" },
       { name: `Premium ${title} 3`, price: "Rs. 68,000", image: "https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=900&q=80" },
       { name: `Luxe ${title} 4`, price: "Rs. 45,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
     ]

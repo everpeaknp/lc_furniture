@@ -1,6 +1,3 @@
-'use client';
-
-import { useParams } from 'next/navigation';
 import SiteFooter from "@/components/SiteFooter";
 import ProductCard from "@/components/ProductCard";
 import Arrow from "@/components/Arrow";
@@ -1058,7 +1055,7 @@ const products: Record<string, { id: string; name: string; price: string; image:
     id: 'patio-dining-set',
     name: "Patio Dining Set",
     price: "Rs. 1,45,000",
-    image: "https://images.unsplash.com/photo-1600210491363-e6c8fc5e87c0?auto=format&fit=crop&w=1400&q=85",
+    image: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=1400&q=85",
     description: "Our Patio Dining Set is crafted from weather-resistant materials perfect for outdoor entertaining. The table and chairs withstand the elements while maintaining their beauty.",
     category: "Outdoor"
   },
@@ -1074,15 +1071,39 @@ const products: Record<string, { id: string; name: string; price: string; image:
     id: 'outdoor-swing',
     name: "Outdoor Swing",
     price: "Rs. 85,000",
-    image: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1b?auto=format&fit=crop&w=1400&q=85",
+    image: "https://placehold.co/1400x800/4a7c59/white?text=Outdoor+Swing",
     description: "Our Outdoor Swing adds charm to any patio or garden. The sturdy construction and comfortable seating make it a favorite spot for relaxation.",
+    category: "Outdoor"
+  },
+  'hammock-chair': {
+    id: 'hammock-chair',
+    name: "Hammock Chair",
+    price: "Rs. 18,000",
+    image: "https://placehold.co/1400x800/4a7c59/white?text=Hammock+Chair",
+    description: "The Hammock Chair brings a touch of bohemian style to your outdoor space. Its comfortable design and durable materials make it perfect for relaxation.",
+    category: "Outdoor"
+  },
+  'garden-swing-set': {
+    id: 'garden-swing-set',
+    name: "Garden Swing Set",
+    price: "Rs. 95,000",
+    image: "https://placehold.co/1400x800/4a7c59/white?text=Garden+Swing+Set",
+    description: "The Garden Swing Set is perfect for families. Its sturdy construction and comfortable seating provide endless hours of outdoor enjoyment.",
+    category: "Outdoor"
+  },
+  'porch-swing': {
+    id: 'porch-swing',
+    name: "Porch Swing",
+    price: "Rs. 62,000",
+    image: "https://placehold.co/1400x800/4a7c59/white?text=Porch+Swing",
+    description: "The Porch Swing adds classic charm to your home. Its gentle motion and comfortable seating make it the perfect spot for relaxation.",
     category: "Outdoor"
   },
   'aluminum-bistro-set': {
     id: 'aluminum-bistro-set',
     name: "Aluminum Bistro Set",
     price: "Rs. 55,000",
-    image: "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=1400&q=85",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85",
     description: "The Aluminum Bistro Set is perfect for intimate outdoor dining. Its lightweight yet durable aluminum construction makes it easy to move and rearrange.",
     category: "Outdoor"
   },
@@ -1090,8 +1111,16 @@ const products: Record<string, { id: string; name: string; price: string; image:
     id: 'teak-coffee-table',
     name: "Teak Coffee Table",
     price: "Rs. 45,000",
-    image: "https://images.unsplash.com/photo-1600210491363-e6c8fc5e87c0?auto=format&fit=crop&w=1400&q=85",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85",
     description: "The Teak Coffee Table is crafted from durable teak wood that naturally resists weather. Its simple design complements any outdoor seating arrangement.",
+    category: "Outdoor"
+  },
+  'outdoor-sectional': {
+    id: 'outdoor-sectional',
+    name: "Outdoor Sectional",
+    price: "Rs. 1,85,000",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85",
+    description: "The Outdoor Sectional provides ample seating for large gatherings. Weather-resistant materials ensure durability while maintaining comfort and style.",
     category: "Outdoor"
   },
   'sun-lounger': {
@@ -1185,22 +1214,30 @@ const products: Record<string, { id: string; name: string; price: string; image:
   },
 };
 
-export default function ProductPage() {
-  const params = useParams();
-  const productId = params.id as string;
-  const product = products[productId];
-
-  if (!product) {
-    return (
-      <div className="site-shell">
-        <main className="section">
-          <h1>Product not found</h1>
-          <a href="/shop" className="text-link">Return to shop <Arrow /></a>
-        </main>
-        <SiteFooter />
-      </div>
-    );
-  }
+export default async function ProductPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ name?: string; price?: string; image?: string }>;
+}) {
+  const [{ id: productId }, cardDetails] = await Promise.all([params, searchParams]);
+  const productName = cardDetails.name?.trim() || productId
+    .split("-")
+    .filter(Boolean)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+  const product = products[productId] ?? {
+    id: productId,
+    name: productName,
+    price: cardDetails.price?.trim() || "Contact for price",
+    image: cardDetails.image?.trim() || "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=1400&q=85",
+    description: `${productName} combines considered design, quality materials, and everyday comfort for your home.`,
+    category: "Furniture",
+  };
+  const catalogProducts = Object.entries(products).filter(([id]) => id !== productId);
+  const similarProducts = catalogProducts.filter(([, item]) => item.category === product.category);
+  const recommendations = (similarProducts.length ? similarProducts : catalogProducts).slice(0, 3);
 
   return (
     <div className="site-shell">
@@ -1274,10 +1311,7 @@ export default function ProductPage() {
             <div><p className="eyebrow">You might also like</p><h2>Similar Products</h2></div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {Object.entries(products)
-              .filter(([id, p]) => id !== productId && p.category === product.category)
-              .slice(0, 3)
-              .map(([id, item]) => (
+            {recommendations.map(([id, item]) => (
                 <ProductCard key={id} item={{ name: item.name, price: item.price, image: item.image }} productId={id} />
               ))}
           </div>
@@ -1289,10 +1323,7 @@ export default function ProductPage() {
             <div><p className="eyebrow">Curated for you</p><h2>Recommended</h2></div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {Object.entries(products)
-              .filter(([id]) => id !== productId)
-              .slice(0, 3)
-              .map(([id, item]) => (
+            {recommendations.map(([id, item]) => (
                 <ProductCard key={id} item={{ name: item.name, price: item.price, image: item.image }} productId={id} />
               ))}
           </div>

@@ -89,7 +89,7 @@ const megaMenuData: Record<string, { heading: string; subcategories: string[]; i
   Outdoor: {
     heading: "Outdoor",
     subcategories: ["Patio Furniture", "Garden Chairs", "Outdoor Tables", "Swings", "Parasols"],
-    image: "https://images.unsplash.com/photo-1600210491363-e6c8fc5e87c0?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=1200&q=85",
     description: "Create the perfect outdoor retreat with our weather-resistant furniture.",
   },
   "Decor & Furnishing": {
@@ -173,7 +173,7 @@ export default function Navbar() {
       </div>
 
       {/* Main navbar */}
-      <div className="mx-auto grid max-w-[1800px] grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-5 sm:gap-7 sm:px-7 lg:grid-cols-[1fr_minmax(240px,1.3fr)_1fr] lg:px-12 lg:py-7">
+      <div className="mx-auto grid max-w-[1800px] grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-1.5 sm:gap-7 sm:px-7 lg:grid-cols-[1fr_minmax(240px,1.3fr)_1fr] lg:px-12 lg:py-2">
         {/* Brand */}
         <Link
           href="/"
@@ -197,7 +197,7 @@ export default function Navbar() {
         {/* Search */}
         <form
           onSubmit={handleSearch}
-          className="hidden h-12 items-center gap-3 rounded-sm border border-[#e2dcd2] bg-white px-5 transition-all focus-within:border-[#1e3a8a] focus-within:shadow-sm md:flex lg:h-[50px]"
+          className="hidden h-10 items-center gap-3 rounded-sm border border-[#e2dcd2] bg-white px-5 transition-all focus-within:border-[#1e3a8a] focus-within:shadow-sm md:flex lg:h-10"
         >
           <Search size={19} className="shrink-0 text-[#64748b]" />
           <input
