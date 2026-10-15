@@ -34,7 +34,6 @@ const featured = [
   { name: "Black Sofa Set", price: "Rs. 68,000", image: images.living },
   { name: "Circle Dining Table", price: "Rs. 54,000", image: images.dining },
   { name: "Minimal Sofa", price: "Rs. 42,000", image: images.sofa },
-  { name: "Pattern Tea Table", price: "Rs. 32,000", image: images.table },
 ];
 
 const trending = [
@@ -123,7 +122,7 @@ export default function HomePage() {
             <div><p className="eyebrow">Selected for you</p><h2>Our Featured Products</h2></div>
             <a href="/shop">Shop all <Arrow /></a>
           </motion.div>
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8 sm:space-y-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {featured.map((item, index) => (
               <motion.div
                 key={item.name}
@@ -131,23 +130,14 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="break-inside-avoid mb-8 [&_.image-wrap]:!aspect-auto [&_img]:!h-auto"
               >
                 <ProductCard item={item} />
               </motion.div>
             ))}
           </div>
-          <div className="carousel-dots"><span className="active" /><span /><span /></div>
         </AnimatedSection>
 
         <AnimatedSection className="quote section" delay={0.4}>
-          <motion.button
-            aria-label="Previous review"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Arrow direction="left" />
-          </motion.button>
           <motion.blockquote
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -161,13 +151,6 @@ export default function HomePage() {
             </p>
             <cite>— Marina Ellis, London</cite>
           </motion.blockquote>
-          <motion.button
-            aria-label="Next review"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Arrow />
-          </motion.button>
         </AnimatedSection>
 
         <AnimatedSection className="rooms section" delay={0.5}>
@@ -250,7 +233,6 @@ export default function HomePage() {
               </motion.div>
             ))}
           </div>
-          <div className="carousel-dots"><span className="active" /><span /><span /></div>
         </AnimatedSection>
 
         <AnimatedSection className="articles section" id="journal" delay={0.8}>
