@@ -10,19 +10,36 @@ const views = [
 
 export default function ProductGallery({ image, name }: { image: string; name: string }) {
   const [selectedView, setSelectedView] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
   const view = views[selectedView];
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setMousePosition({ x, y });
+  };
+
+  const zoomLevel = isHovered ? view.zoom * 1.5 : view.zoom;
+  const objectPosition = isHovered ? `${mousePosition.x}% ${mousePosition.y}%` : view.position;
 
   return (
     <div className="min-w-0">
-      <div className="grid aspect-square max-h-[580px] place-items-center overflow-hidden bg-[#f1efe9]">
+      <div
+        className="grid aspect-square max-h-[580px] place-items-center overflow-hidden bg-[#f1efe9] cursor-zoom-in"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onMouseMove={handleMouseMove}
+      >
         <img
           src={image}
           alt={name}
-          className="h-full w-full transition-transform duration-300"
+          className="h-full w-full transition-transform duration-300 ease-out"
           style={{
             objectFit: selectedView === 0 ? "contain" : "cover",
-            objectPosition: view.position,
-            transform: `scale(${view.zoom})`,
+            objectPosition,
+            transform: `scale(${zoomLevel})`,
           }}
         />
       </div>

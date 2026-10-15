@@ -797,6 +797,13 @@ footer a:hover { text-decoration: underline; }
   cursor: pointer;
 }
 .catalog-search button:hover { color: #172554; }
+.catalog-search button[type="submit"] {
+  width: auto;
+  padding: 0 4px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
 .category-filters {
   display: flex;
   gap: 12px;

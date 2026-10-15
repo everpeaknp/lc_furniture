@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import {
   Search,
@@ -114,6 +114,7 @@ const megaMenuData: Record<string, { heading: string; subcategories: string[]; i
 
 export default function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [search, setSearch] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
@@ -154,7 +155,7 @@ export default function Navbar() {
     e.preventDefault();
     if (!search.trim()) return;
 
-    window.location.href = `/search?q=${encodeURIComponent(search.trim())}`;
+    router.push(`/search?q=${encodeURIComponent(search.trim())}`);
   }
 
   return (
