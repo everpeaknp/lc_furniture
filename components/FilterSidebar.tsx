@@ -309,8 +309,8 @@ export default function FilterSidebar({
       )}
 
       {/* Desktop sidebar */}
-      <aside className="hidden lg:block w-64 shrink-0">
-        <div className="sticky top-20 overflow-y-auto max-h-[calc(100vh-6rem)] pr-2">
+      <aside className="hidden lg:block w-64 shrink-0 self-start sticky top-6">
+        <div className="overflow-y-auto max-h-[calc(100vh-3rem)] pr-2 scrollbar-thin">
           {sidebar}
         </div>
       </aside>
