@@ -52,8 +52,8 @@ export default function SaleCountdown() {
           ))}
         </div>
 
-        <a href="/shop?sale=true" className={styles.link}>
-          SHOP SALE <ArrowRight size={14} />
+        <a href="http://localhost:3000/shop?sale=true" className={styles.link}>
+          SHOP SALE <ArrowRight size={12} />
         </a>
       </div>
     </section>

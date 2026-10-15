@@ -8,18 +8,20 @@
 
 .inner {
   width: 100%;
+  max-width: 860px;
   min-height: 58px;
-  padding: 8px 3%;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  margin: 0 auto;
+  padding: 8px 16px;
+  display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: space-evenly;
+  gap: 8px;
 }
 
 .message {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 8px;
 }
 
 .tag {
@@ -43,8 +45,8 @@
 .timer {
   display: flex;
   align-items: center;
-  gap: 20px;
-  flex: 1;
+  gap: 8px;
+  flex: 0 0 auto;
   justify-content: center;
 }
 
@@ -52,7 +54,7 @@
   display: flex;
   align-items: baseline;
   justify-content: center;
-  gap: 6px;
+  gap: 4px;
   font-variant-numeric: tabular-nums;
 }
 
@@ -70,12 +72,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  width: max-content;
+  gap: 4px;
   flex-shrink: 0;
   color: #213d83;
   background: #f8f6f0;
   padding: 6px 6px;
-  font-size: 9px;
+  font-size: 7px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-decoration: none;

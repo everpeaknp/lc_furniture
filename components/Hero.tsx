@@ -372,12 +372,12 @@ export function Hero() {
 
   return (
     <section aria-label="Featured offers" className="w-full">
-      <motion.div variants={container} initial="hidden" animate="show" className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_400px]">
+      <motion.div variants={container} initial="hidden" animate="show" className="grid gap-px bg-white lg:grid-cols-[minmax(0,1fr)_400px]">
         <motion.div variants={item} className="h-[420px] md:h-[520px] lg:h-[640px]">
           <BigAutoSlider className="h-full" />
         </motion.div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1 lg:grid-rows-[400px_216px]">
+        <div className="grid gap-px bg-white sm:grid-cols-2 lg:grid-cols-1 lg:grid-rows-[355px_284px]">
           <motion.div variants={item} className="aspect-square sm:aspect-auto sm:h-[360px] lg:h-full">
             <HoverSliderCard className="h-full" />
           </motion.div>

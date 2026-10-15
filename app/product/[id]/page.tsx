@@ -1,7 +1,18 @@
 import SiteFooter from "@/components/SiteFooter";
 import ProductCard from "@/components/ProductCard";
-import Arrow from "@/components/Arrow";
-import TypeMorph from "@/components/TypeMorph";
+import QuantityStepper from "@/components/QuantityStepper";
+import {
+  BadgeCheck,
+  ChevronRight,
+  CircleHelp,
+  MapPin,
+  MessageCircle,
+  PackageCheck,
+  RotateCcw,
+  ShieldCheck,
+  Star,
+  Truck,
+} from "lucide-react";
 
 const products: Record<string, { id: string; name: string; price: string; image: string; description: string; category: string }> = {
   // Sofas
@@ -600,8 +611,8 @@ const products: Record<string, { id: string; name: string; price: string; image:
     description: "The Wall Display Unit offers a modern storage solution with sleek design. Perfect for displaying books, decor, and collectibles while maximizing wall space.",
     category: "Storage"
   },
-  'oak-display-cabinet': {
-    id: 'oak-display-cabinet',
+  'oak-display-cabinet-storage': {
+    id: 'oak-display-cabinet-storage',
     name: "Oak Display Cabinet",
     price: "Rs. 82,000",
     image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=1400&q=85",
@@ -1238,94 +1249,178 @@ export default async function ProductPage({
   const catalogProducts = Object.entries(products).filter(([id]) => id !== productId);
   const similarProducts = catalogProducts.filter(([, item]) => item.category === product.category);
   const recommendations = (similarProducts.length ? similarProducts : catalogProducts).slice(0, 3);
+  const specifications = [
+    { label: "Category", value: product.category },
+    { label: "Brand", value: "Woodform" },
+    { label: "Material", value: "Premium materials" },
+    { label: "Dimensions", value: "Standard size" },
+    { label: "Care", value: "Professional cleaning recommended" },
+    { label: "Warranty", value: "5 years" },
+  ];
 
   return (
     <div className="site-shell">
-      <main>
-        <section className="section">
-          <a href="/shop" className="text-link mb-8 inline-block">← Back to shop</a>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <img 
-                src={product.image} 
-                alt={product.name} 
-                className="w-full h-auto rounded-sm"
-              />
-            </div>
-            <div className="flex flex-col justify-center">
-              <p className="eyebrow mb-4">{product.category}</p>
-              <h1 className="text-4xl md:text-5xl font-serif text-black mb-6">
-                <TypeMorph
-                  config={{
-                    text: "ANIMDOCK",
-                    target: product.name,
-                    morph: true,
-                    speed: { mode: 'static', value: 2 },
-                    variants: { mode: 'static', value: 15 },
-                    color: "#000000"
-                  }}
-                />
-              </h1>
-              <p className="text-2xl font-semibold text-[#1e3a8a] mb-8">{product.price}</p>
-              <p className="text-black leading-relaxed mb-8">{product.description}</p>
-              
-              <div className="flex gap-4 mb-8">
-                <button className="bg-[#1e3a8a] text-white px-8 py-4 rounded-sm hover:bg-[#2563eb] transition-colors font-semibold">
-                  BUY NOW
-                </button>
-                <button className="border border-[#1e3a8a] text-[#1e3a8a] px-8 py-4 rounded-sm hover:bg-[#1e3a8a] hover:text-white transition-colors">
-                  Add to Cart
-                </button>
-                <button className="border border-[#1e3a8a] text-[#1e3a8a] px-4 py-4 rounded-sm hover:bg-[#1e3a8a] hover:text-white transition-colors">
-                  ♡
-                </button>
-              </div>
+      <main className="mx-auto max-w-[1440px] px-4 pb-12 pt-6 sm:px-6 lg:px-10">
+        <nav aria-label="Breadcrumb" className="mb-5 flex flex-wrap items-center gap-2 text-xs text-[#64748b]">
+          <a href="/" className="hover:text-[#1e3a8a]">Home</a>
+          <ChevronRight size={13} />
+          <a href="/shop" className="hover:text-[#1e3a8a]">{product.category}</a>
+          <ChevronRight size={13} />
+          <span className="text-[#172554]">{product.name}</span>
+        </nav>
 
-              <div className="border-t border-[#e5e0d4] pt-8">
-                <div className="grid grid-cols-2 gap-6 text-sm">
-                  <div>
-                    <p className="font-semibold text-black mb-2">Material</p>
-                    <p className="text-black">Premium fabric</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-black mb-2">Dimensions</p>
-                    <p className="text-black">Standard size</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-black mb-2">Care</p>
-                    <p className="text-black">Professional cleaning recommended</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-black mb-2">Warranty</p>
-                    <p className="text-black">5 years</p>
-                  </div>
+        <section className="grid gap-5 border-y border-[#e5e0d4] bg-white p-4 sm:p-6 lg:grid-cols-2 xl:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.92fr)_270px]">
+          <div className="min-w-0">
+            <div className="grid aspect-square max-h-[580px] place-items-center overflow-hidden bg-[#f1efe9]">
+              <img src={product.image} alt={product.name} className="h-full w-full object-contain" />
+            </div>
+            <p className="mt-3 text-xs text-[#64748b]">Product image: {product.name}</p>
+          </div>
+
+          <div className="min-w-0 py-1">
+            <div className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#64748b]">
+              <BadgeCheck size={15} className="text-[#1e3a8a]" />
+              Woodform original
+            </div>
+            <h1 className="text-2xl font-semibold leading-tight text-[#172554] sm:text-3xl">{product.name}</h1>
+            <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-[#64748b]">
+              <span className="flex items-center gap-0.5 text-[#c89432]" aria-label="No ratings yet">
+                {Array.from({ length: 5 }, (_, index) => <Star key={index} size={14} />)}
+              </span>
+              <span>No reviews yet</span>
+              <span aria-hidden="true">|</span>
+              <a href="#reviews" className="text-[#1e3a8a] hover:underline">Write the first review</a>
+            </div>
+
+            <div className="mt-5 border-y border-[#e5e0d4] py-4">
+              <p className="text-2xl font-semibold text-[#172554]">{product.price}</p>
+              <p className="mt-1 text-xs text-[#64748b]">Inclusive of applicable taxes</p>
+            </div>
+
+            <p className="mt-4 text-sm leading-6 text-[#475569]">{product.description}</p>
+
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <span className="text-sm font-medium text-[#334155]">Quantity</span>
+              <QuantityStepper />
+              <span className="text-xs text-[#64748b]">Available to order</span>
+            </div>
+
+            <div className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2">
+              <a href="/cart" className="inline-flex min-h-11 items-center justify-center bg-[#1e3a8a] px-5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-[#172554]">Buy now</a>
+              <a href="/cart" className="inline-flex min-h-11 items-center justify-center border border-[#1e3a8a] px-5 text-sm font-semibold uppercase tracking-wide text-[#1e3a8a] transition-colors hover:bg-[#eff3ff]">Add to cart</a>
+            </div>
+
+            <p className="mt-3 text-xs text-[#64748b]">Need help choosing? <a href="/contact" className="font-semibold text-[#1e3a8a] hover:underline">Talk to a designer</a></p>
+          </div>
+
+          <aside className="divide-y divide-[#e5e0d4] border border-[#e5e0d4] px-4 xl:col-span-1 lg:col-span-2 xl:row-span-1">
+            <div className="py-4">
+              <h2 className="mb-3 text-sm font-semibold text-[#172554]">Delivery &amp; services</h2>
+              <div className="flex items-start gap-3">
+                <MapPin size={17} className="mt-0.5 shrink-0 text-[#64748b]" />
+                <div className="text-xs leading-5 text-[#475569]">
+                  <p className="font-medium text-[#172554]">Check delivery availability</p>
+                  <a href="/stores" className="text-[#1e3a8a] hover:underline">Find your nearest store</a>
                 </div>
               </div>
             </div>
+            <div className="flex items-start gap-3 py-4">
+              <Truck size={17} className="mt-0.5 shrink-0 text-[#64748b]" />
+              <p className="text-xs leading-5 text-[#475569]">Delivery estimate and charges are confirmed at checkout.</p>
+            </div>
+            <div className="flex items-start gap-3 py-4">
+              <RotateCcw size={17} className="mt-0.5 shrink-0 text-[#64748b]" />
+              <p className="text-xs leading-5 text-[#475569]">Contact our team for returns and after-sale support.</p>
+            </div>
+            <div className="flex items-start gap-3 py-4">
+              <ShieldCheck size={17} className="mt-0.5 shrink-0 text-[#64748b]" />
+              <p className="text-xs leading-5 text-[#475569]">Secure checkout and product warranty support.</p>
+            </div>
+          </aside>
+        </section>
+
+        <nav aria-label="Product information" className="sticky top-0 z-20 mt-6 flex gap-6 overflow-x-auto border-b border-[#d8d5cc] bg-[#faf8f2] px-1 text-sm">
+          <a href="#description" className="whitespace-nowrap border-b-2 border-[#1e3a8a] py-3 font-semibold text-[#1e3a8a]">Description</a>
+          <a href="#specifications" className="whitespace-nowrap py-3 text-[#475569] hover:text-[#1e3a8a]">Specifications</a>
+          <a href="#reviews" className="whitespace-nowrap py-3 text-[#475569] hover:text-[#1e3a8a]">Reviews</a>
+          <a href="#questions" className="whitespace-nowrap py-3 text-[#475569] hover:text-[#1e3a8a]">Questions</a>
+        </nav>
+
+        <section id="description" className="scroll-mt-16 border-b border-[#e5e0d4] bg-white px-5 py-6 sm:px-8">
+          <h2 className="text-base font-semibold text-[#172554]">Product description</h2>
+          <p className="mt-3 max-w-4xl text-sm leading-6 text-[#475569]">{product.description}</p>
+        </section>
+
+        <section id="specifications" className="scroll-mt-16 border-b border-[#e5e0d4] bg-white px-5 py-6 sm:px-8">
+          <h2 className="text-base font-semibold text-[#172554]">Specifications</h2>
+          <dl className="mt-4 grid grid-cols-1 gap-x-10 sm:grid-cols-2">
+            {specifications.map((specification) => (
+              <div key={specification.label} className="grid grid-cols-[minmax(110px,0.7fr)_1fr] gap-4 border-b border-[#efede7] py-3 text-sm">
+                <dt className="text-[#64748b]">{specification.label}</dt>
+                <dd className="m-0 text-[#172554]">{specification.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
+        <section id="reviews" className="scroll-mt-16 border-b border-[#e5e0d4] bg-white px-5 py-6 sm:px-8">
+          <h2 className="text-base font-semibold text-[#172554]">Ratings &amp; reviews</h2>
+          <div className="mt-5 grid gap-8 md:grid-cols-[180px_1fr_auto] md:items-center">
+            <div className="text-center md:border-r md:border-[#e5e0d4] md:py-3">
+              <p className="text-4xl font-light text-[#172554]">0<span className="text-xl text-[#94a3b8]">/5</span></p>
+              <div className="mt-2 flex justify-center gap-1 text-[#cbd5e1]">{Array.from({ length: 5 }, (_, index) => <Star key={index} size={17} />)}</div>
+              <p className="mt-1 text-xs text-[#64748b]">No ratings yet</p>
+            </div>
+            <div className="space-y-2">
+              {[5, 4, 3, 2, 1].map((rating) => (
+                <div key={rating} className="flex items-center gap-3 text-xs text-[#64748b]">
+                  <span className="w-8">{rating} star</span>
+                  <div className="h-2 flex-1 bg-[#eeece6]" />
+                  <span className="w-5 text-right">0</span>
+                </div>
+              ))}
+            </div>
+            <a href="/contact" className="inline-flex min-h-10 items-center justify-center border border-[#1e3a8a] px-4 text-xs font-semibold uppercase tracking-wide text-[#1e3a8a] hover:bg-[#eff3ff]">Write a review</a>
+          </div>
+          <div className="mt-6 border-t border-[#efede7] py-6 text-center text-sm text-[#64748b]">
+            <MessageCircle size={24} className="mx-auto mb-2 text-[#94a3b8]" />
+            Be the first to share your experience with this product.
           </div>
         </section>
 
-        {/* Similar Products */}
-        <section className="section">
-          <div className="section-heading">
-            <div><p className="eyebrow">You might also like</p><h2>Similar Products</h2></div>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {recommendations.map(([id, item]) => (
-                <ProductCard key={id} item={{ name: item.name, price: item.price, image: item.image }} productId={id} />
-              ))}
+        <section id="questions" className="scroll-mt-16 border-b border-[#e5e0d4] bg-white px-5 py-6 sm:px-8">
+          <h2 className="text-base font-semibold text-[#172554]">Questions about this product</h2>
+          <div className="py-8 text-center">
+            <CircleHelp size={25} className="mx-auto mb-2 text-[#94a3b8]" />
+            <p className="text-sm text-[#475569]">Have a question about {product.name}?</p>
+            <a href="/contact" className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-[#1e3a8a] hover:underline">Contact our team <ChevronRight size={13} /></a>
           </div>
         </section>
 
-        {/* Recommendations */}
-        <section className="section">
-          <div className="section-heading">
-            <div><p className="eyebrow">Curated for you</p><h2>Recommended</h2></div>
+        <section className="pt-8">
+          <div className="mb-5 flex items-end justify-between gap-4">
+            <div>
+              <p className="eyebrow mb-2">You may also like</p>
+              <h2 className="text-xl font-semibold text-[#172554]">Similar products</h2>
+            </div>
+            <a href="/shop" className="text-xs font-semibold text-[#1e3a8a] hover:underline">View all products</a>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {recommendations.map(([id, item]) => (
-                <ProductCard key={id} item={{ name: item.name, price: item.price, image: item.image }} productId={id} />
-              ))}
+              <ProductCard key={id} item={{ name: item.name, price: item.price, image: item.image }} productId={id} />
+            ))}
+          </div>
+        </section>
+
+        <section className="pt-10">
+          <div className="mb-5">
+            <p className="eyebrow mb-2">Curated for you</p>
+            <h2 className="text-xl font-semibold text-[#172554]">Recommended</h2>
+          </div>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {recommendations.map(([id, item]) => (
+              <ProductCard key={id} item={{ name: item.name, price: item.price, image: item.image }} productId={id} />
+            ))}
           </div>
         </section>
       </main>
