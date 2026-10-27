@@ -632,9 +632,12 @@ p {
   .room > span:first-child { top: 16px; left: 16px; }
 }
 
-.newsletter {
+.newsletter.section {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
   text-align: center;
-  padding: 100px 0;
+  padding: 100px 24px;
   background: #f3efe6;
 }
 .newsletter form {

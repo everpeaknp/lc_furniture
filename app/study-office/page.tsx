@@ -1,8 +1,10 @@
 'use client';
 
+import { useEffect, useState } from "react";
 import SiteFooter from "@/components/SiteFooter";
 import Arrow from "@/components/Arrow";
 import CategoryProductGrid from "@/components/CategoryProductGrid";
+import { api, Category } from "@/lib/api";
 
 const images = {
   desk: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=900&q=80",
@@ -37,6 +39,25 @@ const room = {
 };
 
 export default function StudyOfficePage() {
+  const [categoryData, setCategoryData] = useState<Category | null>(null);
+
+  useEffect(() => {
+    api.getCategories()
+      .then((data) => {
+        if (data.results && data.results.length > 0) {
+          const studyCategory = data.results.find((cat) => cat.slug === 'study-office');
+          if (studyCategory) {
+            setCategoryData(studyCategory);
+          }
+        }
+      })
+      .catch((error) => {
+        console.error('Failed to fetch category data:', error);
+      });
+  }, []);
+
+  const displayStory = categoryData?.description || room.story;
+
   return (
     <div className="site-shell">
       <main>
@@ -51,7 +72,7 @@ export default function StudyOfficePage() {
           <div>
             <p className="eyebrow">The room edit</p>
             <h2>{room.note}</h2>
-            <p>{room.story}</p>
+            <p>{displayStory}</p>
             <a className="text-link" href="/contact">Talk to a designer <Arrow /></a>
           </div>
         </section>

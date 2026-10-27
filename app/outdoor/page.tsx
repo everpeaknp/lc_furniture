@@ -1,8 +1,10 @@
 'use client';
 
+import { useEffect, useState } from "react";
 import SiteFooter from "@/components/SiteFooter";
 import Arrow from "@/components/Arrow";
 import CategoryProductGrid from "@/components/CategoryProductGrid";
+import { api, Category } from "@/lib/api";
 
 const images = {
   patio: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=900&q=80",
@@ -33,6 +35,25 @@ const room = {
 };
 
 export default function OutdoorPage() {
+  const [categoryData, setCategoryData] = useState<Category | null>(null);
+
+  useEffect(() => {
+    api.getCategories()
+      .then((data) => {
+        if (data.results && data.results.length > 0) {
+          const outdoorCategory = data.results.find((cat) => cat.slug === 'outdoor');
+          if (outdoorCategory) {
+            setCategoryData(outdoorCategory);
+          }
+        }
+      })
+      .catch((error) => {
+        console.error('Failed to fetch category data:', error);
+      });
+  }, []);
+
+  const displayStory = categoryData?.description || room.story;
+
   return (
     <div className="site-shell">
       <main>
@@ -43,11 +64,11 @@ export default function OutdoorPage() {
           title={room.title}
         />
         <section className="room-story section">
-          <img src={room.products[3].image} alt="" />
+          <img src={room.products[4].image} alt="" />
           <div>
             <p className="eyebrow">The room edit</p>
             <h2>{room.note}</h2>
-            <p>{room.story}</p>
+            <p>{displayStory}</p>
             <a className="text-link" href="/contact">Talk to a designer <Arrow /></a>
           </div>
         </section>

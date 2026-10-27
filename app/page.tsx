@@ -3,7 +3,6 @@
 import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
 import { z } from "zod";
-import SiteFooter from "@/components/SiteFooter";
 import ProductCard from "@/components/ProductCard";
 import Arrow from "@/components/Arrow";
 import TypeMorph from "@/components/TypeMorph";
@@ -269,8 +268,6 @@ export default function HomePage() {
           </div>
         </AnimatedSection>
       </main>
-
-      <SiteFooter />
     </div>
   );
 }

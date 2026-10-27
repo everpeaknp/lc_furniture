@@ -14,6 +14,7 @@ import {
   ArrowUpRight,
   ChevronDown,
 } from "lucide-react";
+import { api, NavigationItem } from "@/lib/api";
 
 const categories = [
   "Sofas",
@@ -112,6 +113,21 @@ export default function Navbar() {
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
   const megaMenuRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [navigationData, setNavigationData] = useState<NavigationItem[] | null>(null);
+
+  // Fetch navigation data from API
+  useEffect(() => {
+    api.getNavigation()
+      .then((data) => {
+        if (data.results && data.results.length > 0) {
+          setNavigationData(data.results);
+        }
+      })
+      .catch((error) => {
+        console.error('Failed to fetch navigation:', error);
+        // Fallback to hardcoded data is automatic
+      });
+  }, []);
 
   useEffect(() => {
     return () => {
@@ -149,6 +165,28 @@ export default function Navbar() {
 
     router.push(`/search?q=${encodeURIComponent(search.trim())}`);
   }
+
+  // Use API data if available, otherwise fallback to hardcoded
+  const displayCategories = navigationData || categories;
+  const displayLinks = navigationData
+    ? navigationData.reduce((acc, item) => {
+        acc[item.label] = item.url;
+        return acc;
+      }, {} as Record<string, string>)
+    : links;
+  const displayMegaMenuData = navigationData
+    ? navigationData.reduce((acc, item) => {
+        if (item.mega_menu_enabled) {
+          acc[item.label] = {
+            heading: item.label,
+            subcategories: item.subcategories || [],
+            image: item.mega_menu_image_url || megaMenuData[item.label]?.image || "",
+            description: item.mega_menu_description || megaMenuData[item.label]?.description || "",
+          };
+        }
+        return acc;
+      }, {} as Record<string, { heading: string; subcategories: string[]; image: string; description: string }>)
+    : megaMenuData;
 
   return (
     <>
@@ -260,26 +298,28 @@ export default function Navbar() {
         className="hidden border-t-2 border-[#e5e0d4] bg-[#f5f3ed] md:block"
       >
         <div className="mx-auto flex max-w-[1800px] items-center justify-between gap-6 overflow-x-auto px-7 lg:gap-7 lg:px-12">
-          {categories.map((category) => {
-            const isActive = pathname === links[category];
+          {displayCategories.map((category) => {
+            const categoryLabel = typeof category === 'string' ? category : category.label;
+            const categoryUrl = typeof category === 'string' ? displayLinks[category] : category.url;
+            const isActive = pathname === categoryUrl;
             return (
               <div
-                key={category}
+                key={categoryLabel}
                 className="relative"
-                onMouseEnter={() => handleMouseEnter(category)}
+                onMouseEnter={() => handleMouseEnter(categoryLabel)}
                 onMouseLeave={handleMouseLeave}
               >
                 <Link
-                  href={links[category]}
+                  href={categoryUrl}
                   className={`relative flex min-h-[54px] shrink-0 items-center gap-1 whitespace-nowrap text-[11px] transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-[#1e3a8a] after:transition-all hover:text-[#1e3a8a] hover:after:w-full lg:text-xs ${
                     isActive
                       ? "font-semibold text-[#1e3a8a] after:w-full"
-                      : category === "New Arrivals"
+                      : categoryLabel === "New Arrivals"
                       ? "font-semibold text-[#1e3a8a]"
                       : "text-[#475569] after:w-0"
                   }`}
                 >
-                  {category}
+                  {categoryLabel}
                   <ChevronDown className="h-3 w-3 opacity-50" />
                 </Link>
               </div>
@@ -302,17 +342,17 @@ export default function Navbar() {
               <div className="col-span-2">
                 <div className="relative overflow-hidden rounded-sm">
                   <img
-                    src={megaMenuData[hoveredCategory]?.image}
-                    alt={megaMenuData[hoveredCategory]?.heading}
+                    src={displayMegaMenuData[hoveredCategory]?.image}
+                    alt={displayMegaMenuData[hoveredCategory]?.heading}
                     className="w-full h-80 object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <h3 className="text-lg font-semibold text-white font-sans mb-2">
-                      {megaMenuData[hoveredCategory]?.heading}
+                      {displayMegaMenuData[hoveredCategory]?.heading}
                     </h3>
                     <p className="text-sm text-white/90 font-sans">
-                      {megaMenuData[hoveredCategory]?.description}
+                      {displayMegaMenuData[hoveredCategory]?.description}
                     </p>
                   </div>
                 </div>
@@ -324,21 +364,24 @@ export default function Navbar() {
                   Categories
                 </h4>
                 <div className="grid grid-cols-3 gap-6">
-                  {megaMenuData[hoveredCategory]?.subcategories.map((sub) => (
-                    <Link
-                      key={sub}
-                      href={`${links[hoveredCategory]}/${sub.toLowerCase().replace(/\s+/g, '-')}`}
-                      className="text-base text-[#5a5952] hover:text-[#262720] transition-colors font-sans py-2 border-b border-transparent hover:border-[#dfddd7]"
-                    >
-                      {sub}
-                    </Link>
-                  ))}
+                  {displayMegaMenuData[hoveredCategory]?.subcategories.map((sub) => {
+                    const categoryUrl = typeof hoveredCategory === 'string' ? displayLinks[hoveredCategory] : navigationData?.find(n => n.label === hoveredCategory)?.url;
+                    return (
+                      <Link
+                        key={sub}
+                        href={`${categoryUrl}/${sub.toLowerCase().replace(/\s+/g, '-')}`}
+                        className="text-base text-[#5a5952] hover:text-[#262720] transition-colors font-sans py-2 border-b border-transparent hover:border-[#dfddd7]"
+                      >
+                        {sub}
+                      </Link>
+                    );
+                  })}
                 </div>
                 <Link
-                  href={links[hoveredCategory]}
+                  href={typeof hoveredCategory === 'string' ? displayLinks[hoveredCategory] || '/' : navigationData?.find(n => n.label === hoveredCategory)?.url || '/'}
                   className="inline-flex items-center gap-2 mt-8 text-sm font-semibold text-[#1e3a8a] hover:text-[#2563eb] transition-colors font-sans tracking-widest uppercase"
                 >
-                  View all {megaMenuData[hoveredCategory]?.heading}
+                  View all {displayMegaMenuData[hoveredCategory]?.heading}
                   <ArrowUpRight size={16} />
                 </Link>
               </div>
@@ -369,23 +412,25 @@ export default function Navbar() {
           </form>
 
           <div className="grid grid-cols-2 gap-x-5">
-            {categories.map((category, index) => {
-              const isActive = pathname === links[category];
+            {displayCategories.map((category, index) => {
+              const categoryLabel = typeof category === 'string' ? category : category.label;
+              const categoryUrl = typeof category === 'string' ? displayLinks[category] : category.url;
+              const isActive = pathname === categoryUrl;
               return (
                 <Link
-                  key={category}
-                  href={links[category]}
+                  key={categoryLabel}
+                  href={categoryUrl}
                   onClick={() => setMenuOpen(false)}
                   className={`flex min-h-[53px] items-center justify-between gap-2 border-b border-[#e5e0d4] py-3 text-sm ${
                     isActive
                       ? "font-semibold text-[#1e3a8a]"
-                      : category === "New Arrivals"
+                      : categoryLabel === "New Arrivals"
                       ? "font-semibold text-[#1e3a8a]"
                       : "text-[#334155]"
                   }`}
                 >
-                  <span>{category}</span>
-                  {index < categories.length && (
+                  <span>{categoryLabel}</span>
+                  {index < displayCategories.length && (
                     <ArrowUpRight size={14} className="shrink-0 opacity-60 text-[#1e3a8a]" />
                   )}
                 </Link>

@@ -2,6 +2,7 @@ import SiteFooter from "@/components/SiteFooter";
 import ProductCard from "@/components/ProductCard";
 import Arrow from "@/components/Arrow";
 import TypeMorph from "@/components/TypeMorph";
+import { api, Category } from "@/lib/api";
 
 import { notFound } from "next/navigation";
 
@@ -386,16 +387,36 @@ export default async function SubcategoryPage({
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 
-  const data = subcategoryData[subcategory] || {
-    hero: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=1200&q=85",
-    intro: `Explore our thoughtfully curated collection of ${title.toLowerCase()}. Designed with both form and function in mind, these pieces bring character and comfort to your ${categoryName.toLowerCase()}.`,
-    products: [
-      { name: `Modern ${title} 1`, price: "Rs. 32,000", image: "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=900&q=80" },
-      { name: `Classic ${title} 2`, price: "Rs. 24,000", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" },
-      { name: `Premium ${title} 3`, price: "Rs. 68,000", image: "https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=900&q=80" },
-      { name: `Luxe ${title} 4`, price: "Rs. 45,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
-    ]
-  };
+  // Try to fetch category data from API
+  let apiCategory: Category | null = null;
+  try {
+    // Find category by slug
+    const categoriesResponse = await api.getCategories();
+    const categoryData = categoriesResponse.results?.find((cat) => cat.slug === category);
+    if (categoryData) {
+      apiCategory = await api.getCategory(categoryData.id);
+    }
+  } catch (error) {
+    console.error('Failed to fetch category data:', error);
+  }
+
+  // Use API data if available, otherwise fallback to hardcoded
+  const data = apiCategory && apiCategory.description
+    ? {
+        hero: apiCategory.image || "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=1200&q=85",
+        intro: apiCategory.description,
+        products: [], // Products will be fetched separately
+      }
+    : subcategoryData[subcategory] || {
+        hero: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=1200&q=85",
+        intro: `Explore our thoughtfully curated collection of ${title.toLowerCase()}. Designed with both form and function in mind, these pieces bring character and comfort to your ${categoryName.toLowerCase()}.`,
+        products: [
+          { name: `Modern ${title} 1`, price: "Rs. 32,000", image: "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=900&q=80" },
+          { name: `Classic ${title} 2`, price: "Rs. 24,000", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" },
+          { name: `Premium ${title} 3`, price: "Rs. 68,000", image: "https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=900&q=80" },
+          { name: `Luxe ${title} 4`, price: "Rs. 45,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+        ]
+      };
 
   return (
     <div className="site-shell">

@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { ChevronRight } from "lucide-react";
+import { api, Category } from "@/lib/api";
 
-export const allCategories = [
+const hardcodedCategories = [
   { label: "Sofas",         href: "/sofas" },
   { label: "Living Room",   href: "/living-room" },
   { label: "Bedroom",       href: "/bedroom" },
@@ -18,6 +20,27 @@ export const allCategories = [
 
 export default function CategorySidebar() {
   const pathname = usePathname();
+  const [categories, setCategories] = useState<Category[] | null>(null);
+
+  useEffect(() => {
+    api.getCategories()
+      .then((data) => {
+        if (data.results && data.results.length > 0) {
+          setCategories(data.results);
+        }
+      })
+      .catch((error) => {
+        console.error('Failed to fetch categories:', error);
+      });
+  }, []);
+
+  // Use API categories if available, otherwise fallback to hardcoded
+  const displayCategories = categories
+    ? categories.map((cat) => ({
+        label: cat.name,
+        href: `/${cat.slug}`,
+      }))
+    : hardcodedCategories;
 
   return (
     <aside className="w-full lg:w-56 shrink-0">
@@ -27,7 +50,7 @@ export default function CategorySidebar() {
         </h2>
         <nav>
           <ul className="flex flex-col gap-0.5">
-            {allCategories.map(({ label, href }) => {
+            {displayCategories.map(({ label, href }) => {
               const active = pathname === href;
               return (
                 <li key={href}>

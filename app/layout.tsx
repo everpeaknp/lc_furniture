@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
 import Navbar from "@/components/Navbar";
+import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Furtinuer - Quality Furniture for Real Homes",
@@ -20,6 +21,7 @@ export default function RootLayout({
         <div className="min-h-screen">
           <Navbar />
           {children}
+          <SiteFooter />
         </div>
       </body>
     </html>
