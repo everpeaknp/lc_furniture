@@ -29,6 +29,10 @@ const room = {
     { name: "Oak File Cabinet", price: "Rs. 32,000", image: images.kitchen },
     { name: "Cove Reading Chair", price: "Rs. 48,000", image: images.living },
     { name: "Dune Side Table", price: "Rs. 24,000", image: images.table },
+    { name: "Executive Desk", price: "Rs. 85,000", image: images.desk },
+    { name: "Standing Desk", price: "Rs. 65,000", image: images.article3 },
+    { name: "L-Shaped Desk", price: "Rs. 72,000", image: images.dining },
+    { name: "Ergonomic Chair", price: "Rs. 45,000", image: images.chair },
   ],
 };
 
@@ -36,9 +40,6 @@ export default function StudyOfficePage() {
   return (
     <div className="site-shell">
       <main>
-        <section className="room-page-hero" style={{ height: "auto" }}>
-          <img src="/festival-banner.jpg" alt="Study & Office furniture collection" style={{ height: "auto", width: "100%", objectFit: "unset" }} />
-        </section>
         <CategoryProductGrid
           products={room.products}
           category="study-office"

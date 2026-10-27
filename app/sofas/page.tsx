@@ -27,6 +27,10 @@ const room = {
     { name: "Classic Recliner", price: "Rs. 68,000", image: images.chair },
     { name: "Sofa Cum Bed", price: "Rs. 1,35,000", image: images.sofa },
     { name: "L-Shaped Sectional", price: "Rs. 1,85,000", image: images.living },
+    { name: "Power Recliner", price: "Rs. 95,000", image: images.chair },
+    { name: "Swivel Recliner", price: "Rs. 85,000", image: images.sofa },
+    { name: "Leather Recliner", price: "Rs. 1,25,000", image: images.living },
+    { name: "2-Seater Sofa", price: "Rs. 82,000", image: images.sofa },
   ],
 };
 
@@ -34,9 +38,6 @@ export default function SofasPage() {
   return (
     <div className="site-shell">
       <main>
-        <section className="room-page-hero" style={{ height: "auto" }}>
-          <img src="/festival-banner.jpg" alt="Sofas furniture collection" style={{ height: "auto", width: "100%", objectFit: "unset" }} />
-        </section>
         <CategoryProductGrid
           products={room.products}
           category="sofas"

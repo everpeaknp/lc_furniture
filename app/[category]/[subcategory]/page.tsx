@@ -15,6 +15,10 @@ const subcategoryData: Record<string, { hero: string, intro: string, products: A
       { name: "Linen Lounge Sofa", price: "Rs. 95,000", image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=900&q=80" },
       { name: "Forma Modular Sofa", price: "Rs. 1,45,000", image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80" },
       { name: "Cloud Bouclé Sofa", price: "Rs. 1,60,000", image: "https://images.unsplash.com/photo-1540574163026-643ea20d25b5?auto=format&fit=crop&w=900&q=80" },
+      { name: "Lorenzo 3-Seater Sofa", price: "Rs. 1,25,000", image: "https://images.unsplash.com/photo-1724582586529-62622e50c0b3?auto=format&fit=crop&w=900&q=80" },
+      { name: "2-Seater Sofa", price: "Rs. 82,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "L-Shaped Sectional", price: "Rs. 1,85,000", image: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=900&q=80" },
+      { name: "Chenille Sofa", price: "Rs. 1,35,000", image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=900&q=80" },
     ]
   },
   "recliners": {
@@ -25,6 +29,9 @@ const subcategoryData: Record<string, { hero: string, intro: string, products: A
       { name: "Power Recliner", price: "Rs. 95,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
       { name: "Leather Recliner", price: "Rs. 1,25,000", image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=900&q=80" },
       { name: "Swivel Recliner", price: "Rs. 85,000", image: "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=900&q=80" },
+      { name: "Massage Recliner", price: "Rs. 1,45,000", image: "https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?auto=format&fit=crop&w=900&q=80" },
+      { name: "Rocker Recliner", price: "Rs. 92,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Wingback Recliner", price: "Rs. 1,15,000", image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=900&q=80" },
     ]
   },
   "queen-size-beds": {
@@ -35,6 +42,9 @@ const subcategoryData: Record<string, { hero: string, intro: string, products: A
       { name: "Upholstered Queen Bed", price: "Rs. 1,25,000", image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80" },
       { name: "Platform Queen Bed", price: "Rs. 95,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
       { name: "Storage Queen Bed", price: "Rs. 1,15,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Sleigh Queen Bed", price: "Rs. 1,35,000", image: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=900&q=80" },
+      { name: "Canopy Queen Bed", price: "Rs. 1,55,000", image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80" },
+      { name: "Four Poster Queen Bed", price: "Rs. 1,65,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
     ]
   },
   "king-size-beds": {
@@ -45,6 +55,9 @@ const subcategoryData: Record<string, { hero: string, intro: string, products: A
       { name: "Upholstered King Bed", price: "Rs. 1,45,000", image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80" },
       { name: "Platform King Bed", price: "Rs. 1,15,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
       { name: "Storage King Bed", price: "Rs. 1,35,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Sleigh King Bed", price: "Rs. 1,85,000", image: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=900&q=80" },
+      { name: "Canopy King Bed", price: "Rs. 2,05,000", image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80" },
+      { name: "Four Poster King Bed", price: "Rs. 2,25,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
     ]
   },
   "wardrobes": {
@@ -55,6 +68,9 @@ const subcategoryData: Record<string, { hero: string, intro: string, products: A
       { name: "Oak Wardrobe", price: "Rs. 1,25,000", image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=900&q=80" },
       { name: "Sliding Door Wardrobe", price: "Rs. 95,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
       { name: "Walk-in Wardrobe", price: "Rs. 1,85,000", image: "https://images.unsplash.com/photo-1594904578869-c011783103c7?auto=format&fit=crop&w=900&q=80" },
+      { name: "3-Door Wardrobe", price: "Rs. 1,15,000", image: "https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&fit=crop&w=900&q=80" },
+      { name: "Mirror Wardrobe", price: "Rs. 1,35,000", image: "https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=900&q=80" },
+      { name: "Glass Door Wardrobe", price: "Rs. 1,45,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
     ]
   },
   "dressers": {
@@ -65,6 +81,9 @@ const subcategoryData: Record<string, { hero: string, intro: string, products: A
       { name: "Oak Dresser", price: "Rs. 65,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
       { name: "Modern Dresser", price: "Rs. 82,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
       { name: "Vintage Dresser", price: "Rs. 58,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "6-Drawer Dresser", price: "Rs. 92,000", image: "https://images.unsplash.com/photo-1600210491305-7396500b5b31?auto=format&fit=crop&w=900&q=80" },
+      { name: "Mirrored Dresser", price: "Rs. 1,05,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Double Dresser", price: "Rs. 88,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
     ]
   },
   "chest-of-drawers": {
@@ -85,6 +104,9 @@ const subcategoryData: Record<string, { hero: string, intro: string, products: A
       { name: "Dune Low Table", price: "Rs. 38,000", image: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=900&q=80" },
       { name: "Nero Marble Table", price: "Rs. 74,000", image: "https://images.unsplash.com/photo-1499933374294-4584851497cc?auto=format&fit=crop&w=900&q=80" },
       { name: "Oak Round Table", price: "Rs. 26,000", image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Glass Coffee Table", price: "Rs. 52,000", image: "https://images.unsplash.com/photo-1532372320572-cda25653a26d?auto=format&fit=crop&w=900&q=80" },
+      { name: "Travertine Table", price: "Rs. 85,000", image: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=900&q=80" },
+      { name: "Walnut Coffee Table", price: "Rs. 62,000", image: "https://images.unsplash.com/photo-1499933374294-4584851497cc?auto=format&fit=crop&w=900&q=80" },
     ]
   },
   "4-seater-dining": {
@@ -95,6 +117,9 @@ const subcategoryData: Record<string, { hero: string, intro: string, products: A
       { name: "Oak 4-Seater", price: "Rs. 78,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
       { name: "Round 4-Seater", price: "Rs. 65,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
       { name: "Glass 4-Seater", price: "Rs. 85,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Walnut 4-Seater", price: "Rs. 1,05,000", image: "https://images.unsplash.com/photo-1653629495477-b42f0f43ce3f?auto=format&fit=crop&w=900&q=80" },
+      { name: "Marble 4-Seater", price: "Rs. 1,25,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Extendable 4-Seater", price: "Rs. 1,15,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
     ]
   },
   "dining-chairs": {
@@ -105,6 +130,9 @@ const subcategoryData: Record<string, { hero: string, intro: string, products: A
       { name: "Marta Dining Chair", price: "Rs. 28,000", image: "https://images.unsplash.com/photo-1706380469091-3bd9b7865b71?auto=format&fit=crop&w=900&q=80" },
       { name: "Cane Armchair", price: "Rs. 32,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
       { name: "Upholstered Chair", price: "Rs. 35,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
+      { name: "Velvet Dining Chair", price: "Rs. 42,000", image: "https://images.unsplash.com/photo-1656403002413-2ac6137237d6?auto=format&fit=crop&w=900&q=80" },
+      { name: "Leather Dining Chair", price: "Rs. 55,000", image: "https://images.unsplash.com/photo-1706380469091-3bd9b7865b71?auto=format&fit=crop&w=900&q=80" },
+      { name: "Wooden Dining Chair", price: "Rs. 38,000", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80" },
     ]
   },
   "6-seater-dining": {
@@ -372,16 +400,6 @@ export default async function SubcategoryPage({
   return (
     <div className="site-shell">
       <main>
-        <section className="room-page-hero">
-          <img src={data.hero} alt={`${title} collection`} />
-          <div>
-            <p className="eyebrow">{categoryName} Collection</p>
-            <h1 className="text-[#f6f4ef] text-6xl font-sans font-semibold tracking-tight">
-              {title}
-            </h1>
-          </div>
-        </section>
-
         <section className="room-products section">
           <div className="section-heading">
             <div>

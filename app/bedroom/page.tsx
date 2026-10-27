@@ -29,6 +29,10 @@ const room = {
     { name: "Soft Lounge Chair", price: "Rs. 48,000", image: images.chair },
     { name: "Oak Vanity Desk", price: "Rs. 58,000", image: images.desk },
     { name: "Frame Nightstand", price: "Rs. 28,000", image: images.table },
+    { name: "Upholstered Queen Bed", price: "Rs. 1,25,000", image: images.bedroom },
+    { name: "Platform Queen Bed", price: "Rs. 95,000", image: images.cabinet },
+    { name: "Storage Queen Bed", price: "Rs. 1,15,000", image: images.article1 },
+    { name: "Mara Oak King Bed", price: "Rs. 1,65,000", image: images.kitchen },
   ],
 };
 
@@ -36,9 +40,6 @@ export default function BedroomPage() {
   return (
     <div className="site-shell">
       <main>
-        <section className="room-page-hero" style={{ height: "auto" }}>
-          <img src="/festival-banner.jpg" alt="Bedroom furniture collection" style={{ height: "auto", width: "100%", objectFit: "unset" }} />
-        </section>
         <CategoryProductGrid
           products={room.products}
           category="bedroom"

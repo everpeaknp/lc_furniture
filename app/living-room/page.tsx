@@ -29,6 +29,10 @@ const room = {
     { name: "Onda Coffee Table", price: "Rs. 32,000", image: images.table },
     { name: "Taper Console", price: "Rs. 42,000", image: images.article3 },
     { name: "Dune Low Table", price: "Rs. 28,000", image: images.article2 },
+    { name: "Nero Marble Table", price: "Rs. 74,000", image: images.bedroom },
+    { name: "Oak Round Table", price: "Rs. 26,000", image: images.living },
+    { name: "Floating Console", price: "Rs. 62,000", image: images.sofa },
+    { name: "Oak Console Table", price: "Rs. 45,000", image: images.table },
   ],
 };
 
@@ -36,9 +40,6 @@ export default function LivingRoomPage() {
   return (
     <div className="site-shell">
       <main>
-        <section className="room-page-hero" style={{ height: "auto" }}>
-          <img src="/festival-banner.jpg" alt="Living Room furniture collection" style={{ height: "auto", width: "100%", objectFit: "unset" }} />
-        </section>
         <CategoryProductGrid
           products={room.products}
           category="living-room"

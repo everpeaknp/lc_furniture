@@ -24,6 +24,10 @@ const room = {
     { name: "Storage Bench", price: "Rs. 38,000", image: images.bedroom },
     { name: "Console Storage", price: "Rs. 52,000", image: images.cabinet },
     { name: "Modular Storage", price: "Rs. 95,000", image: images.shelf },
+    { name: "Wall Shelf Set", price: "Rs. 28,000", image: images.shelf },
+    { name: "Corner Shelf", price: "Rs. 22,000", image: images.cabinet },
+    { name: "Industrial Rack", price: "Rs. 45,000", image: images.bedroom },
+    { name: "Modern Cabinet", price: "Rs. 68,000", image: images.shelf },
   ],
 };
 
@@ -31,9 +35,6 @@ export default function StoragePage() {
   return (
     <div className="site-shell">
       <main>
-        <section className="room-page-hero" style={{ height: "auto" }}>
-          <img src="/festival-banner.jpg" alt="Storage furniture collection" style={{ height: "auto", width: "100%", objectFit: "unset" }} />
-        </section>
         <CategoryProductGrid
           products={room.products}
           category="storage"

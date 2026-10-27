@@ -23,6 +23,10 @@ const room = {
     { name: "Luxury Pillow Top", price: "Rs. 1,05,000", image: images.bedroom },
     { name: "Cooling Gel Mattress", price: "Rs. 88,000", image: images.mattress },
     { name: "Natural Latex Mattress", price: "Rs. 1,15,000", image: images.bedroom },
+    { name: "King Size Hybrid", price: "Rs. 95,000", image: images.mattress },
+    { name: "Queen Size Hybrid", price: "Rs. 82,000", image: images.bedroom },
+    { name: "Single Hybrid", price: "Rs. 52,000", image: images.mattress },
+    { name: "Premium Spring", price: "Rs. 85,000", image: images.bedroom },
   ],
 };
 
@@ -30,9 +34,6 @@ export default function MattressPage() {
   return (
     <div className="site-shell">
       <main>
-        <section className="room-page-hero" style={{ height: "auto" }}>
-          <img src="/festival-banner.jpg" alt="Mattress collection" style={{ height: "auto", width: "100%", objectFit: "unset" }} />
-        </section>
         <CategoryProductGrid
           products={room.products}
           category="mattress"

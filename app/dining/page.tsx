@@ -28,6 +28,10 @@ const room = {
     { name: "Cane Armchair", price: "Rs. 32,000", image: images.chair },
     { name: "Oak Display Cabinet", price: "Rs. 82,000", image: images.kitchen },
     { name: "Taper Serving Console", price: "Rs. 52,000", image: images.table },
+    { name: "Glass 4-Seater", price: "Rs. 85,000", image: images.article3 },
+    { name: "Oak 6-Seater", price: "Rs. 1,05,000", image: images.dining },
+    { name: "Rectangular 6-Seater", price: "Rs. 95,000", image: images.chair },
+    { name: "Glass 6-Seater", price: "Rs. 1,25,000", image: images.kitchen },
   ],
 };
 
@@ -35,9 +39,6 @@ export default function DiningPage() {
   return (
     <div className="site-shell">
       <main>
-        <section className="room-page-hero" style={{ height: "auto" }}>
-          <img src="/festival-banner.jpg" alt="Dining furniture collection" style={{ height: "auto", width: "100%", objectFit: "unset" }} />
-        </section>
         <CategoryProductGrid
           products={room.products}
           category="dining"

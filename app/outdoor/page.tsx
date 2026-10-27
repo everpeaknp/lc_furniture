@@ -25,6 +25,10 @@ const room = {
     { name: "Sun Lounger", price: "Rs. 42,000", image: images.garden },
     { name: "Garden Bench", price: "Rs. 38,000", image: images.swing },
     { name: "Parasol Stand", price: "Rs. 18,000", image: images.outdoor },
+    { name: "Outdoor Sectional", price: "Rs. 1,85,000", image: images.patio },
+    { name: "Hammock Chair", price: "Rs. 18,000", image: images.garden },
+    { name: "Garden Swing Set", price: "Rs. 95,000", image: images.swing },
+    { name: "Porch Swing", price: "Rs. 62,000", image: images.outdoor },
   ],
 };
 
@@ -32,9 +36,6 @@ export default function OutdoorPage() {
   return (
     <div className="site-shell">
       <main>
-        <section className="room-page-hero" style={{ height: "auto" }}>
-          <img src="/festival-banner.jpg" alt="Outdoor furniture collection" style={{ height: "auto", width: "100%", objectFit: "unset" }} />
-        </section>
         <CategoryProductGrid
           products={room.products}
           category="outdoor"
